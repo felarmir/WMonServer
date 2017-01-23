@@ -1,24 +1,20 @@
 package devices
 
-
 type DeviceGroup struct {
-	ID   int64 `bson:"id"`
-	Name string `bson:"name"`
+	ID   int64
+	Name string
 }
 
-type NetDev struct {
-	ID       int64 `bson:"id"`
-	Name     string `bson:"name"`
-	Located	 string `bson:"located"`
-	IP       string `bson:"ip"`
-	Active   bool `bson:"active"`
-	Groupid  int64 `bson:"groupid"`
+type NetNode struct {
+	ID       int32
+	Name     string
+	Location string
+	IP       string
+	Active   bool
+	GroupID  int64
 }
 
-type OidList struct {
-	Name	string `bson:"name"`
-	Oid	string `bson:"oid"`
-	Groupid int64 `bson:"groupid"`
-	Repeat	int64 `bson:"repeat"`
+type SNMPTemplate struct {
+	GroupID int64
+	OID     map[string]map[string]string
 }
-
