@@ -1,14 +1,19 @@
 package main
 
 import (
-	"fmt"
 
 	"./datasource"
+
+	"fmt"
 )
 
 func main() {
+
 	base := datasource.MonitoringBase{}
-	base.LoadData("snmptpl")
+	dev := base.LoadDeviceGroup()
+	fmt.Println(dev)
+
+
 	/*	factory := new(handlers.TaskListCreator)
 		tasks := []handlers.Task{
 			factory.CreatTask("192.168.88.1", ".1.3.6.1.2.1.1.1.0", 5),
@@ -18,6 +23,7 @@ func main() {
 		for _, t := range tasks {
 			go t.StartTask()
 		}*/
-	var intput string
-	fmt.Scanln(&intput)
+	//var intput string
+	//fmt.Scanln(&intput)
 }
+
