@@ -1,10 +1,15 @@
 package datasource
 
 import (
+	"../devices"
+	"../handlers"
 	"fmt"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"../devices"
+)
+
+var (
+	config handlers.Config
 )
 
 func (self *MonitoringBase) CheckError(err error) {
@@ -13,7 +18,7 @@ func (self *MonitoringBase) CheckError(err error) {
 	}
 }
 
-func (self *MonitoringBase) ConnectSession(user string, pass string, host string, port string) (*mgo.Session, error) {
+func (self *MonitoringBase) connectSession(user string, pass string, host string, port string) (*mgo.Session, error) {
 	if len(port) == 0 {
 		port = "27017"
 	}
@@ -21,16 +26,17 @@ func (self *MonitoringBase) ConnectSession(user string, pass string, host string
 	return mgo.Dial(url)
 }
 
-func (self *MonitoringBase) ConnectSessionWithDefaultPort() (*mgo.Session, error) {
-	return self.ConnectSession("user", "pass", "ip", "")
+func (self *MonitoringBase) sessionStart() (*mgo.Session, error) {
+	config = handlers.GetConfigData() // load config
+	return self.connectSession(config.Login, config.Password, config.Ip, config.Port)
 }
 
 func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
-	session, err := self.ConnectSessionWithDefaultPort()
+	session, err := self.sessionStart()
 	self.CheckError(err)
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
-	c := session.DB("monitoring").C(table)
+	c := session.DB(config.Base).C(table)
 	var result []interface{}
 	err = c.Find(bson.M{}).All(&result)
 	self.CheckError(err)
@@ -51,11 +57,10 @@ func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	return snmptemplate
 }
 
-
 func (self *MonitoringBase) insertData(table string, data interface{}) {
-	session, err := self.ConnectSessionWithDefaultPort()
+	session, err := self.sessionStart()
 	self.CheckError(err)
-	c := session.DB("monitoring").C(table)
+	c := session.DB(config.Base).C(table)
 	err = c.Insert(&data)
 	self.CheckError(err)
 }

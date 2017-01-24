@@ -1,16 +1,14 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;WMonServer&gt;">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/gopkg.in" />
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/github.com" />
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/golang.org" />
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/sourcegraph.com" />
+      <root url="file://$USER_HOME$/GO/src/github.com" />
+      <root url="file://$USER_HOME$/GO/src/golang.org" />
+      <root url="file://$USER_HOME$/GO/src/gopkg.in" />
     </CLASSES>
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/gopkg.in" />
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/github.com" />
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/golang.org" />
-      <root url="file://$PROJECT_DIR$/../../../AppsDev/GOPATH/src/sourcegraph.com" />
+      <root url="file://$USER_HOME$/GO/src/github.com" />
+      <root url="file://$USER_HOME$/GO/src/golang.org" />
+      <root url="file://$USER_HOME$/GO/src/gopkg.in" />
     </SOURCES>
     <excluded>
       <root url="file://$PROJECT_DIR$" />
