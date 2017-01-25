@@ -10,13 +10,10 @@ func main() {
 
 	go webservice.WebServer() // run web service
 
-
-
-
 	/*base := datasource.MonitoringBase{}
 	dev := base.LoadDeviceGroup()
 	fmt.Println(dev)
-*/
+	*/
 	/*	factory := new(handlers.TaskListCreator)
 		tasks := []handlers.Task{
 			factory.CreatTask("192.168.88.1", ".1.3.6.1.2.1.1.1.0", 5),

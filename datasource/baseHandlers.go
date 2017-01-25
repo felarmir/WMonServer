@@ -57,8 +57,6 @@ func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	return snmptemplate
 }
 
-
-
 func (self *MonitoringBase) insertData(table string, data interface{}) {
 	session, err := self.sessionStart()
 	self.CheckError(err)

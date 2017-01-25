@@ -1,14 +1,14 @@
 package webservice
 
 import (
-	"net/http"
-	"html/template"
-	"path"
-	"log"
 	"../datasource"
+	"html/template"
+	"log"
+	"net/http"
+	"path"
 )
 
-var  (
+var (
 	page_template = template.Must(template.ParseFiles(path.Join("webservice/templates", "index.html")))
 )
 
@@ -19,33 +19,45 @@ func webWerror(err error, res *http.ResponseWriter) {
 	}
 }
 
-
+// index page handler
 func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 
 	base := datasource.MonitoringBase{}
 	data := base.LoadDeviceGroup()
 
-	err := page_template.ExecuteTemplate(writer, "layout", TableWidgetGenerator(data, 3, "Device Group"))
+	wg_factory := new(WidgetListCreat)
+	wg := []Widget {
+		// future add function for generate widgets from Data base config
+		wg_factory.WidgetGenerate(data, 4, "Device group", "table"),
+	}
+
+	err := page_template.ExecuteTemplate(writer, "layout", wg)
 	webWerror(err, &writer)
 }
 
-func monitorCalendarHandler(writer http.ResponseWriter, req *http.Request) {
+//Handler for  monitoring
+func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 	err := page_template.ExecuteTemplate(writer, "layout", nil)
 	webWerror(err, &writer)
 }
 
+// Handler for settings Section
 func monitoringManagingHandler(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
-
+	err := page_template.ExecuteTemplate(writer, "layout", nil)
+	webWerror(err, &writer)
 }
 
 func WebServer() {
-	fs := http.FileServer(http.Dir("./webservice/public/static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	fs := http.FileServer(http.Dir("./webservice/public/static")) // static files real path
+	http.Handle("/static/", http.StripPrefix("/static/", fs))     // static files path
+
 	http.HandleFunc("/", monitorIndexHandler)
-	http.HandleFunc("/calendar", monitorCalendarHandler)
+	http.HandleFunc("/monitor", monitorMonitorHandler)
+	http.HandleFunc("/settings", monitoringManagingHandler)
+
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
 }

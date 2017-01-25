@@ -1,7 +1,5 @@
 package devices
 
-
-
 type DeviceGroup struct {
 	ID   int64  `bson:"id"`
 	Name string `bson:"name"`

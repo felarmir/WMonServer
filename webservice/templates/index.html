@@ -63,8 +63,8 @@
                 <ul class="nav">
                     <!-- Main menu -->
                     <li class="current"><a href="#"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Manage </a></li>
+                    <li><a href="/monitor"><i class="glyphicon glyphicon-calendar"></i> Monitor</a></li>
+                    <li><a href="/settings"><i class="glyphicon glyphicon-pencil"></i> Manage </a></li>
                 </ul>
              </div>
 		  </div>
@@ -72,7 +72,9 @@
 
 		  	<div class="row">
                 <!-- content -->
-					{{.Tabledata}}
+				{{range .}}
+					{{.GetWidgetData}}
+				{{end}}
 				<!-- end content -->
             </div>
 
