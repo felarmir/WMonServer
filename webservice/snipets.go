@@ -99,12 +99,24 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 	return template.HTML([]byte(result))
 }
 
+// Function for generate Text widget
+func textWidget(data interface{}, widgetSize int64, widgetTitle string) template.HTML {
+	text := "<div class=\"col-md-"+strconv.FormatInt(widgetSize, 10)+"\"> <div class=\"content-box-large\">" +
+	"<div class=\"panel-heading\"> <div class=\"panel-title\">"+widgetTitle+"</div>" +
+	"<div class=\"panel-options\"> <a href=\"#\" data-rel=\"collapse\"><i class=\"glyphicon glyphicon-refresh\"></i></a>"+
+	"<a href=\"#\" data-rel=\"reload\"><i class=\"glyphicon glyphicon-cog\"></i></a> </div> </div>"+
+	"<div class=\"panel-body\">"+widgetText+"</div> </div> </div>"
+	return template.HTML([]byte(text))
+}
+
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string) Widget {
 	var wg Widget
 
 	switch widgetType {
 	case "table":
 		wg = &TableWidget{tableWidgetGenerator(data, widgetSize, widgetTitle)}
+	case "textwg":
+		wg = &TableWidget{textWidget(data, widgetSize, widgetTitle)}
 	default:
 		log.Fatalln("Unknown Error")
 	}
