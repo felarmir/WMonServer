@@ -6,7 +6,6 @@ import (
 	"path"
 	"log"
 	"../datasource"
-	"fmt"
 )
 
 var  (
@@ -26,8 +25,8 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 
 	base := datasource.MonitoringBase{}
 	data := base.LoadDeviceGroup()
-	fmt.Println(data)
-	err := page_template.ExecuteTemplate(writer, "layout", TableGenerator(data))
+
+	err := page_template.ExecuteTemplate(writer, "layout", TableWidgetGenerator(data, 3, "Device Group"))
 	webWerror(err, &writer)
 }
 

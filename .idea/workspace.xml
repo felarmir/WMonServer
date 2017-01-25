@@ -2,1023 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf72bd90-39f1-4d87-b7b9-113b3c909d63" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/address/address.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/address/address.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-datetimepicker/datetimepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/.settings/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/LICENCE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/VERSION" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/component.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/css/bootstrap-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/css/bootstrap-responsive.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/css/prettify.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/css/wysiwyg-color.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/img/glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/img/glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/bootstrap-button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/jquery-1.7.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/readme.textile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.ar-AR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.bg-BG.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.ca-CT.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.cs-CZ.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.da-DK.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.de-DE.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.el-GR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.es-AR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.es-ES.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.fr-FR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.hr-HR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.it-IT.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.ja-JP.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.ko-KR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.lt-LT.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.mo-MD.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.nb-NB.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.nl-NL.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.pl-PL.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.pt-BR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.ru-RU.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.sk-SK.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.sv-SE.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.tr-TR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.ua-UA.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.zh-CN.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/locales/bootstrap-wysihtml5.zh-TW.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/src/wysiwyg-color.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/bootstrap_wysihtml5/parserRules_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/browser_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/editor_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/incompatible_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/support/html_equal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/bootstrap-wysihtml5/test/undo_manager_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/CHANGES.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/adapters/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/build-config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/ckeditor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/contents.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/af.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/bn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/bs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/en-au.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/en-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/en-gb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/eu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/fo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/gu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ka.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/km.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/mn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/sr-latn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/lang/zh.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/about/dialogs/about.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/about/dialogs/logo_ckeditor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/clipboard/dialogs/paste.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/colordialog/dialogs/colordialog.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/dialog/dialogDefinition.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/div/dialogs/div.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/fakeobjects/images/spacer.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/find/dialogs/find.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/flash/dialogs/flash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/flash/images/placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/checkbox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/form.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/hiddenfield.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/radio.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/select.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/textarea.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/dialogs/textfield.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/forms/images/hiddenfield.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/icons_hidpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/iframe/dialogs/iframe.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/iframe/images/placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/image/dialogs/image.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/image/images/noimage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/link/dialogs/anchor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/link/dialogs/link.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/link/images/anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/link/images/hidpi/anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/liststyle/dialogs/liststyle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/magicline/images/hidpi/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/magicline/images/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/pagebreak/images/pagebreak.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/pastefromword/filter/default.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/preview/preview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/scayt/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/scayt/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/scayt/dialogs/options.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/scayt/dialogs/toolbar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_address.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_blockquote.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_div.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_h1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_h2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_h3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_h4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_h5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_h6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_p.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/showblocks/images/block_pre.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/dialogs/smiley.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/angel_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/angry_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/broken_heart.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/confused_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/cry_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/devil_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/embaressed_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/embarrassed_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/envelope.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/heart.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/kiss.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/lightbulb.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/omg_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/regular_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/sad_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/shades_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/teeth_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/thumbs_down.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/thumbs_up.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/tongue_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/tounge_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/whatchutalkingabout_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/smiley/images/wink_smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/specialchar/dialogs/specialchar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/table/dialogs/table.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/tabletools/dialogs/tableCell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/templates/dialogs/templates.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/templates/dialogs/templates.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/templates/templates/default.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/templates/templates/images/template1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/templates/templates/images/template2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/templates/templates/images/template3.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/dialogs/tmp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/dialogs/wsc.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/dialogs/wsc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/plugins/wsc/dialogs/wsc_ie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/ajax.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/api.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/appendto.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/assets/inlineall/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/assets/outputxhtml/outputxhtml.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/assets/posteddata.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/assets/sample.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/assets/sample.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/assets/uilanguages/languages.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/datafiltering.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/divreplace.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/inlineall.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/inlinebycode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/inlinetextarea.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/jquery.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/dialog/assets/my_dialog.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/dialog/dialog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/enterkey/enterkey.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.fla" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/swfobject.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/htmlwriter/outputforflash.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/htmlwriter/outputhtml.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/magicline/magicline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/toolbar/toolbar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/plugins/wysiwygarea/fullpage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/readonly.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/replacebyclass.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/replacebycode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/sample.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/sample.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/sample_posteddata.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/tabindex.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/uicolor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/uilanguages.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/samples/xhtmlstyle.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/dialog_ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/dialog_ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/dialog_ie8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/dialog_iequirks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/dialog_opera.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/editor.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/editor_gecko.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/editor_ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/editor_ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/editor_ie8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/editor_iequirks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/icons_hidpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/hidpi/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/hidpi/lock-open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/hidpi/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/hidpi/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/lock-open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/images/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/skins/moono/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/ckeditor/styles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/css/demo_page.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/css/demo_table.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/css/demo_table_jui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/css/jquery.dataTables.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/css/jquery.dataTables_themeroller.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/dataTables.bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/dataTables.bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/Sorting icons.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/back_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/back_enabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/back_enabled_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/forward_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/forward_enabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/forward_enabled_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/sort_asc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/sort_asc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/sort_both.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/sort_desc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/images/sort_desc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/js/jquery.dataTables.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/js/jquery.dataTables.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/DataTables.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/api/api.internal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/api/api.methods.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/api/api.static.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.columns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.constructor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.draw.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.filter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.info.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.init.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.length.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.page.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.processing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.scrolling.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.sizing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.sort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.state.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/core/core.support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/ext/ext.classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/ext/ext.paging.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/ext/ext.sorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/ext/ext.types.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.column.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.defaults.columns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.defaults.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.ext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.row.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/src/model/model.settings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/controller.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/performance/draw.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/performance/large.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/performance/page.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/performance/sort.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/-complex_header.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/2512.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/6776.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/complex_header_2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/deferred_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/dom_data.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/dom_data_th.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/dom_data_two_headers.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/dymanic_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/empty_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/html_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/js_data.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/js_data_mixed_types.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/templates/two_tables.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests/1_dom/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/-complex_header.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/-iDraw.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2512.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2530-2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2530.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2569.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2600.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2608.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2635.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2746-stable-sort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2799.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2840-restore-table-width.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/2914-state-save-sort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/5396-fnUpdate-arrays-mData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/5396-fnUpdate-arrays.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/5508-xscroll-zero-content.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/6776-scrolling-table-grows.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/_getDataFunctions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/_setDataFunctions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aaSorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aaSortingFixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bSearchable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bSortable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bUseRendered.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bVisible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.bVisible2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.fnRender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.iDataSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sTitle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoColumns.sWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/aoSearchCols.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/asStripClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bAutoWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bInfiniteScroll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bJQueryUI.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bLengthChange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bServerSide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bSortCellsTop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/bSortClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnCookieCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnCreatedCell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnCreatedRow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnDeleteRow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnDrawCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnFooterCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnHeaderCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnInfoCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnInitComplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnRowCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnSetColumnVis.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/fnSetColumnVis2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/html-autodetect-sort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/iDisplayLength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.oPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sInfoEmpty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sInfoPostFix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sLengthMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oLanguage.sZeroRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/oSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/sAjaxSource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/sDom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/sPaginationType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/sScrollXY.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/1_dom/th_in_body.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/39-nested-null.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/6872-default-content-missing-props.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/8549--string-sorting-nonstrings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aaSorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aaSortingFixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.bSearchable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.bSortable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.bUseRendered.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.bVisible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.fnRender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.iDataSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.sClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.sName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.sTitle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoColumns.sWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/aoSearchCols.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/asStripClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bAutoWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bLengthChange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bServerSide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/bSortClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnCreatedCell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnCreatedRow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnDrawCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnFooterCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnHeaderCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnInitComplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/fnRowCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/iDisplayLength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/js_data_mixed_types.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.oPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sInfoEmpty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sInfoPostFix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sLengthMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oLanguage.sZeroRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/oSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/sAjaxSource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/sDom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/2_js/sPaginationType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aaSorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aaSortingFixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bSearchable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bSortable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bUseRendered.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.bVisible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.fnRender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.iDataSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sTitle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoColumns.sWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/aoSearchCols.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/asStripClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bAutoWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bLengthChange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bServerSide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/bSortClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnCreatedCell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnCreatedRow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnDrawCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnHeaderCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnInitComplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnRowCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/fnServerData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/iDisplayLength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.oPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoEmpty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoPostFix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sLengthMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sLoadingRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oLanguage.sZeroRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/oSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/sAjaxDataProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/sAjaxDataProp2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/sAjaxSource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/sDom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/3_ajax/sPaginationType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/-iDraw.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/2440.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/2569.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/2600.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aaSorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aaSortingFixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bSearchable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bSortable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bUseRendered.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.bVisible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.fnRender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sTitle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoColumns.sWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/aoSearchCols.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/asStripClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bAutoWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bInfiniteScroll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bLengthChange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bServerSide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/bSortClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/fnCreatedCell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/fnCreatedRow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/fnDrawCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/fnHeaderCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/fnInitComplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/fnRowCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/iDeferLoading.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/iDisplayLength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.oPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sInfoEmpty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sInfoPostFix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sLengthMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oLanguage.sZeroRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/oSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/sAjaxDataProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/sAjaxSource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/sDom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/4_server-side/sPaginationType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_arrays_subobjects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_deep.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_mDataProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_null_source.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects_subarrays.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aaSorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aaSortingFixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSearchable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSortable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bUseRendered.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bVisible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.fnRender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.iDataSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sTitle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/aoSearchCols.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/asStripClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bAutoWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bLengthChange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bServerSide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/bSortClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/fnDrawCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/fnHeaderCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/fnInitComplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/fnRowCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/fnServerData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/iDisplayLength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.oPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoEmpty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoPostFix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sLengthMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sZeroRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/oSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/sAjaxSource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/sDom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/5_ajax_objects/sPaginationType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/_zero_config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aaSorting.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aaSortingFixed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bSearchable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bSortable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bUseRendered.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.bVisible.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.fnRender.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.iDataSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sClass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sTitle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoColumns.sWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/aoSearchCols.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/asStripClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bAutoWidth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bLengthChange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bServerSide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/bSortClasses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnDrawCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnHeaderCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnInitComplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnRowCallback.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/fnServerData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/iDisplayLength.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.oPaginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sInfo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sInfoEmpty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sInfoPostFix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sLengthMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sProcessing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oLanguage.sZeroRecords.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/oSearch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/sAjaxDataProp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/sAjaxDataProp2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/sAjaxSource.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/sDom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/tests_onhold/6_delayed_rendering/sPaginationType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/datatables/unit_testing/unit_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/easypiechart/examples/excanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/easypiechart/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/easypiechart/examples/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/easypiechart/jquery.easy-pie-chart.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/easypiechart/jquery.easy-pie-chart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/API.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/FAQ.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/NEWS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/PLUGINS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/component.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-eu-gdp-growth-1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-eu-gdp-growth-2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-eu-gdp-growth-3.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-eu-gdp-growth-4.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-eu-gdp-growth-5.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-eu-gdp-growth.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-japan-gdp-growth.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/data-usa-gdp-growth.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/ajax/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/annotating/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-interacting/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-multiple/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/date.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/africa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/antarctica" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/asia" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/australasia" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/backward" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/etcetera" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/europe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/factory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/iso3166.tab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/leapseconds" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/northamerica" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/pacificnew" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/solar87" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/solar88" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/solar89" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/southamerica" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/systemv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/yearistype.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time-zones/tz/zone.tab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/axes-time/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/basic-canvas.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/basic-options/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/basic-usage/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/canvas/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/categories/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/examples.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/image/hs-2004-27-a-large-web.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/image/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/interacting/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/navigate/arrow-down.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/navigate/arrow-left.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/navigate/arrow-right.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/navigate/arrow-up.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/navigate/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/percentiles/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/realtime/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/resize/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/selection/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/series-errorbars/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/series-pie/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/series-toggle/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/series-types/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/shared/jquery-ui/jquery-ui.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/stacking/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/symbols/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/threshold/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/tracking/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/visitors/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/examples/zooming/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/excanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/excanvas.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/flot.jquery.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.colorhelpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.canvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.categories.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.crosshair.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.errorbars.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.fillbetween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.image.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.navigate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.pie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.resize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.selection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.stack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.symbol.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.threshold.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.flot.time.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/flot/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/css/bootstrap-formhelpers.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/css/bootstrap-formhelpers.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/img/bootstrap-formhelpers-countries.flags-LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/img/bootstrap-formhelpers-countries.flags.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/img/bootstrap-formhelpers-currencies.flags.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/img/bootstrap-formhelpers-googlefonts.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/js/bootstrap-formhelpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/form-helpers/js/bootstrap-formhelpers.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/fullcalendar/fullcalendar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/fullcalendar/fullcalendar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/fullcalendar/fullcalendar.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/fullcalendar/fullcalendar.print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/fullcalendar/gcal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/jquery.knob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/mask/jquery.maskedinput.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/moment/moment.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/morris/morris.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/morris/morris.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/morris/morris.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/raphael-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select/bootstrap-select.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select/bootstrap-select.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select/bootstrap-select.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select/bootstrap-select.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select2/select2-bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select2/select2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/select2/select2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tags/css/bootstrap-tags.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tags/js/bootstrap-tags.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tags/js/bootstrap-tags.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/LICENSE.TXT" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/changelog.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/jquery.tinymce.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/langs/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/license.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/advlist/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/anchor/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/autolink/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/autoresize/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/autosave/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/bbcode/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/charmap/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/code/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/compat3x/editable_selects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/compat3x/form_utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/compat3x/mctabs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/compat3x/tiny_mce_popup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/compat3x/validate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/contextmenu/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/directionality/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-cool.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-cry.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-frown.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-innocent.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-kiss.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-laughing.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-sealed.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-surprised.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-undecided.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-wink.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/img/smiley-yell.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/emoticons/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/example/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/example_dependency/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/fullpage/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/fullscreen/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/hr/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/image/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/importcss/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/insertdatetime/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/layer/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/legacyoutput/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/link/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/lists/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/media/moxieplayer.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/media/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/nonbreaking/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/noneditable/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/pagebreak/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/paste/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/preview/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/print/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/save/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/searchreplace/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/spellchecker/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/tabfocus/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/table/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/template/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/textcolor/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/visualblocks/css/visualblocks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/visualblocks/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/visualchars/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/plugins/wordcount/plugin.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/content.inline.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/content.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon-small.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon-small.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon-small.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon-small.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/icomoon.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/fonts/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/img/anchor.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/img/loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/img/object.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/img/trans.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/img/wline.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/skin.ie7.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/skins/lightgray/skin.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/themes/modern/theme.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/tinymce/js/tinymce/tinymce.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/wizard/jquery.bootstrap.wizard.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/wysiwyg/bootstrap-wysihtml5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/wysiwyg/bootstrap-wysihtml5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/public/static/vendors/wysiwyg/wysihtml5-0.3.0.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webservice/templates/calendar.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GOPATH__WMonServer_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GOPATH__WMonServer_.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devices/devices.go" afterPath="$PROJECT_DIR$/devices/devices.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server_cfg.yaml" afterPath="$PROJECT_DIR$/server_cfg.yaml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webservice/service.go" afterPath="$PROJECT_DIR$/webservice/service.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webservice/snipets.go" afterPath="$PROJECT_DIR$/webservice/snipets.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1043,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="service.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webservice/service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
+            <state relative-caret-position="105">
+              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -1056,10 +43,10 @@
       <file leaf-file-name="snipets.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webservice/snipets.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="457">
+              <caret line="76" column="26" lean-forward="false" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
               <folding>
-                <element signature="e#20#76#0" expanded="true" />
+                <element signature="e#20#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1068,8 +55,8 @@
       <file leaf-file-name="devices.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/devices/devices.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1087,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server_cfg.yaml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server_cfg.yaml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server_cfg.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -1148,12 +135,13 @@
         <option value="$PROJECT_DIR$/templates/index.html.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/server_cfg.yaml" />
         <option value="$PROJECT_DIR$/webservice/templates/calendar.html" />
         <option value="$PROJECT_DIR$/webservice/templates/index.html" />
         <option value="$PROJECT_DIR$/datasource/baseHandlers.go" />
+        <option value="$PROJECT_DIR$/devices/devices.go" />
         <option value="$PROJECT_DIR$/webservice/snipets.go" />
         <option value="$PROJECT_DIR$/webservice/service.go" />
+        <option value="$PROJECT_DIR$/server_cfg.yaml" />
       </list>
     </option>
   </component>
@@ -1349,14 +337,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="1024" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17770597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17770597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3516999" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35115305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20515826" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1449,7 +437,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#20#76#0" expanded="true" />
+            <element signature="e#20#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1720,26 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server_cfg.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/public/static/vendors/datatables/dataTables.bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2445">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/devices/devices.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1785,16 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webservice/snipets.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding>
-            <element signature="e#20#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/templates/calendar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
@@ -1803,10 +765,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/devices/devices.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webservice/snipets.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="76" column="26" lean-forward="false" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+          <folding>
+            <element signature="e#20#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webservice/service.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
+        <state relative-caret-position="105">
+          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_cfg.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding />
         </state>
       </provider>
