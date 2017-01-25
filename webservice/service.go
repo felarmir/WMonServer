@@ -10,8 +10,7 @@ import (
 )
 
 var  (
-	page_template = template.Must(template.ParseFiles(path.Join("webservice/templates", "index.html"),
-		path.Join("webservice/templates", "calendar.html")))
+	page_template = template.Must(template.ParseFiles(path.Join("webservice/templates", "index.html")))
 )
 
 func webWerror(err error, res *http.ResponseWriter) {
@@ -34,7 +33,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 
 func monitorCalendarHandler(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
-	err := page_template.ExecuteTemplate(writer, "calendar", nil)
+	err := page_template.ExecuteTemplate(writer, "layout", nil)
 	webWerror(err, &writer)
 }
 
