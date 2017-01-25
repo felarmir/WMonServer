@@ -23,11 +23,11 @@ func (self *WidgetListCreat) registerWidget(widget Widget) {
 	self.widgetArray = append(self.widgetArray, &widget)
 }
 
-type TableWidget struct {
+type ReadyWidget struct {
 	Tabledata template.HTML
 }
 
-func (self *TableWidget) GetWidgetData() template.HTML {
+func (self *ReadyWidget) GetWidgetData() template.HTML {
 	return self.Tabledata
 }
 
@@ -35,11 +35,12 @@ func (self *TableWidget) GetWidgetData() template.HTML {
 // Table widget head part
 // tableSize: 3 ... 12; tableName Table name
 func getHeaderDIV(tableSize int64, tableName string) string {
-	snp := "<div class=\"col-md-" + strconv.FormatInt(tableSize, 10) + "\"> <div class=\"content-box-large\"> " +
-		"<div class=\"panel-heading\"> <div class=\"panel-title\">" + tableName + "</div> " +
-		"<div class=\"panel-options\"> <a href=\"#\" data-rel=\"collapse\"><i class=\"glyphicon glyphicon-refresh\"></i></a> " +
-		"<a href=\"#\" data-rel=\"reload\"><i class=\"glyphicon glyphicon-cog\"></i></a> " +
-		"</div> </div> <div class=\"panel-body\"> <table class=\"table table-bordered\"> "
+	 snp := "<div class=\"col-md-"+ strconv.FormatInt(tableSize, 10) +" col-sm-6 col-xs-12\"><div class=\"x_panel\">"+
+		"<div class=\"x_title\"><h2>"+ tableName +"</h2>"+
+		"<ul class=\"nav navbar-right panel_toolbox\"><li><a class=\"collapse-link\">"+
+		"<i class=\"fa fa-chevron-up\"></i></a></li>"+
+		 "</ul><div class=\"clearfix\"></div></div><div class=\"x_content\"><table class=\"table table-striped\">"
+
 	return snp
 }
 
@@ -99,24 +100,37 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 	return template.HTML([]byte(result))
 }
 
-// Function for generate Text widget
-func textWidget(data interface{}, widgetSize int64, widgetTitle string) template.HTML {
-	text := "<div class=\"col-md-"+strconv.FormatInt(widgetSize, 10)+"\"> <div class=\"content-box-large\">" +
-	"<div class=\"panel-heading\"> <div class=\"panel-title\">"+widgetTitle+"</div>" +
-	"<div class=\"panel-options\"> <a href=\"#\" data-rel=\"collapse\"><i class=\"glyphicon glyphicon-refresh\"></i></a>"+
-	"<a href=\"#\" data-rel=\"reload\"><i class=\"glyphicon glyphicon-cog\"></i></a> </div> </div>"+
-	"<div class=\"panel-body\">"+widgetText+"</div> </div> </div>"
-	return template.HTML([]byte(text))
+
+// Function for input form generate
+func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string) template.HTML {
+ 	form := "<div class=\"col-md-"+strconv.FormatInt(widgetSize, 10)+" col-sm-12 col-xs-12\"> <div class=\"x_panel\"> <div class=\"x_title\">"+
+	"<h2>"+widgetTitle+"</h2> <ul class=\"nav navbar-right panel_toolbox\">"+
+	"<li><a class=\"collapse-link\"><i class=\"fa fa-chevron-up\"></i></a></li> </ul> <div class=\"clearfix\"></div>" +
+	"</div> <div class=\"x_content\"><br><form id=\"demo-form2\" data-parsley-validate=\"\" class=\"form-horizontal form-label-left\" novalidate=\"\">"
+
+	preF := reflect.TypeOf(data)
+	for i := 0; i < preF.NumField(); i++ {
+		form = form + "<div class=\"form-group\"><label class=\"control-label col-md-3 col-sm-3 col-xs-12\">"+preF.Field(i).Name+" <span class=\"required\">*</span></label>"+
+		"<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+		"<input type=\"text\" required=\"required\" name=\""+preF.Field(i).Name+"\" class=\"form-control col-md-7 col-xs-12\"></div></div>"
+	}
+
+	form = form + "<div class=\"ln_solid\"></div> <div class=\"form-group\"><div class=\"col-md-6 col-sm-6 col-xs-12 col-md-offset-3\">"+
+		"<button class=\"btn btn-primary\" type=\"button\">Cancel</button><button class=\"btn btn-primary\" type=\"reset\">Reset</button>"+
+		"<button type=\"submit\" class=\"btn btn-success\">Submit</button></div> </div> </form> </div> </div> </div>"
+	return template.HTML([]byte(form))
 }
+
 
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string) Widget {
 	var wg Widget
 
 	switch widgetType {
 	case "table":
-		wg = &TableWidget{tableWidgetGenerator(data, widgetSize, widgetTitle)}
-	case "textwg":
-		wg = &TableWidget{textWidget(data, widgetSize, widgetTitle)}
+		wg = &ReadyWidget{tableWidgetGenerator(data, widgetSize, widgetTitle)}
+	case "form":
+		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle)}
+
 	default:
 		log.Fatalln("Unknown Error")
 	}
