@@ -212,7 +212,7 @@
                 pie: {
                     show: true,
                     innerRadius: 0.5,
-                    show: true
+                    //show: true
                 }
             },
             legend: {
@@ -287,16 +287,19 @@
         $.plot($(selector), data, options);
     },
 
+        // graphs
         //initializing various charts and components
         FlotChart.prototype.init = function() {
           //plot graph data
-          var uploads = [[0, 9], [1, 8], [2, 5], [3, 8], [4, 5], [5, 14], [6, 10]];
-          var downloads = [[0, 5], [1, 12], [2,4], [3, 3], [4, 12], [5, 11], [6, 14]];
+          var uploads = [[0, 9], [1, 8], [2, 5], [3, 8], [4, 5], [5, 14], [6, 10], [7, 9], [8, 8], [9, 5], [10, 8], [11, 5], [12, 14], [13, 10]];
+          var downloads = [[0, 5], [1, 12], [2,4], [3, 3], [4, 12], [5, 11], [6, 14], [7, 5], [8, 12], [9, 4], [10, 3], [11, 12], [12, 11], [13, 14]];
           var plabels = ["Visits", "Pages/Visit"];
           var pcolors = ['#33b86c', '#1a2942'];
           var borderColor = '#efefef';
           var bgColor = '#fff';
           this.createPlotGraph("#website-stats", uploads, downloads, plabels, pcolors, borderColor, bgColor);
+
+
 
           //Pie graph data
           var pielabels = ["Series 1","Series 2","Series 3"];
@@ -428,8 +431,8 @@
             [22, "20h"],
             [23, ""]
         ];
-          var combinelabels = ["Last 24 Hours","Last 48 Hours","Difference"];
-          var combinedatas = [data24Hours,data48Hours,dataDifference];
+          var combinelabels = ["Last 24 Hours"];
+          var combinedatas = [data24Hours];
 
           this.createCombineGraph("#combine-chart #combine-chart-container", ticks, combinelabels , combinedatas);
         },

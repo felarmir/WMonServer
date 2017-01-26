@@ -125,10 +125,12 @@
                         <!-- Start Widget -->
                         <!-- End row-->
                         <div class="row">
-                            {{range .}}
-                                {{ .GetWidgetData}}
+                            {{range .TableWidget}}
+                                {{ .}}
                             {{end}}
-                       
+                            {{range .FormWidget}}
+                                {{ .}}
+                            {{end}}
                        
                         <!-- Charts -->
 

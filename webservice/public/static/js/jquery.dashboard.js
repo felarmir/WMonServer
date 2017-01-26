@@ -123,9 +123,9 @@
         //initializing various charts and components
         Dashboard.prototype.init = function() {
           //plot graph data
-          var uploads = [[0, 9], [1, 8], [2, 5], [3, 8], [4, 5], [5, 14], [6, 10]];
-          var downloads = [[0, 5], [1, 12], [2,4], [3, 3], [4, 12], [5, 11], [6, 14]];
-          var plabels = ["Visits", "Pages/Visit"];
+          var uploads = [[0, 9], [1, 8], [2, 5], [3, 8], [4, 5], [5, 14], [6, 10], [7, 9], [8, 8], [9, 5], [10, 8], [11, 5], [12, 14], [13, 10]];
+          var downloads = [[0, 5], [1, 12], [2,4], [3, 3], [4, 12], [5, 11], [6, 14], [7, 5], [8, 12], [9,4], [10, 3], [11, 12], [12, 11], [13, 14]];
+          var plabels = ["Input", "Output"];
           var pcolors = ['#33b86c', '#26a9b5'];
           var borderColor = '#fff';
           var bgColor = '#fff';
@@ -133,7 +133,7 @@
 
             //Pie graph data
             var pielabels = ["Series 1","Series 2","Series 3"];
-            var datas = [20,30, 20];
+            var datas = [5,90, 5];
             var colors = ["rgba(51, 184, 108, 0.7)", "rgba(41, 182, 246, 0.7)", "rgba(59, 189, 202, 0.7)"];
             this.createPieGraph("#pie-chart #pie-chart-container", pielabels , datas, colors);
 

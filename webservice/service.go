@@ -29,13 +29,15 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	data := base.LoadDeviceGroup()
 
 	wg_factory := new(WidgetListCreat)
-	wg := []Widget{
-		// future add function for generate widgets from Data base config
-		wg_factory.WidgetGenerate(data, 6, "Device group", "table"),
-		wg_factory.WidgetGenerate(devices.NetDev{}, 6, "Devise add", "form"),
-	}
 
-	err := page_template.ExecuteTemplate(writer, "layout", wg)
+	//pageData
+	pd := PageData{}
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "table").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "table").GetWidgetData())
+
+	pd.registerFormWidget(wg_factory.WidgetGenerate(devices.NetDev{}, 12, "Devise add", "form").GetWidgetData())
+
+	err := page_template.ExecuteTemplate(writer, "layout", pd)
 	webWerror(err, &writer)
 }
 
