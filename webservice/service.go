@@ -1,12 +1,13 @@
 package webservice
 
 import (
-	"../datasource"
-	"../devices"
 	"html/template"
 	"log"
 	"net/http"
 	"path"
+
+	"../datasource"
+	"../devices"
 )
 
 var (
@@ -28,10 +29,10 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	data := base.LoadDeviceGroup()
 
 	wg_factory := new(WidgetListCreat)
-	wg := []Widget {
+	wg := []Widget{
 		// future add function for generate widgets from Data base config
-		wg_factory.WidgetGenerate(data, 8, "Device group", "table"),
-		wg_factory.WidgetGenerate(devices.NetDev{}, 8, "Devise add", "form"),
+		wg_factory.WidgetGenerate(data, 6, "Device group", "table"),
+		wg_factory.WidgetGenerate(devices.NetDev{}, 6, "Devise add", "form"),
 	}
 
 	err := page_template.ExecuteTemplate(writer, "layout", wg)

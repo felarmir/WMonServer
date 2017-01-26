@@ -1,5 +1,5 @@
-login:
-password:
-ip:
+login: 
+password: 
+ip: 
 base: monitoring
 port: 27017
