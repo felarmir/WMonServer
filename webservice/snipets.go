@@ -32,44 +32,31 @@ func (self *ReadyWidget) GetWidgetData() template.HTML {
 }
 
 
-// Table widget head part
-// tableSize: 3 ... 12; tableName Table name
-func getHeaderDIV(tableSize int64, tableName string) string {
-	 snp := "<div class=\"col-md-"+ strconv.FormatInt(tableSize, 10) +" col-sm-6 col-xs-12\"><div class=\"x_panel\">"+
+//Function for generate table widget. Parsing interface data
+// data from base; tableSize: 3 ... 12
+func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) template.HTML {
+	result := "<div class=\"col-md-"+ strconv.FormatInt(tableSize, 10) +" col-sm-6 col-xs-12\"><div class=\"x_panel\">"+
 		"<div class=\"x_title\"><h2>"+ tableName +"</h2>"+
 		"<ul class=\"nav navbar-right panel_toolbox\"><li><a class=\"collapse-link\">"+
 		"<i class=\"fa fa-chevron-up\"></i></a></li>"+
-		 "</ul><div class=\"clearfix\"></div></div><div class=\"x_content\"><table class=\"table table-striped\">"
+		"</ul><div class=\"clearfix\"></div></div><div class=\"x_content\"><table class=\"table table-striped\"><thead> <tr>"
 
-	return snp
-}
-
-// Parse interface and get column names from fields name
-// Generate Table Header
-func generateTableHeader(data interface{}) string {
-	topen := "<thead> <tr>"
-	tclose := "</tr></thead>"
-	var header string
-
+	// add table header
 	preF := reflect.TypeOf(data).Elem()
 	for i := 0; i < preF.NumField(); i++ {
-		header = header + "<th>" + preF.Field(i).Name + "</th>"
+		result = result + "<th>" + preF.Field(i).Name + "</th>"
 	}
-	return topen + header + tclose
-}
+	result = result + "</tr></thead>"
 
-//Generate Table content
-// generate table with data
-func generateTableData(data interface{}) string {
-	result := "<tbody>"
-
-	s := reflect.ValueOf(data)
-	if s.Kind() != reflect.Slice {
+	// add table content
+	result = result + "<tbody>"
+	dataSlice := reflect.ValueOf(data)
+	if dataSlice.Kind() != reflect.Slice {
 		panic("Data not a slice type")
 	}
-	vdata := make([]interface{}, s.Len())
-	for i := 0; i < s.Len(); i++ {
-		vdata[i] = s.Index(i).Interface()
+	vdata := make([]interface{}, dataSlice.Len())
+	for i := 0; i < dataSlice.Len(); i++ {
+		vdata[i] = dataSlice.Index(i).Interface()
 	}
 
 	for _, v := range vdata {
@@ -88,20 +75,14 @@ func generateTableData(data interface{}) string {
 		result = result + tmp + "</tr>"
 	}
 
-	return result + "</tbody>"
-}
-
-//Function for generate table widget
-// data from base; tableSize: 3 ... 12
-func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) template.HTML {
-	var result string
-	result = getHeaderDIV(tableSize, tableName) + generateTableHeader(data) + generateTableData(data)
-	result += "</table> </div> </div> </div>"
+	//result = result + generateTableData(data)
+	result += "</tbody></table> </div> </div> </div>"
 	return template.HTML([]byte(result))
 }
 
 
 // Function for input form generate
+//data is object from stuct
 func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string) template.HTML {
  	form := "<div class=\"col-md-"+strconv.FormatInt(widgetSize, 10)+" col-sm-12 col-xs-12\"> <div class=\"x_panel\"> <div class=\"x_title\">"+
 	"<h2>"+widgetTitle+"</h2> <ul class=\"nav navbar-right panel_toolbox\">"+
