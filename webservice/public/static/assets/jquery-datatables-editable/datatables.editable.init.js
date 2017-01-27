@@ -5,20 +5,14 @@
 * 
 */
 
-var collumnCounts = document.getElementById('datatable-editable').rows[0].cells.length
-
-collumnsArray = new Array()
-collumnsAction = new Array()
-for (var i = 0; i < collumnCounts-1; i++) {
-    collumnsArray.push(null);
-    collumnsAction.push('')
-}
-collumnsArray.push({ "bSortable": false });
-
 
 (function( $ ) {
 
 	'use strict';
+
+    var collumnCounts = $('#datatable-editable thead th').length;
+    var collumnsArray = new Array()
+    var collumnsAction = new Array()
 
 	var EditableTable = {
 
@@ -56,6 +50,10 @@ collumnsArray.push({ "bSortable": false });
 
 
 		build: function() {
+            for (var i = 0; i < collumnCounts-1; i++) {
+                collumnsArray.push(null);
+            }
+            collumnsArray.push({ "bSortable": false })
 			this.datatable = this.$table.DataTable({
 				aoColumns: collumnsArray
 			});
@@ -142,7 +140,11 @@ collumnsArray.push({ "bSortable": false });
 				'<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>',
 				'<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>'
 			].join(' ');
-			collumnsAction.push(actions)
+
+            for (var i = 0; i < collumnCounts-1; i++) {
+                    collumnsAction.push('')
+            }
+            collumnsAction.push(actions)
 			data = this.datatable.row.add(collumnsAction);
 			$row = this.datatable.row( data[0] ).nodes().to$();
 

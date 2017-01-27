@@ -1,12 +1,12 @@
 package devices
 
 type DeviceGroup struct {
-	ID   int64  `bson:"id"`
+	ID   int64  `bson:"_id"`
 	Name string `bson:"name"`
 }
 
 type NetDev struct {
-	ID      int64  `bson:"id"`
+	ID      int64  `bson:"_id"`
 	Name    string `bson:"name"`
 	Located string `bson:"located"`
 	IP      string `bson:"ip"`
@@ -15,6 +15,7 @@ type NetDev struct {
 }
 
 type OidList struct {
+	ID      int64  `bson:"_id"`
 	Name    string `bson:"name"`
 	Oid     string `bson:"oid"`
 	Groupid int64  `bson:"groupid"`

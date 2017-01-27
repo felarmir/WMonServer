@@ -42,7 +42,9 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 	// add table header
 	preF := reflect.TypeOf(data).Elem()
 	for i := 0; i < preF.NumField(); i++ {
-		result = result + "<th>" + preF.Field(i).Name + "</th>"
+		if preF.Field(i).Name != "ID" {
+			result = result + "<th>" + preF.Field(i).Name + "</th>"
+		}
 	}
 	result = result + "</tr></thead><tbody>"
 
@@ -60,14 +62,16 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 		tmp := "<tr class=\"active\">"
 		pre := reflect.ValueOf(v)
 		for i := 0; i < pre.NumField(); i++ {
-			var value string
-			if r, ok := pre.Field(i).Interface().(string); ok {
-				value = r
+			if i != 0 {
+				var value string
+				if r, ok := pre.Field(i).Interface().(string); ok {
+					value = r
+				}
+				if r, ok := pre.Field(i).Interface().(int64); ok {
+					value = strconv.FormatInt(r, 10)
+				}
+				tmp = tmp + "<td>" + value + "</td>"
 			}
-			if r, ok := pre.Field(i).Interface().(int64); ok {
-				value = strconv.FormatInt(r, 10)
-			}
-			tmp = tmp + "<td>" + value + "</td>"
 		}
 		result = result + tmp + "</tr>"
 	}
@@ -86,11 +90,14 @@ func editableTableWidgetGenerate(data interface{}, widgetSize int64, widgetTitle
 	"</div> </div> </div> <table class=\"table table-bordered table-striped\" id=\"datatable-editable\"><thead><tr>"
 
 	// add table header
-		preF := reflect.TypeOf(data).Elem()
+	preF := reflect.TypeOf(data).Elem()
 	for i := 0; i < preF.NumField(); i++ {
-		editTable = editTable + "<th>" + preF.Field(i).Name + "</th>"
+		if preF.Field(i).Name != "ID" {
+			editTable = editTable + "<th>" + preF.Field(i).Name + "</th>"
+		}
 	}
 	editTable += "<th>Actions</th></tr></thead><tbody>"
+
 	// add table content
 	dataSlice := reflect.ValueOf(data)
 	if dataSlice.Kind() != reflect.Slice {
@@ -105,14 +112,16 @@ func editableTableWidgetGenerate(data interface{}, widgetSize int64, widgetTitle
 		tmp := "<tr class=\"gradeX\">"
 		pre := reflect.ValueOf(v)
 		for i := 0; i < pre.NumField(); i++ {
-			var value string
-			if r, ok := pre.Field(i).Interface().(string); ok {
-				value = r
+			if i != 0 {
+				var value string
+				if r, ok := pre.Field(i).Interface().(string); ok {
+					value = r
+				}
+				if r, ok := pre.Field(i).Interface().(int64); ok {
+					value = strconv.FormatInt(r, 10)
+				}
+				tmp = tmp + "<td>" + value + "</td>"
 			}
-			if r, ok := pre.Field(i).Interface().(int64); ok {
-				value = strconv.FormatInt(r, 10)
-			}
-			tmp = tmp + "<td>" + value + "</td>"
 		}
 		editTable = editTable + tmp + "<td class=\"actions\">"+
 			"<a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>"+

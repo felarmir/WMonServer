@@ -75,7 +75,7 @@ func (self *MonitoringBase) WriteNetDev(devid int64, name string, locate string,
 	self.insertData("netdevice", net_dev)
 }
 
-func (self *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
-	oid_list := devices.OidList{name, oid, groupid, repeat}
+func (self *MonitoringBase) WriteOidList(oidid int64,name string, oid string, groupid int64, repeat int64) {
+	oid_list := devices.OidList{oidid, name, oid, groupid, repeat}
 	self.insertData("oidlist", oid_list)
 }
