@@ -21,6 +21,11 @@
         <!-- animate css -->
         <link href="/static/css/animate.css" rel="stylesheet" />
 
+
+        <link rel="stylesheet" href="/static/assets/magnific-popup/magnific-popup.css" />
+        <link rel="stylesheet" href="/static/assets/jquery-datatables-editable/datatables.css" />
+
+
         <!-- Waves-effect -->
         <link href="/static/css/waves-effect.css" rel="stylesheet">
 
@@ -124,10 +129,14 @@
                         </div>
                         <!-- Start Widget -->
                         <!-- End row-->
+
+
+                        {{range .TableWidget}}
+                        {{ .}}
+                        {{end}}
+
                         <div class="row">
-                            {{range .TableWidget}}
-                                {{ .}}
-                            {{end}}
+
                             {{range .FormWidget}}
                                 {{ .}}
                             {{end}}
@@ -251,8 +260,8 @@
 
         <script src="/static/js/jquery.app.js"></script>
 
-
-<!-- Chart Scripts -->
+    {{if .ChartScripts}}
+        <!-- Chart Scripts -->
         <script src="/static/assets/flot-chart/jquery.flot.js"></script>
         <script src="/static/assets/flot-chart/jquery.flot.time.js"></script>
         <script src="/static/assets/flot-chart/jquery.flot.tooltip.min.js"></script>
@@ -262,9 +271,16 @@
         <script src="/static/assets/flot-chart/jquery.flot.stack.js"></script>
         <script src="/static/assets/flot-chart/jquery.flot.crosshair.js"></script>
         <script src="/static/assets/flot-chart/jquery.flot.init.js"></script>
-<!-- end Chart Scripts -->
-
-
+        <!-- end Chart Scripts -->
+    {{end}}
+    {{if .Tablescripts}}
+        <!-- Table -->
+        <script src="/static/assets/magnific-popup/magnific-popup.js"></script>
+        <script src="/static/assets/jquery-datatables-editable/jquery.dataTables.js"></script>
+        <script src="/static/assets/datatables/dataTables.bootstrap.js"></script>
+        <script src="/static/assets/jquery-datatables-editable/datatables.editable.init.js"></script>
+        <!-- end  -->
+    {{end}}
     
     </body>
 </html>

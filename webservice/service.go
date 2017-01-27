@@ -32,7 +32,11 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 
 	//pageData
 	pd := PageData{}
-	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "table").GetWidgetData())
+	// page scripts
+	pd.Tablescripts = true
+	pd.ChartScripts = true
+	// widgets
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "etable").GetWidgetData())
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "table").GetWidgetData())
 
 	pd.registerFormWidget(wg_factory.WidgetGenerate(devices.NetDev{}, 12, "Devise add", "form").GetWidgetData())
