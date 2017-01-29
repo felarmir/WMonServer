@@ -42,7 +42,7 @@ func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
 	self.CheckError(err)
 	*data = result
 }
-
+//devicegroup
 func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	var devgroupI []interface{}
 	self.loadData("devicegroup", &devgroupI)
@@ -56,6 +56,20 @@ func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	}
 	return snmptemplate
 }
+//netdev
+func (self *MonitoringBase) LoadNetDevice() []devices.NetDev {
+	var devgroupI []interface{}
+	self.loadData("netdevice", &devgroupI)
+	var netDev []devices.NetDev
+
+	for _, v := range devgroupI {
+		var st devices.NetDev
+		bsonBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsonBytes, &st)
+		netDev = append(netDev, st)
+	}
+	return netDev
+}
 
 func (self *MonitoringBase) insertData(table string, data interface{}) {
 	session, err := self.sessionStart()
@@ -65,17 +79,17 @@ func (self *MonitoringBase) insertData(table string, data interface{}) {
 	self.CheckError(err)
 }
 
-func (self *MonitoringBase) WriteDeviceGroup(deviceid int64, deviceName string) {
-	dev_group := devices.DeviceGroup{deviceid, deviceName}
+func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
+	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
 	self.insertData("devicegroup", dev_group)
 }
 
-func (self *MonitoringBase) WriteNetDev(devid int64, name string, locate string, ip string, active bool, groupid int64) {
-	net_dev := devices.NetDev{devid, name, locate, ip, active, groupid}
+func (self *MonitoringBase) WriteNetDev(name string, locate string, ip string, active bool, groupid bson.ObjectId) {
+	net_dev := devices.NetDev{bson.NewObjectId(), name, locate, ip, active, groupid}
 	self.insertData("netdevice", net_dev)
 }
 
-func (self *MonitoringBase) WriteOidList(oidid int64,name string, oid string, groupid int64, repeat int64) {
-	oid_list := devices.OidList{oidid, name, oid, groupid, repeat}
+func (self *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
+	oid_list := devices.OidList{bson.NewObjectId(), name, oid, groupid, repeat}
 	self.insertData("oidlist", oid_list)
 }

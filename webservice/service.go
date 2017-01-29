@@ -7,7 +7,7 @@ import (
 	"path"
 
 	"../datasource"
-	"../devices"
+	"gopkg.in/mgo.v2/bson"
 )
 
 var (
@@ -28,6 +28,8 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	base := datasource.MonitoringBase{}
 	data := base.LoadDeviceGroup()
 
+	devList := base.LoadNetDevice()
+
 	wg_factory := new(WidgetListCreat)
 
 	//pageData
@@ -36,13 +38,39 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	pd.Tablescripts = true
 	pd.ChartScripts = true
 	// widgets
-	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "etable").GetWidgetData())
-	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "table").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "table", "devicegroup").GetWidgetData())
 
-	pd.registerFormWidget(wg_factory.WidgetGenerate(devices.NetDev{}, 12, "Devise add", "form").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "tablein", "netdevice").GetWidgetData())
 
 	err := page_template.ExecuteTemplate(writer, "layout", pd)
 	webWerror(err, &writer)
+}
+
+//Handler monitor API
+func monitorAPI(writer http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	datas := datasource.MonitoringBase{}
+
+	switch req.Form.Get("datapath") {
+	case "devicegroup":
+		if len(req.Form.Get("name")) != 0 {
+			datas.WriteDeviceGroup(req.Form.Get("name"))
+		}
+	case "netdevice":
+		var active bool
+		if req.Form.Get("active") == "on"{
+			active = true
+		} else {
+			active = false
+		}
+		datas.WriteNetDev(req.Form.Get("name"), req.Form.Get("located"), req.Form.Get("ip"), active, bson.ObjectIdHex(req.Form.Get("groupid")))
+
+	default:
+		log.Panicln("Undefine table")
+	}
+
+	http.Redirect(writer, req, "/", 301)
 }
 
 //Handler for  monitoring
@@ -66,6 +94,7 @@ func WebServer() {
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/settings", monitoringManagingHandler)
+	http.HandleFunc("/api/add/", monitorAPI)
 
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
