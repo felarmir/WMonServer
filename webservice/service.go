@@ -7,8 +7,8 @@ import (
 	"path"
 
 	"../datasource"
-	"gopkg.in/mgo.v2/bson"
 	"encoding/json"
+	"gopkg.in/mgo.v2/bson"
 )
 
 var (
@@ -52,7 +52,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 }
 
 //Handler monitor API
-func monitorAPI(writer http.ResponseWriter, req *http.Request) {
+func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 
 	switch req.Form.Get("datapath") {
@@ -62,7 +62,7 @@ func monitorAPI(writer http.ResponseWriter, req *http.Request) {
 		}
 	case "netdevice":
 		var active bool
-		if req.Form.Get("active") == "on"{
+		if req.Form.Get("active") == "on" {
 			active = true
 		} else {
 			active = false
@@ -85,17 +85,20 @@ func monitoringAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 	switch req.Form.Get("name") {
 	case "devicegroup":
 		dataForJSON = dataLoader.LoadDeviceGroup()
+	case "netdevice":
+		dataForJSON = dataLoader.LoadNetDevice()
 	default:
 		log.Println("Error load Data")
 	}
 
-	js, err := json.Marshal(dataForJSON)
-	webWerror(err, &writer)
+	jsn, _ := json.Marshal(struct {
+		Result string      `json:"Result"`
+		AaData interface{} `json:"Records"`
+	}{"OK", dataForJSON})
+
 	writer.Header().Set("Content-Type", "application/json")
-	writer.Write(js)
+	writer.Write(jsn)
 }
-
-
 
 //Handler for  monitoring
 func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
@@ -120,7 +123,7 @@ func WebServer() {
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/settings", monitoringManagingHandler)
-	http.HandleFunc("/api/add/", monitorAPI)
+	http.HandleFunc("/api/add/", monitorAPIAdd)
 	http.HandleFunc("/api/get/", monitoringAPIGetJSON)
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
