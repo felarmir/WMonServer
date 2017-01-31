@@ -197,10 +197,77 @@ func tableWithFormWG(data interface{}, widgetSize int64, widgetTitle string, dat
 	return template.HTML([]byte(mwin + twin))
 }
 
+//======================================================================================================================
+// Generate table
+func tableGeneratorWith(data interface{}, datatable string) string {
+	tb := "<table datasrc=\""+datatable+"\" class=\"table table-bordered table-striped\" id=\"datatable-editable\"><thead><tr>"
 
+	// add table header
+	preF := reflect.TypeOf(data).Elem()
+	for i := 0; i < preF.NumField(); i++ {
+		if preF.Field(i).Name != "ID" {
+			tb = tb + "<th>" + preF.Field(i).Name + "</th>"
+		}
+	}
+	tb += "<th></th></tr></thead><tbody>"
 
+	// add table content
+	dataSlice := reflect.ValueOf(data)
+	if dataSlice.Kind() != reflect.Slice {
+		panic("Data not a slice type")
+	}
+	vdata := make([]interface{}, dataSlice.Len())
+	for i := 0; i < dataSlice.Len(); i++ {
+		vdata[i] = dataSlice.Index(i).Interface()
+	}
 
+	for _, v := range vdata {
+		tmp := "<tr class=\"gradeX\">"
+		pre := reflect.ValueOf(v)
+		for i := 0; i < pre.NumField(); i++ {
+			if i != 0 {
+				var value string
+				if r, ok := pre.Field(i).Interface().(string); ok {
+					value = r
+				}
+				if r, ok := pre.Field(i).Interface().(int64); ok {
+					value = strconv.FormatInt(r, 10)
+				}
+				if r, ok := pre.Field(i).Interface().(bool); ok {
+					value = strconv.FormatBool(r)
+				}
+				if r, ok := pre.Field(i).Interface().(bson.ObjectId); ok {
+					if preF.Field(i).Name == "Groupid" {
+						for _, rowS := range dataSource.LoadDeviceGroup() {
+							if rowS.ID == r {
+								value = rowS.Name
+							}
+						}
+					}
+				}
 
+				tmp = tmp + "<td>" + value + "</td>"
+			}
+		}
+		tb = tb + tmp + "<td class=\"actions\"><a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>"+
+			"<a href=\"#\" class=\"hidden on-editing cancel-row\"><i class=\"fa fa-times\"></i></a>"+
+			"<a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>"+
+			"<a href=\"#\" class=\"on-default remove-row\"><i class=\"fa fa-trash-o\"></i></a></td></tr>"
+	}
+	tb += "</tbody></table>"
+	return tb
+}
+
+//Generate Table Widget for editale table
+func editableTableWidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
+	editTableWg := "<div class=\"row\"><div class=\"col-sm-"+ strconv.FormatInt(widgetSize, 10) +"\"><h4 class=\"pull-left page-title\">"+ widgetTitle +"</h4></div></div>"+
+		"<div class=\"panel\"><div class=\"panel-body\"> <div class=\"row\"><div class=\"col-sm-6\"><div class=\"m-b-30\">"+
+		"<button id=\"addToTable\" class=\"btn btn-primary waves-effect waves-light\">Add <i class=\"fa fa-plus\"></i></button>"+
+		"</div></div></div>" + tableGeneratorWith(data, datatable) + "</div></div>"
+	return template.HTML([]byte(editTableWg))
+}
+
+//======================================================================================================================
 
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
 	dataSource = datasource.MonitoringBase{}
@@ -214,7 +281,8 @@ func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, 
 		wg = &ReadyWidget{tableWithFormWG(data, widgetSize, widgetTitle, datatable)}
 	case "form":
 		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle,datatable)}
-
+	case "etable":
+		wg = &ReadyWidget{editableTableWidgetGenerate(data, widgetSize, widgetTitle,datatable)}
 	default:
 		log.Fatalln("Unknown Error")
 	}

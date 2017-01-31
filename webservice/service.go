@@ -8,6 +8,8 @@ import (
 
 	"../datasource"
 	"encoding/json"
+	//"gopkg.in/mgo.v2/bson"
+	//"fmt"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -45,7 +47,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "table", "devicegroup").GetWidgetData())
 
-	pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "tablein", "netdevice").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "etable", "netdevice").GetWidgetData())
 
 	err := page_template.ExecuteTemplate(writer, "layout", pd)
 	webWerror(err, &writer)
@@ -54,7 +56,6 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 //Handler monitor API
 func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-
 	switch req.Form.Get("datapath") {
 	case "devicegroup":
 		if len(req.Form.Get("name")) != 0 {
@@ -123,7 +124,7 @@ func WebServer() {
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/settings", monitoringManagingHandler)
-	http.HandleFunc("/api/add/", monitorAPIAdd)
+	http.HandleFunc("/api/add", monitorAPIAdd)
 	http.HandleFunc("/api/get/", monitoringAPIGetJSON)
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
