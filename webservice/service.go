@@ -8,10 +8,15 @@ import (
 
 	"../datasource"
 	"gopkg.in/mgo.v2/bson"
+	"encoding/json"
 )
 
 var (
 	page_template = template.Must(template.ParseFiles(path.Join("webservice/templates", "index.html")))
+)
+
+var (
+	dataLoader datasource.MonitoringBase
 )
 
 func webWerror(err error, res *http.ResponseWriter) {
@@ -25,10 +30,9 @@ func webWerror(err error, res *http.ResponseWriter) {
 func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 
-	base := datasource.MonitoringBase{}
-	data := base.LoadDeviceGroup()
+	data := dataLoader.LoadDeviceGroup()
 
-	devList := base.LoadNetDevice()
+	devList := dataLoader.LoadNetDevice()
 
 	wg_factory := new(WidgetListCreat)
 
@@ -50,12 +54,11 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 //Handler monitor API
 func monitorAPI(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
-	datas := datasource.MonitoringBase{}
 
 	switch req.Form.Get("datapath") {
 	case "devicegroup":
 		if len(req.Form.Get("name")) != 0 {
-			datas.WriteDeviceGroup(req.Form.Get("name"))
+			dataLoader.WriteDeviceGroup(req.Form.Get("name"))
 		}
 	case "netdevice":
 		var active bool
@@ -64,7 +67,7 @@ func monitorAPI(writer http.ResponseWriter, req *http.Request) {
 		} else {
 			active = false
 		}
-		datas.WriteNetDev(req.Form.Get("name"), req.Form.Get("located"), req.Form.Get("ip"), active, bson.ObjectIdHex(req.Form.Get("groupid")))
+		dataLoader.WriteNetDev(req.Form.Get("name"), req.Form.Get("located"), req.Form.Get("ip"), active, bson.ObjectIdHex(req.Form.Get("groupid")))
 
 	default:
 		log.Panicln("Undefine table")
@@ -72,6 +75,27 @@ func monitorAPI(writer http.ResponseWriter, req *http.Request) {
 
 	http.Redirect(writer, req, "/", 301)
 }
+
+// Header for Api get json
+func monitoringAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+
+	var dataForJSON interface{}
+
+	switch req.Form.Get("name") {
+	case "devicegroup":
+		dataForJSON = dataLoader.LoadDeviceGroup()
+	default:
+		log.Println("Error load Data")
+	}
+
+	js, err := json.Marshal(dataForJSON)
+	webWerror(err, &writer)
+	writer.Header().Set("Content-Type", "application/json")
+	writer.Write(js)
+}
+
+
 
 //Handler for  monitoring
 func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
@@ -91,11 +115,13 @@ func WebServer() {
 	fs := http.FileServer(http.Dir("./webservice/public/static")) // static files real path
 	http.Handle("/static/", http.StripPrefix("/static/", fs))     // static files path
 
+	dataLoader = datasource.MonitoringBase{}
+
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/settings", monitoringManagingHandler)
 	http.HandleFunc("/api/add/", monitorAPI)
-
+	http.HandleFunc("/api/get/", monitoringAPIGetJSON)
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
 }
