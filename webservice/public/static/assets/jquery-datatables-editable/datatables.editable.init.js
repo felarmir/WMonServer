@@ -9,7 +9,22 @@
 	for (var i = 0; i < tableHeader.length - 1; i++) {
 		tableHeadValue.push(tableHeader[i].innerText)
 	}
-//	alert(tableHeaderValue[1])
+
+    var  groupOption = '';
+
+    $.getJSON('http://127.0.0.1:8000/api/get/?name=devicegroup', function (data) {
+        if(data['Result'] == 'OK'){
+            var tmp = data['Records'];
+            var arr = []
+
+            for(var i = 0; i < tmp.length; i++){
+                arr.push('<option value="'+ tmp[i]['ID'] +'">' + tmp[i]['Name'] + '</option>')
+            }
+
+        }
+        groupOption =  '<select class="form-control" name="groupid">' + arr.join('') + '</select>';
+
+    });
 
 
 	var EditableTable = {
@@ -121,23 +136,6 @@
 				data,
 				$row;
 
-
-			var  groupOption = '';
-			$.getJSON('http://127.0.0.1:8000/api/get/?name=devicegroup', function (data) {
-				if(data['Result'] == 'OK'){
-                    var tmp = data['Records'];
-                    groupOption+=' <select class="form-control">'
-
-                    for(var i = 0; i < tmp.length; i++){
-						groupOption+='<option value="'+ tmp[i]['ID'] +'">' + tmp[i]['Name'] + '</option>'
-
-                    }
-                    groupOption+='</select>'
-				}
-            });
-
-
-
 			actions = [
 				'<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>',
 				'<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>',
@@ -154,6 +152,7 @@
                 }
 			}
 			emptyNewRow.push(actions);
+
 			data = this.datatable.row.add(emptyNewRow);
 			$row = this.datatable.row( data[0] ).nodes().to$();
 
@@ -165,6 +164,7 @@
 			this.rowEdit( $row );
 
 			this.datatable.order([0,'asc']).draw(); // always show fields
+
 		},
 
 		rowCancel: function( $row ) {
@@ -197,10 +197,13 @@
 
 			$row.children( 'td' ).each(function( i ) {
 				var $this = $( this );
-
 				if ( $this.hasClass('actions') ) {
 					_self.rowSetActionsEditing( $row );
-				} else {
+				} else if(tableHeadValue.length > i && tableHeadValue[i] == "Groupid"){
+						_self.rowSetActionsEditing( $row )
+				} else if(tableHeadValue.length > i && tableHeadValue[i] == "Active"){
+                    $this.html( '<input type="checkbox" id="checkbox2" name="active">' );
+                } else {
 					$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
 				}
 			});
@@ -226,12 +229,17 @@
 					_self.rowSetActionsDefault( $row );
 					return _self.datatable.cell( this ).data();
 				} else {
-					return $.trim( $this.find('input').val() );
+					var vl = ''
+					if($this.find('select').val()) {
+						vl = $.trim( $this.find('select').val() )
+					} else {
+						vl = $.trim( $this.find('input').val() )
+					}
+					return vl;
 				}
 			});
 			// start add new row
 			if(actionValue === "adding") {
-				alert("Adding data:"+values[0]);
 				var requestStr = "http://127.0.0.1:8000/api/add?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
 
 				for(var i = 0; i < tableHeadValue.length; i ++) {

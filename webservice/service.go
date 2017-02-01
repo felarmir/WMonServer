@@ -45,7 +45,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	pd.ChartScripts = true
 	// widgets
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
-	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "table", "devicegroup").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "etable", "devicegroup").GetWidgetData())
 
 	pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "etable", "netdevice").GetWidgetData())
 
