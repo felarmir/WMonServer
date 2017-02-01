@@ -11,21 +11,23 @@
 	}
 
     var  groupOption = '';
+	var jsonData;
 
-    $.getJSON('http://127.0.0.1:8000/api/get/?name=devicegroup', function (data) {
-        if(data['Result'] == 'OK'){
-            var tmp = data['Records'];
-            var arr = []
+	if($.inArray("Groupid", tableHeadValue)) {
+        $.getJSON('/api/get/?name=devicegroup', function (data) {
+            if (data['Result'] == 'OK') {
+                jsonData = data['Records'];
+                var arr = []
 
-            for(var i = 0; i < tmp.length; i++){
-                arr.push('<option value="'+ tmp[i]['ID'] +'">' + tmp[i]['Name'] + '</option>')
+                for (var i = 0; i < jsonData.length; i++) {
+                    arr.push('<option value="' + jsonData[i]['ID'] + '">' + jsonData[i]['Name'] + '</option>')
+                }
+
             }
+            groupOption = '<select class="form-control" name="groupid">' + arr.join('') + '</select>';
 
-        }
-        groupOption =  '<select class="form-control" name="groupid">' + arr.join('') + '</select>';
-
-    });
-
+        });
+    }
 
 	var EditableTable = {
 
@@ -60,7 +62,15 @@
 		},
 
 		build: function() {
-			this.datatable = this.$table.DataTable()
+			this.datatable = this.$table.DataTable({
+                "columnDefs": [
+                    {
+                        "targets": [ 0 ],
+                        "visible": true,
+                        "searchable": true
+                    }
+                ]
+			});
 			window.dt = this.datatable;
 			return this;
 		},
@@ -196,16 +206,16 @@
 			data = this.datatable.row( $row.get(0) ).data();
 
 			$row.children( 'td' ).each(function( i ) {
-				var $this = $( this );
-				if ( $this.hasClass('actions') ) {
-					_self.rowSetActionsEditing( $row );
-				} else if(tableHeadValue.length > i && tableHeadValue[i] == "Groupid"){
-						_self.rowSetActionsEditing( $row )
-				} else if(tableHeadValue.length > i && tableHeadValue[i] == "Active"){
-                    $this.html( '<input type="checkbox" id="checkbox2" name="active">' );
-                } else {
-					$this.html( '<input type="text" class="form-control input-block" value="' + data[i] + '"/>' );
-				}
+                    var $this = $(this);
+                    if ($this.hasClass('actions')) {
+                        _self.rowSetActionsEditing($row);
+                    } else if (tableHeadValue.length > i && tableHeadValue[i] == "Groupid") {
+                        _self.rowSetActionsEditing($row)
+                    } else if (tableHeadValue.length > i && tableHeadValue[i] == "Active") {
+                        $this.html('<input type="checkbox" id="checkbox2" name="active">');
+                    } else {
+                        $this.html('<input type="text" class="form-control input-block" value="' + data[i] + '"/>');
+                    }
 			});
 		},
 
@@ -240,7 +250,7 @@
 			});
 			// start add new row
 			if(actionValue === "adding") {
-				var requestStr = "http://127.0.0.1:8000/api/add?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
+				var requestStr = "/api/add?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
 
 				for(var i = 0; i < tableHeadValue.length; i ++) {
 					var key = tableHeadValue[i].toLowerCase();
@@ -251,8 +261,21 @@
                     url: requestStr
                 });
  			}
-			//=======
+
+			for(var i = 0; i < jsonData.length; i++)
+			{
+				if($.inArray(jsonData[i]['ID'], values)) {
+					for(var j = 0; j < values.length; j++){
+						if(values[j] == jsonData[i]['ID']){
+							values[j] = jsonData[i]['Name']
+						} else if(values[j] === 'on') {
+							values[j] = 'true'
+						}
+					}
+				}
+			}
 			this.datatable.row( $row.get(0) ).data( values );
+
 
 			$actions = $row.find('td.actions');
 			if ( $actions.get(0) ) {
@@ -266,6 +289,7 @@
 			if ( $row.hasClass('adding') ) {
 				this.$addButton.removeAttr( 'disabled' );
 			}
+			alert($row.find('td')[0].innerHTML)
 
 			this.datatable.row( $row.get(0) ).remove().draw();
 		},

@@ -110,7 +110,7 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 //data is object from stuct
 
 func formGenerator(data interface{}, datatable string) string {
-	frm := "<form class=\"form-horizontal\" action=\"/api/add/\" role=\"form\">"+
+	frm := "<form class=\"form-horizontal\" action=\"/api/add\" role=\"form\">"+
 	"<input type=\"hidden\" name=\"datapath\" value=\""+datatable+"\">"
 
 
@@ -205,8 +205,10 @@ func tableGeneratorWith(data interface{}, datatable string) string {
 	// add table header
 	preF := reflect.TypeOf(data).Elem()
 	for i := 0; i < preF.NumField(); i++ {
-		if preF.Field(i).Name != "ID" {
-			tb = tb + "<th>" + preF.Field(i).Name + "</th>"
+		if preF.Field(i).Name == "ID" {
+			tb += "<th style=\"display:none;\">" + preF.Field(i).Name + "</th>"
+		} else {
+			tb += "<th>" + preF.Field(i).Name + "</th>"
 		}
 	}
 	tb += "<th></th></tr></thead><tbody>"
@@ -225,7 +227,7 @@ func tableGeneratorWith(data interface{}, datatable string) string {
 		tmp := "<tr class=\"gradeX\">"
 		pre := reflect.ValueOf(v)
 		for i := 0; i < pre.NumField(); i++ {
-			if i != 0 {
+
 				var value string
 				if r, ok := pre.Field(i).Interface().(string); ok {
 					value = r
@@ -244,10 +246,16 @@ func tableGeneratorWith(data interface{}, datatable string) string {
 							}
 						}
 					}
+					if preF.Field(i).Name == "ID" {
+						value = r.Hex()
+					}
+				}
+				if i == 0 {
+					tmp = tmp + "<td style=\"display:none;\">" + value + "</td>"
+				} else {
+					tmp = tmp + "<td>" + value + "</td>"
 				}
 
-				tmp = tmp + "<td>" + value + "</td>"
-			}
 		}
 		tb = tb + tmp + "<td class=\"actions\"><a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>"+
 			"<a href=\"#\" class=\"hidden on-editing cancel-row\"><i class=\"fa fa-times\"></i></a>"+
@@ -263,7 +271,15 @@ func editableTableWidgetGenerate(data interface{}, widgetSize int64, widgetTitle
 	editTableWg := "<div class=\"row\"><div class=\"col-sm-"+ strconv.FormatInt(widgetSize, 10) +"\"><h4 class=\"pull-left page-title\">"+ widgetTitle +"</h4></div></div>"+
 		"<div class=\"panel\"><div class=\"panel-body\"> <div class=\"row\"><div class=\"col-sm-6\"><div class=\"m-b-30\">"+
 		"<button id=\"addToTable\" class=\"btn btn-primary waves-effect waves-light\">Add <i class=\"fa fa-plus\"></i></button>"+
-		"</div></div></div>" + tableGeneratorWith(data, datatable) + "</div></div>"
+		"</div></div></div>" + tableGeneratorWith(data, datatable) + "</div></div>"+
+		"<div id=\"dialog\" class=\"modal-block mfp-hide\"><section class=\"panel panel-info panel-color\">"+
+	"<header class=\"panel-heading\"><h2 class=\"panel-title\">Are you sure?</h2></header>"+
+	"<div class=\"panel-body\"><div class=\"modal-wrapper\"><div class=\"modal-text\">"+
+	"<p>Are you sure that you want to delete this row?</p></div></div><div class=\"row m-t-20\">"+
+	"<div class=\"col-md-12 text-right\"><button id=\"dialogConfirm\" class=\"btn btn-primary\">Confirm</button>"+
+	"<button id=\"dialogCancel\" class=\"btn btn-default\">Cancel</button></div></div></div></section></div>"
+
+
 	return template.HTML([]byte(editTableWg))
 }
 
