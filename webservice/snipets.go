@@ -290,21 +290,46 @@ func MenuGenerator(data interface{}) template.HTML {
 		if r, ok := pre.Interface().(datasource.SideMenuList); ok {
 			//
 			if r.ChildNode == nil {
-				menu += "<li><a href=\"#\" class=\"waves-effect active\"><i class=\"md md-home\"></i><span>"+r.MenuTitle+"</span></a></li>" +
-					"<li class=\"has_sub\"><a href=\"#\" class=\"waves-effect\"><i class=\"md md-view-list\">"
+				menu += "<li><a href=\"#\" class=\"waves-effect\"><i class=\"md md-home\"></i><span> "+r.MenuTitle+" </span></a></li>"
 			} else {
-				menu += "<li><a href=\"#\" class=\"waves-effect active\"><i class=\"md md-home\"></i><span>"+r.MenuTitle+"</span></a></li>" +
-					"<ul class=\"list-unstyled\" style=\"\">"
+				menu +=  "<li class=\"has_sub\"> <a href=\"#\" class=\"waves-effect\">"+
+					"<i class=\"md md-mail\"></i><span> "+r.MenuTitle+" </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
+					"<ul class=\"list-unstyled\">"
 				for _, subMenu := range r.ChildNode {
 					menu += "<li><a href=\"/page?id=" + subMenu.Pageid + "\">" + subMenu.MenuTitle + "</a></li>"
 				}
+				menu +="</ul></li>"
 			}
 		}
-		menu +="</ul></li></ul>"
 	}
-	menu += "<div class=\"clearfix\"></div></div>"
+	menu +=""
+	menu += "</ul><div class=\"clearfix\"></div></div>"
 	return template.HTML([]byte(menu))
 }
+
+/*
+
+                  <div id="sidebar-menu">
+                        <ul>
+                            <li><a href="#" class="waves-effect"><i class="md md-home"></i><span> Dashboard </span></a></li>
+
+ "<li class=\"has_sub\"> <a href=\"#\" class=\"waves-effect\">"+
+ "<i class=\"md md-mail\"></i><span> "+r.MenuTitle+" </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
+ "<ul class=\"list-unstyled\">"
+
+
+                                    <li><a href="inbox.html">Inbox</a></li>
+                                    <li><a href="email-compose.html">Compose Mail</a></li>
+                                    <li><a href="email-read.html">View Mail</a></li>
+
+                                </ul>
+                            </li>
+                       </ul>
+                  <div>
+
+
+
+*/
 
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
 	dataSource = datasource.MonitoringBase{}
