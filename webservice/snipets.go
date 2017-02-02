@@ -307,30 +307,6 @@ func MenuGenerator(data interface{}) template.HTML {
 	return template.HTML([]byte(menu))
 }
 
-/*
-
-                  <div id="sidebar-menu">
-                        <ul>
-                            <li><a href="#" class="waves-effect"><i class="md md-home"></i><span> Dashboard </span></a></li>
-
- "<li class=\"has_sub\"> <a href=\"#\" class=\"waves-effect\">"+
- "<i class=\"md md-mail\"></i><span> "+r.MenuTitle+" </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
- "<ul class=\"list-unstyled\">"
-
-
-                                    <li><a href="inbox.html">Inbox</a></li>
-                                    <li><a href="email-compose.html">Compose Mail</a></li>
-                                    <li><a href="email-read.html">View Mail</a></li>
-
-                                </ul>
-                            </li>
-                       </ul>
-                  <div>
-
-
-
-*/
-
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
 	dataSource = datasource.MonitoringBase{}
 
