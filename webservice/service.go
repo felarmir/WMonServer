@@ -101,6 +101,14 @@ func monitoringAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 	writer.Write(jsn)
 }
 
+// Header for Api delete Row
+func monitoringAPIDeleteJSON(writer http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	tableName := req.Form.Get("datapath")
+	rowID := req.Form.Get("rowID")
+	dataLoader.DeleteDataRow(tableName, rowID)
+}
+
 //Handler for  monitoring
 func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
@@ -114,7 +122,7 @@ func monitoringManagingHandler(writer http.ResponseWriter, req *http.Request) {
 	err := page_template.ExecuteTemplate(writer, "layout", nil)
 	webWerror(err, &writer)
 }
-
+// ================== server entry point ===============================
 func WebServer() {
 	fs := http.FileServer(http.Dir("./webservice/public/static")) // static files real path
 	http.Handle("/static/", http.StripPrefix("/static/", fs))     // static files path
@@ -124,8 +132,11 @@ func WebServer() {
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/settings", monitoringManagingHandler)
+
 	http.HandleFunc("/api/add", monitorAPIAdd)
-	http.HandleFunc("/api/get/", monitoringAPIGetJSON)
+	http.HandleFunc("/api/get", monitoringAPIGetJSON)
+	http.HandleFunc("/api/del", monitoringAPIDeleteJSON)
+
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
 }

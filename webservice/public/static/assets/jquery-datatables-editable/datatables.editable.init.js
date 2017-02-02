@@ -14,7 +14,7 @@
 	var jsonData;
 
 	if($.inArray("Groupid", tableHeadValue)) {
-        $.getJSON('/api/get/?name=devicegroup', function (data) {
+        $.getJSON('/api/get?name=devicegroup', function (data) {
             if (data['Result'] == 'OK') {
                 jsonData = data['Records'];
                 var arr = []
@@ -62,15 +62,7 @@
 		},
 
 		build: function() {
-			this.datatable = this.$table.DataTable({
-                "columnDefs": [
-                    {
-                        "targets": [ 0 ],
-                        "visible": true,
-                        "searchable": true
-                    }
-                ]
-			});
+			this.datatable = this.$table.DataTable();
 			window.dt = this.datatable;
 			return this;
 		},
@@ -123,7 +115,7 @@
 				});
 
 			this.$addButton.on( 'click', function(e) {
-				e.preventDefault();
+				//e.preventDefault();
 
 				_self.rowAdd();
 			});
@@ -239,7 +231,7 @@
 					_self.rowSetActionsDefault( $row );
 					return _self.datatable.cell( this ).data();
 				} else {
-					var vl = ''
+					var vl = '';
 					if($this.find('select').val()) {
 						vl = $.trim( $this.find('select').val() )
 					} else {
@@ -289,7 +281,10 @@
 			if ( $row.hasClass('adding') ) {
 				this.$addButton.removeAttr( 'disabled' );
 			}
-			alert($row.find('td')[0].innerHTML)
+
+            var deleteReq = "/api/del?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
+            deleteReq += "&rowID="+ $row.attr('id');
+            $.ajax({ type: 'POST', url: deleteReq });
 
 			this.datatable.row( $row.get(0) ).remove().draw();
 		},

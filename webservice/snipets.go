@@ -205,9 +205,7 @@ func tableGeneratorWith(data interface{}, datatable string) string {
 	// add table header
 	preF := reflect.TypeOf(data).Elem()
 	for i := 0; i < preF.NumField(); i++ {
-		if preF.Field(i).Name == "ID" {
-			tb += "<th style=\"display:none;\">" + preF.Field(i).Name + "</th>"
-		} else {
+		if preF.Field(i).Name != "ID" {
 			tb += "<th>" + preF.Field(i).Name + "</th>"
 		}
 	}
@@ -251,7 +249,7 @@ func tableGeneratorWith(data interface{}, datatable string) string {
 					}
 				}
 				if i == 0 {
-					tmp = tmp + "<td style=\"display:none;\">" + value + "</td>"
+					tmp = "<tr class=\"gradeX\" id=\""+ value +"\">"
 				} else {
 					tmp = tmp + "<td>" + value + "</td>"
 				}

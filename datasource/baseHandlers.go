@@ -42,7 +42,7 @@ func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
 	self.CheckError(err)
 	*data = result
 }
-//devicegroup
+//Load Datat from devicegroup
 func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	var devgroupI []interface{}
 	self.loadData("devicegroup", &devgroupI)
@@ -56,7 +56,7 @@ func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	}
 	return snmptemplate
 }
-//netdev
+//Load Data from netdevice
 func (self *MonitoringBase) LoadNetDevice() []devices.NetDev {
 	var devgroupI []interface{}
 	self.loadData("netdevice", &devgroupI)
@@ -71,11 +71,21 @@ func (self *MonitoringBase) LoadNetDevice() []devices.NetDev {
 	return netDev
 }
 
+// insert Data
 func (self *MonitoringBase) insertData(table string, data interface{}) {
 	session, err := self.sessionStart()
 	self.CheckError(err)
 	c := session.DB(config.Base).C(table)
 	err = c.Insert(&data)
+	self.CheckError(err)
+}
+
+// delete Data
+func (self *MonitoringBase) DeleteDataRow(table string, rowID string) {
+	session, err := self.sessionStart()
+	self.CheckError(err)
+	c := session.DB(config.Base).C(table)
+	err = c.Remove(bson.M{"_id":bson.ObjectIdHex(rowID)})
 	self.CheckError(err)
 }
 
