@@ -201,8 +201,9 @@
                     var $this = $(this);
                     if ($this.hasClass('actions')) {
                         _self.rowSetActionsEditing($row);
-                    } else if (tableHeadValue.length > i && tableHeadValue[i] == "Groupid") {
-                        _self.rowSetActionsEditing($row)
+                    } else if (tableHeadValue.length >= i && tableHeadValue[i] == "Groupid") {
+                       // _self.rowSetActionsEditing($row)
+						$this.html(groupOption);
                     } else if (tableHeadValue.length > i && tableHeadValue[i] == "Active") {
                         $this.html('<input type="checkbox" id="checkbox2" name="active">');
                     } else {
@@ -244,15 +245,28 @@
 			if(actionValue === "adding") {
 				var requestStr = "/api/add?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
 
-				for(var i = 0; i < tableHeadValue.length; i ++) {
+				for(var i = 0; i < tableHeadValue.length; i++) {
 					var key = tableHeadValue[i].toLowerCase();
 					requestStr += "&"+key +"="+ values[i]
                 }
+
 				$.ajax({
                     type: 'POST',
                     url: requestStr
                 });
- 			}
+ 			} else {
+                var updateStr = "/api/update?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
+
+                for(var i = 0; i < tableHeadValue.length; i++ ) {
+                    var key = tableHeadValue[i];
+                    updateStr += "&"+key +"="+ values[i]
+                }
+                updateStr += "&rowID="+ $row.attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: updateStr
+				});
+			}
 
 			for(var i = 0; i < jsonData.length; i++)
 			{

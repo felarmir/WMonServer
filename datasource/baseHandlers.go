@@ -89,6 +89,16 @@ func (self *MonitoringBase) DeleteDataRow(table string, rowID string) {
 	self.CheckError(err)
 }
 
+//update Data
+func (self* MonitoringBase) UpdateDataRow(table string, rowID string, newData bson.M) {
+	session, err := self.sessionStart()
+	self.CheckError(err)
+	c := session.DB(config.Base).C(table)
+	rowIdent := bson.M{"_id":bson.ObjectIdHex(rowID)}
+	err = c.Update(rowIdent, newData)
+	self.CheckError(err)
+}
+
 func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
 	self.insertData("devicegroup", dev_group)

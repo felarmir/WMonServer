@@ -8,9 +8,8 @@ import (
 
 	"../datasource"
 	"encoding/json"
-	//"gopkg.in/mgo.v2/bson"
-	//"fmt"
 	"gopkg.in/mgo.v2/bson"
+
 )
 
 var (
@@ -101,12 +100,27 @@ func monitoringAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 	writer.Write(jsn)
 }
 
-// Header for Api delete Row
-func monitoringAPIDeleteJSON(writer http.ResponseWriter, req *http.Request) {
+// Handler for Api delete Row
+func monitoringAPIDeleteRow(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	tableName := req.Form.Get("datapath")
 	rowID := req.Form.Get("rowID")
 	dataLoader.DeleteDataRow(tableName, rowID)
+}
+
+//Handler for Api Update Row
+func monitoringAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	switch req.Form.Get("datapath") {
+	case "netdevice":
+		activeBool := false
+		if req.Form.Get("Active") == "on" {
+			activeBool = true
+		}
+		dataLoader.UpdateDataRow("netdevice", req.Form.Get("rowID"), bson.M{"name":req.Form.Get("Name"),"located":req.Form.Get("Located"),"ip":req.Form.Get("IP"),"active":activeBool,"groupid":bson.ObjectIdHex(req.Form.Get("Groupid"))})
+	default:
+		log.Println("not faund table ")
+	}
 }
 
 //Handler for  monitoring
@@ -135,7 +149,8 @@ func WebServer() {
 
 	http.HandleFunc("/api/add", monitorAPIAdd)
 	http.HandleFunc("/api/get", monitoringAPIGetJSON)
-	http.HandleFunc("/api/del", monitoringAPIDeleteJSON)
+	http.HandleFunc("/api/del", monitoringAPIDeleteRow)
+	http.HandleFunc("/api/update", monitoringAPIUpdateRow)
 
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)
