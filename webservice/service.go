@@ -18,6 +18,7 @@ var (
 
 var (
 	dataLoader datasource.MonitoringBase
+	pagesList []datasource.Page
 )
 
 func webWerror(err error, res *http.ResponseWriter) {
@@ -33,7 +34,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 
 	data := dataLoader.LoadDeviceGroup()
 
-	devList := dataLoader.LoadNetDevice()
+	//devList := dataLoader.LoadNetDevice()
 
 	wg_factory := new(WidgetListCreat)
 
@@ -42,17 +43,18 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	// page scripts
 	pd.Tablescripts = true
 	pd.ChartScripts = true
+	pd.Menu = MenuGenerator(pagesList) // left menu
 	// widgets
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
-	//pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "etable", "devicegroup").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "etable", "devicegroup").GetWidgetData())
 
-	pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "etable", "netdevice").GetWidgetData())
+	//pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "etable", "netdevice").GetWidgetData())
 
 	err := page_template.ExecuteTemplate(writer, "layout", pd)
 	webWerror(err, &writer)
 }
 
-//Handler monitor API
+//Handler monitor API add
 func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	switch req.Form.Get("datapath") {
@@ -117,7 +119,10 @@ func monitoringAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 		if req.Form.Get("Active") == "on" {
 			activeBool = true
 		}
-		dataLoader.UpdateDataRow("netdevice", req.Form.Get("rowID"), bson.M{"name":req.Form.Get("Name"),"located":req.Form.Get("Located"),"ip":req.Form.Get("IP"),"active":activeBool,"groupid":bson.ObjectIdHex(req.Form.Get("Groupid"))})
+		dataLoader.UpdateDataRow("netdevice", req.Form.Get("rowID"), bson.M{"name":req.Form.Get("name"),"located":req.Form.Get("located"),"ip":req.Form.Get("ip"),"active":activeBool,"groupid":bson.ObjectIdHex(req.Form.Get("groupid"))})
+	case "devicegroup":
+		dataLoader.UpdateDataRow("devicegroup", req.Form.Get("rowID"), bson.M{"name":req.Form.Get("name")})
+
 	default:
 		log.Println("not faund table ")
 	}
@@ -131,21 +136,30 @@ func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
 }
 
 // Handler for settings Section
-func monitoringManagingHandler(writer http.ResponseWriter, req *http.Request) {
+func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
+
+
+
+
 	err := page_template.ExecuteTemplate(writer, "layout", nil)
 	webWerror(err, &writer)
 }
+
+
+
+
 // ================== server entry point ===============================
 func WebServer() {
 	fs := http.FileServer(http.Dir("./webservice/public/static")) // static files real path
 	http.Handle("/static/", http.StripPrefix("/static/", fs))     // static files path
 
 	dataLoader = datasource.MonitoringBase{}
+	pagesList = dataLoader.LoadPagesList()
 
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
-	http.HandleFunc("/settings", monitoringManagingHandler)
+	http.HandleFunc("/page", monitoringPages)
 
 	http.HandleFunc("/api/add", monitorAPIAdd)
 	http.HandleFunc("/api/get", monitoringAPIGetJSON)

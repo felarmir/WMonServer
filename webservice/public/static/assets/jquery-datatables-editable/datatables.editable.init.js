@@ -255,10 +255,11 @@
                     url: requestStr
                 });
  			} else {
+				// update
                 var updateStr = "/api/update?datapath="+document.getElementById('datatable-editable').getAttribute('datasrc');
 
                 for(var i = 0; i < tableHeadValue.length; i++ ) {
-                    var key = tableHeadValue[i];
+                    var key = tableHeadValue[i].toLowerCase();
                     updateStr += "&"+key +"="+ values[i]
                 }
                 updateStr += "&rowID="+ $row.attr('id');

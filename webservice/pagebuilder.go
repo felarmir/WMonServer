@@ -1,6 +1,8 @@
 package webservice
 
-import "html/template"
+import (
+	"html/template"
+)
 
 type PageDataBuilder interface {
 	registerTableWidget(widget template.HTML)
@@ -10,6 +12,7 @@ type PageDataBuilder interface {
 type PageData struct {
 	TableWidget []template.HTML
 	FormWidget []template.HTML
+	Menu template.HTML
 	Tablescripts	bool
 	ChartScripts	bool
 }

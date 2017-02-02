@@ -99,6 +99,35 @@ func (self* MonitoringBase) UpdateDataRow(table string, rowID string, newData bs
 	self.CheckError(err)
 }
 
+// page loader
+func (self* MonitoringBase) LoadPagesList() []Page {
+	var result []interface{}
+	self.loadData("pages", &result)
+	var pages []Page
+	for _, v := range result {
+		var p Page
+		bsonBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsonBytes, &p)
+		pages = append(pages, p)
+	}
+	return pages
+}
+
+
+func (self* MonitoringBase) LoadPage(pageID string) Page  {
+	session, err := self.sessionStart()
+	self.CheckError(err)
+	c := session.DB(config.Base).C("pages")
+	var result interface{}
+	err = c.Find(bson.M{"_id":bson.ObjectIdHex(pageID)}).One(&result)
+	var page Page
+
+	bsonBytes, _ := bson.Marshal(result)
+	bson.Unmarshal(bsonBytes, &page)
+	return page
+}
+
+
 func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
 	self.insertData("devicegroup", dev_group)

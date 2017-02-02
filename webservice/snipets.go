@@ -283,6 +283,33 @@ func editableTableWidgetGenerate(data interface{}, widgetSize int64, widgetTitle
 
 //======================================================================================================================
 
+//menu Generator
+func MenuGenerator(data interface{}) template.HTML {
+	menu := "<div id=\"sidebar-menu\"><ul>"+
+"<li><a href=\"\\\" class=\"waves-effect active\"><i class=\"md md-home\"></i><span> Dashboard </span></a></li>"+
+"<li class=\"has_sub\"><a href=\"#\" class=\"waves-effect\"><i class=\"md md-view-list\">"+
+"</i><span> Data Tables </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
+"<ul class=\"list-unstyled\" style=\"\">"
+
+	dataSlice := reflect.ValueOf(data)
+	if dataSlice.Kind() != reflect.Slice {
+		panic("Data is not a slice")
+	}
+	vdata := make([]interface{}, dataSlice.Len())
+	for i := 0; i < dataSlice.Len(); i++ {
+		vdata[i] = dataSlice.Index(i).Interface()
+	}
+	for _, v := range vdata {
+
+		pre := reflect.ValueOf(v)
+		if r, ok := pre.Interface().(datasource.Page); ok {
+			menu +="<li><a href=\"/page?id="+r.ID.Hex()+"\">"+r.PageName+"</a></li>"
+		}
+	}
+	menu += "</ul></li></ul><div class=\"clearfix\"></div></div>"
+	return template.HTML([]byte(menu))
+}
+
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
 	dataSource = datasource.MonitoringBase{}
 

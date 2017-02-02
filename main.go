@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-
 	go webservice.WebServer() // run web service
 
 	/*base := datasource.MonitoringBase{}
