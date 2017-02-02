@@ -1,7 +1,6 @@
 package webservice
 
 type DashBordSettings struct {
-	DashBordTitle string
+	DashBordTitle   string
 	DashbordWidgets []Widget
 }
-

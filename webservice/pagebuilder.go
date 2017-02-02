@@ -10,11 +10,11 @@ type PageDataBuilder interface {
 }
 
 type PageData struct {
-	TableWidget []template.HTML
-	FormWidget []template.HTML
-	Menu template.HTML
-	Tablescripts	bool
-	ChartScripts	bool
+	TableWidget  []template.HTML
+	FormWidget   []template.HTML
+	Menu         template.HTML
+	Tablescripts bool
+	ChartScripts bool
 }
 
 func (self *PageData) registerTableWidget(widget template.HTML) {

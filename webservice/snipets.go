@@ -1,13 +1,13 @@
 package webservice
 
 import (
+	"../datasource"
+	"gopkg.in/mgo.v2/bson"
 	"html/template"
 	"log"
 	"reflect"
 	"strconv"
 	"strings"
-	"../datasource"
-	"gopkg.in/mgo.v2/bson"
 )
 
 var dataSource datasource.MonitoringBase
@@ -35,7 +35,6 @@ type ReadyWidget struct {
 func (self *ReadyWidget) GetWidgetData() template.HTML {
 	return self.Tabledata
 }
-
 
 //Function for generate table widget. Parsing interface data
 // data from base; tableSize: 3 ... 12
@@ -105,14 +104,12 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 	return template.HTML([]byte(result))
 }
 
-
 // Function for input form generate
 //data is object from stuct
 
 func formGenerator(data interface{}, datatable string) string {
-	frm := "<form class=\"form-horizontal\" action=\"/api/add\" role=\"form\">"+
-	"<input type=\"hidden\" name=\"datapath\" value=\""+datatable+"\">"
-
+	frm := "<form class=\"form-horizontal\" action=\"/api/add\" role=\"form\">" +
+		"<input type=\"hidden\" name=\"datapath\" value=\"" + datatable + "\">"
 
 	dataSlice := reflect.ValueOf(data)
 	//var element interface{}
@@ -128,14 +125,12 @@ func formGenerator(data interface{}, datatable string) string {
 		element = reflect.TypeOf(dataSlice.Index(0).Interface())
 	}
 
-
-
 	preF := element //reflect.TypeOf(data)
 
 	for i := 0; i < preF.NumField(); i++ {
 		if preF.Field(i).Name != "ID" {
 			frm = frm + "<div class=\"form-group\"><label class=\"col-md-2 control-label\">" + preF.Field(i).Name + "</label><div class=\"col-md-10\">" +
-				getFieldType(preF.Field(i).Name) +"</div></div>"
+				getFieldType(preF.Field(i).Name) + "</div></div>"
 		}
 	}
 	frm += "<div class=\"form-group m-b-0\"><div class=\"col-sm-offset-9 col-sm-9\">" +
@@ -143,56 +138,52 @@ func formGenerator(data interface{}, datatable string) string {
 		"</div> </div></form>"
 	return frm
 }
- // field type
+
+// field type
 func getFieldType(ftype string) string {
 	var result string
 
 	dg := dataSource.LoadDeviceGroup()
 	if ftype == "Groupid" {
-		result +="<select class=\"form-control\" name=\""+ strings.ToLower(ftype) +"\">"
+		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
 		for _, v := range dg {
-			result +=  "<option value=\""+ v.ID.Hex() +"\">"+ v.Name +"</option>"
+			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Name + "</option>"
 		}
 		result += "</select>"
 	} else if ftype == "Active" {
-		result = "<input id=\"checkbox2\" name=\""+ strings.ToLower(ftype) +"\" type=\"checkbox\">"
+		result = "<input id=\"checkbox2\" name=\"" + strings.ToLower(ftype) + "\" type=\"checkbox\">"
 	} else {
 		result = "<input type=\"text\" name=\"" + strings.ToLower(ftype) + "\" class=\"form-control\" value=\"\">"
 	}
 
-
 	return result
 }
-
-
-
 
 func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
 	form := "<div class=\"col-md-" + strconv.FormatInt(widgetSize, 10) + "\"><div class=\"panel panel-default\">" +
 		"<div class=\"panel-heading\"><h3 class=\"panel-title\">" + widgetTitle + "</h3></div>" +
 		"<div class=\"panel-body\">"
 
-	form +=formGenerator(data, datatable)
+	form += formGenerator(data, datatable)
 
 	form += "</div></div></div>"
 	return template.HTML([]byte(form))
 }
 
-
 func tableWithFormWG(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
-	mwin := "<div id=\"modal" + strings.ToLower(strings.Replace(widgetTitle, " ", "", -1))  + "\" class=\"modal fade\" role=\"dialog\">"+
-	"<div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\">"+
-	"<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>"+
-	"<h4 class=\"modal-title\"> Add " + widgetTitle + "</h4></div><div class=\"modal-body\">"
+	mwin := "<div id=\"modal" + strings.ToLower(strings.Replace(widgetTitle, " ", "", -1)) + "\" class=\"modal fade\" role=\"dialog\">" +
+		"<div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\">" +
+		"<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>" +
+		"<h4 class=\"modal-title\"> Add " + widgetTitle + "</h4></div><div class=\"modal-body\">"
 
 	mwin += formGenerator(data, datatable)
 
 	mwin += "</div></div></div></div>"
 
-	twin := "<div class=\"col-md-"+ strconv.FormatInt(widgetSize, 10) +"\"><div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 class=\"panel-title\">"+widgetTitle+"</h3>"+
-	"<button type=\"button\" class=\"btn btn-default waves-effect m-b-6\" data-toggle=\"modal\" data-target=\"#modal" + strings.ToLower(strings.Replace(widgetTitle, " ", "", -1))  + "\">Add Data</button>"+
-	"</div><div class=\"panel-body\"><div class=\"row\"><div class=\"col-md-12 col-sm-12 col-xs-12\">"
-	twin +=tableGenerator(data)
+	twin := "<div class=\"col-md-" + strconv.FormatInt(widgetSize, 10) + "\"><div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 class=\"panel-title\">" + widgetTitle + "</h3>" +
+		"<button type=\"button\" class=\"btn btn-default waves-effect m-b-6\" data-toggle=\"modal\" data-target=\"#modal" + strings.ToLower(strings.Replace(widgetTitle, " ", "", -1)) + "\">Add Data</button>" +
+		"</div><div class=\"panel-body\"><div class=\"row\"><div class=\"col-md-12 col-sm-12 col-xs-12\">"
+	twin += tableGenerator(data)
 	twin += "</div></div></div></div></div>"
 	return template.HTML([]byte(mwin + twin))
 }
@@ -200,7 +191,7 @@ func tableWithFormWG(data interface{}, widgetSize int64, widgetTitle string, dat
 //======================================================================================================================
 // Generate table
 func tableGeneratorWith(data interface{}, datatable string) string {
-	tb := "<table datasrc=\""+datatable+"\" class=\"table table-bordered table-striped\" id=\"datatable-editable\"><thead><tr>"
+	tb := "<table datasrc=\"" + datatable + "\" class=\"table table-bordered table-striped\" id=\"datatable-editable\"><thead><tr>"
 
 	// add table header
 	preF := reflect.TypeOf(data).Elem()
@@ -226,70 +217,64 @@ func tableGeneratorWith(data interface{}, datatable string) string {
 		pre := reflect.ValueOf(v)
 		for i := 0; i < pre.NumField(); i++ {
 
-				var value string
-				if r, ok := pre.Field(i).Interface().(string); ok {
-					value = r
-				}
-				if r, ok := pre.Field(i).Interface().(int64); ok {
-					value = strconv.FormatInt(r, 10)
-				}
-				if r, ok := pre.Field(i).Interface().(bool); ok {
-					value = strconv.FormatBool(r)
-				}
-				if r, ok := pre.Field(i).Interface().(bson.ObjectId); ok {
-					if preF.Field(i).Name == "Groupid" {
-						for _, rowS := range dataSource.LoadDeviceGroup() {
-							if rowS.ID == r {
-								value = rowS.Name
-							}
+			var value string
+			if r, ok := pre.Field(i).Interface().(string); ok {
+				value = r
+			}
+			if r, ok := pre.Field(i).Interface().(int64); ok {
+				value = strconv.FormatInt(r, 10)
+			}
+			if r, ok := pre.Field(i).Interface().(bool); ok {
+				value = strconv.FormatBool(r)
+			}
+			if r, ok := pre.Field(i).Interface().(bson.ObjectId); ok {
+				if preF.Field(i).Name == "Groupid" {
+					for _, rowS := range dataSource.LoadDeviceGroup() {
+						if rowS.ID == r {
+							value = rowS.Name
 						}
 					}
-					if preF.Field(i).Name == "ID" {
-						value = r.Hex()
-					}
 				}
-				if i == 0 {
-					tmp = "<tr class=\"gradeX\" id=\""+ value +"\">"
-				} else {
-					tmp = tmp + "<td>" + value + "</td>"
+				if preF.Field(i).Name == "ID" {
+					value = r.Hex()
 				}
+			}
+			if i == 0 {
+				tmp = "<tr class=\"gradeX\" id=\"" + value + "\">"
+			} else {
+				tmp = tmp + "<td>" + value + "</td>"
+			}
 
 		}
-		tb = tb + tmp + "<td class=\"actions\"><a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>"+
-			"<a href=\"#\" class=\"hidden on-editing cancel-row\"><i class=\"fa fa-times\"></i></a>"+
-			"<a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>"+
+		tb = tb + tmp + "<td class=\"actions\"><a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>" +
+			"<a href=\"#\" class=\"hidden on-editing cancel-row\"><i class=\"fa fa-times\"></i></a>" +
+			"<a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>" +
 			"<a href=\"#\" class=\"on-default remove-row\"><i class=\"fa fa-trash-o\"></i></a></td></tr>"
 	}
 	tb += "</tbody></table>"
 	return tb
 }
 
-//Generate Table Widget for editale table
+//Generate Table Widget Editale Table
 func editableTableWidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
-	editTableWg := "<div class=\"row\"><div class=\"col-sm-"+ strconv.FormatInt(widgetSize, 10) +"\"><h4 class=\"pull-left page-title\">"+ widgetTitle +"</h4></div></div>"+
-		"<div class=\"panel\"><div class=\"panel-body\"> <div class=\"row\"><div class=\"col-sm-6\"><div class=\"m-b-30\">"+
-		"<button id=\"addToTable\" class=\"btn btn-primary waves-effect waves-light\">Add <i class=\"fa fa-plus\"></i></button>"+
-		"</div></div></div>" + tableGeneratorWith(data, datatable) + "</div></div>"+
-		"<div id=\"dialog\" class=\"modal-block mfp-hide\"><section class=\"panel panel-info panel-color\">"+
-	"<header class=\"panel-heading\"><h2 class=\"panel-title\">Are you sure?</h2></header>"+
-	"<div class=\"panel-body\"><div class=\"modal-wrapper\"><div class=\"modal-text\">"+
-	"<p>Are you sure that you want to delete this row?</p></div></div><div class=\"row m-t-20\">"+
-	"<div class=\"col-md-12 text-right\"><button id=\"dialogConfirm\" class=\"btn btn-primary\">Confirm</button>"+
-	"<button id=\"dialogCancel\" class=\"btn btn-default\">Cancel</button></div></div></div></section></div>"
-
+	editTableWg := "<div class=\"col-sm-" + strconv.FormatInt(widgetSize, 10) + "\"><div class=\"row\"><h4 class=\"pull-left page-title\">" + widgetTitle + "</h4></div>" +
+		"<div class=\"panel\"><div class=\"panel-body\"> <div class=\"row\"><div class=\"col-sm-6\"><div class=\"m-b-30\">" +
+		"<button id=\"addToTable\" class=\"btn btn-primary waves-effect waves-light\">Add <i class=\"fa fa-plus\"></i></button>" +
+		"</div></div></div>" + tableGeneratorWith(data, datatable) + "</div></div></div>" +
+		"<div id=\"dialog\" class=\"modal-block mfp-hide\"><section class=\"panel panel-info panel-color\">" +
+		"<header class=\"panel-heading\"><h2 class=\"panel-title\">Are you sure?</h2></header>" +
+		"<div class=\"panel-body\"><div class=\"modal-wrapper\"><div class=\"modal-text\">" +
+		"<p>Are you sure that you want to delete this row?</p></div></div><div class=\"row m-t-20\">" +
+		"<div class=\"col-md-12 text-right\"><button id=\"dialogConfirm\" class=\"btn btn-primary\">Confirm</button>" +
+		"<button id=\"dialogCancel\" class=\"btn btn-default\">Cancel</button></div></div></div></section></div>"
 
 	return template.HTML([]byte(editTableWg))
 }
 
 //======================================================================================================================
-
-//menu Generator
+//Left Side bar Menu Generator
 func MenuGenerator(data interface{}) template.HTML {
-	menu := "<div id=\"sidebar-menu\"><ul>"+
-"<li><a href=\"\\\" class=\"waves-effect active\"><i class=\"md md-home\"></i><span> Dashboard </span></a></li>"+
-"<li class=\"has_sub\"><a href=\"#\" class=\"waves-effect\"><i class=\"md md-view-list\">"+
-"</i><span> Data Tables </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
-"<ul class=\"list-unstyled\" style=\"\">"
+	menu := "<div id=\"sidebar-menu\"><ul>"
 
 	dataSlice := reflect.ValueOf(data)
 	if dataSlice.Kind() != reflect.Slice {
@@ -302,11 +287,22 @@ func MenuGenerator(data interface{}) template.HTML {
 	for _, v := range vdata {
 
 		pre := reflect.ValueOf(v)
-		if r, ok := pre.Interface().(datasource.Page); ok {
-			menu +="<li><a href=\"/page?id="+r.ID.Hex()+"\">"+r.PageName+"</a></li>"
+		if r, ok := pre.Interface().(datasource.SideMenuList); ok {
+			//
+			if r.ChildNode == nil {
+				menu += "<li><a href=\"#\" class=\"waves-effect active\"><i class=\"md md-home\"></i><span>"+r.MenuTitle+"</span></a></li>" +
+					"<li class=\"has_sub\"><a href=\"#\" class=\"waves-effect\"><i class=\"md md-view-list\">"
+			} else {
+				menu += "<li><a href=\"#\" class=\"waves-effect active\"><i class=\"md md-home\"></i><span>"+r.MenuTitle+"</span></a></li>" +
+					"<ul class=\"list-unstyled\" style=\"\">"
+				for _, subMenu := range r.ChildNode {
+					menu += "<li><a href=\"/page?id=" + subMenu.Pageid + "\">" + subMenu.MenuTitle + "</a></li>"
+				}
+			}
 		}
+		menu +="</ul></li></ul>"
 	}
-	menu += "</ul></li></ul><div class=\"clearfix\"></div></div>"
+	menu += "<div class=\"clearfix\"></div></div>"
 	return template.HTML([]byte(menu))
 }
 
@@ -321,9 +317,9 @@ func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, 
 	case "tablein":
 		wg = &ReadyWidget{tableWithFormWG(data, widgetSize, widgetTitle, datatable)}
 	case "form":
-		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle,datatable)}
+		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle, datatable)}
 	case "etable":
-		wg = &ReadyWidget{editableTableWidgetGenerate(data, widgetSize, widgetTitle,datatable)}
+		wg = &ReadyWidget{editableTableWidgetGenerate(data, widgetSize, widgetTitle, datatable)}
 	default:
 		log.Fatalln("Unknown Error")
 	}

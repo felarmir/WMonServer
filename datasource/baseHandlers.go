@@ -12,25 +12,25 @@ var (
 	config handlers.Config
 )
 
+// munction for check error
 func (self *MonitoringBase) CheckError(err error) {
 	if err != nil {
 		fmt.Println(err)
 	}
 }
 
-func (self *MonitoringBase) connectSession(user string, pass string, host string, port string) (*mgo.Session, error) {
-	if len(port) == 0 {
-		port = "27017"
+// function for start session with mongodb server
+func (self *MonitoringBase) sessionStart() (*mgo.Session, error) {
+	config = handlers.GetConfigData() // load config
+
+	if len(config.Port) == 0 {
+		config.Port = "27017"
 	}
-	url := "mongodb://" + user + ":" + pass + "@" + host + ":" + port
+	url := "mongodb://" + config.Login + ":" + config.Password + "@" + config.Ip + ":" + config.Port
 	return mgo.Dial(url)
 }
 
-func (self *MonitoringBase) sessionStart() (*mgo.Session, error) {
-	config = handlers.GetConfigData() // load config
-	return self.connectSession(config.Login, config.Password, config.Ip, config.Port)
-}
-
+// Load data by table name and return intrface
 func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
 	session, err := self.sessionStart()
 	self.CheckError(err)
@@ -42,7 +42,8 @@ func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
 	self.CheckError(err)
 	*data = result
 }
-//Load Datat from devicegroup
+
+//Load Datat from devicegroup and cacting interface to struct DeviceGroup array
 func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	var devgroupI []interface{}
 	self.loadData("devicegroup", &devgroupI)
@@ -56,14 +57,15 @@ func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	}
 	return snmptemplate
 }
-//Load Data from netdevice
-func (self *MonitoringBase) LoadNetDevice() []devices.NetDev {
+
+//Load Data from netdevice table and casting interface to NetDev struct
+func (self *MonitoringBase) LoadNetDevice() []devices.NetDevice {
 	var devgroupI []interface{}
 	self.loadData("netdevice", &devgroupI)
-	var netDev []devices.NetDev
+	var netDev []devices.NetDevice
 
 	for _, v := range devgroupI {
-		var st devices.NetDev
+		var st devices.NetDevice
 		bsonBytes, _ := bson.Marshal(v)
 		bson.Unmarshal(bsonBytes, &st)
 		netDev = append(netDev, st)
@@ -71,7 +73,7 @@ func (self *MonitoringBase) LoadNetDevice() []devices.NetDev {
 	return netDev
 }
 
-// insert Data
+// Insert interface Data to table
 func (self *MonitoringBase) insertData(table string, data interface{}) {
 	session, err := self.sessionStart()
 	self.CheckError(err)
@@ -80,27 +82,27 @@ func (self *MonitoringBase) insertData(table string, data interface{}) {
 	self.CheckError(err)
 }
 
-// delete Data
+// Delete Data Row in table by rowID
 func (self *MonitoringBase) DeleteDataRow(table string, rowID string) {
 	session, err := self.sessionStart()
 	self.CheckError(err)
 	c := session.DB(config.Base).C(table)
-	err = c.Remove(bson.M{"_id":bson.ObjectIdHex(rowID)})
+	err = c.Remove(bson.M{"_id": bson.ObjectIdHex(rowID)})
 	self.CheckError(err)
 }
 
-//update Data
-func (self* MonitoringBase) UpdateDataRow(table string, rowID string, newData bson.M) {
+//Update Data Row in table by ID
+func (self *MonitoringBase) UpdateDataRow(table string, rowID string, newData bson.M) {
 	session, err := self.sessionStart()
 	self.CheckError(err)
 	c := session.DB(config.Base).C(table)
-	rowIdent := bson.M{"_id":bson.ObjectIdHex(rowID)}
+	rowIdent := bson.M{"_id": bson.ObjectIdHex(rowID)}
 	err = c.Update(rowIdent, newData)
 	self.CheckError(err)
 }
 
-// page loader
-func (self* MonitoringBase) LoadPagesList() []Page {
+// Page Data loader and casting to Page Array
+func (self *MonitoringBase) LoadPagesList() []Page {
 	var result []interface{}
 	self.loadData("pages", &result)
 	var pages []Page
@@ -113,13 +115,13 @@ func (self* MonitoringBase) LoadPagesList() []Page {
 	return pages
 }
 
-
-func (self* MonitoringBase) LoadPage(pageID string) Page  {
+// Load Single Page Data by Page ID
+func (self *MonitoringBase) LoadPage(pageID string) Page {
 	session, err := self.sessionStart()
 	self.CheckError(err)
 	c := session.DB(config.Base).C("pages")
 	var result interface{}
-	err = c.Find(bson.M{"_id":bson.ObjectIdHex(pageID)}).One(&result)
+	err = c.Find(bson.M{"_id": bson.ObjectIdHex(pageID)}).One(&result)
 	var page Page
 
 	bsonBytes, _ := bson.Marshal(result)
@@ -127,17 +129,34 @@ func (self* MonitoringBase) LoadPage(pageID string) Page  {
 	return page
 }
 
+//Load menu. Load data and cast interface to SideMenuList
+func (self *MonitoringBase) MenuList() []SideMenuList {
+	var result []interface{}
+	self.loadData("menu", &result)
+	var menu []SideMenuList
 
+	for _, v := range result{
+		var tmp SideMenuList
+		bsonBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsonBytes, &tmp)
+		menu = append(menu, tmp)
+	}
+	return menu
+}
+
+// Write Device Group list
 func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
 	self.insertData("devicegroup", dev_group)
 }
 
+// Write Network device list
 func (self *MonitoringBase) WriteNetDev(name string, locate string, ip string, active bool, groupid bson.ObjectId) {
-	net_dev := devices.NetDev{bson.NewObjectId(), name, locate, ip, active, groupid}
+	net_dev := devices.NetDevice{bson.NewObjectId(), name, locate, ip, active, groupid}
 	self.insertData("netdevice", net_dev)
 }
 
+// Write OID List
 func (self *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
 	oid_list := devices.OidList{bson.NewObjectId(), name, oid, groupid, repeat}
 	self.insertData("oidlist", oid_list)

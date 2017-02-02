@@ -9,7 +9,6 @@ import (
 	"../datasource"
 	"encoding/json"
 	"gopkg.in/mgo.v2/bson"
-
 )
 
 var (
@@ -18,7 +17,6 @@ var (
 
 var (
 	dataLoader datasource.MonitoringBase
-	pagesList []datasource.Page
 )
 
 func webWerror(err error, res *http.ResponseWriter) {
@@ -43,7 +41,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	// page scripts
 	pd.Tablescripts = true
 	pd.ChartScripts = true
-	pd.Menu = MenuGenerator(pagesList) // left menu
+	pd.Menu = MenuGenerator(dataLoader.MenuList()) // left menu
 	// widgets
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "etable", "devicegroup").GetWidgetData())
@@ -119,9 +117,9 @@ func monitoringAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 		if req.Form.Get("Active") == "on" {
 			activeBool = true
 		}
-		dataLoader.UpdateDataRow("netdevice", req.Form.Get("rowID"), bson.M{"name":req.Form.Get("name"),"located":req.Form.Get("located"),"ip":req.Form.Get("ip"),"active":activeBool,"groupid":bson.ObjectIdHex(req.Form.Get("groupid"))})
+		dataLoader.UpdateDataRow("netdevice", req.Form.Get("rowID"), bson.M{"name": req.Form.Get("name"), "located": req.Form.Get("located"), "ip": req.Form.Get("ip"), "active": activeBool, "groupid": bson.ObjectIdHex(req.Form.Get("groupid"))})
 	case "devicegroup":
-		dataLoader.UpdateDataRow("devicegroup", req.Form.Get("rowID"), bson.M{"name":req.Form.Get("name")})
+		dataLoader.UpdateDataRow("devicegroup", req.Form.Get("rowID"), bson.M{"name": req.Form.Get("name")})
 
 	default:
 		log.Println("not faund table ")
@@ -139,15 +137,9 @@ func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
 func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 
-
-
-
 	err := page_template.ExecuteTemplate(writer, "layout", nil)
 	webWerror(err, &writer)
 }
-
-
-
 
 // ================== server entry point ===============================
 func WebServer() {
@@ -155,7 +147,6 @@ func WebServer() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs))     // static files path
 
 	dataLoader = datasource.MonitoringBase{}
-	pagesList = dataLoader.LoadPagesList()
 
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)

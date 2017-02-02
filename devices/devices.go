@@ -9,7 +9,7 @@ type DeviceGroup struct {
 	Name string        `bson:"name"`
 }
 
-type NetDev struct {
+type NetDevice struct {
 	ID      bson.ObjectId `bson:"_id,omitempty"`
 	Name    string        `bson:"name"`
 	Located string        `bson:"located"`
