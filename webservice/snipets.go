@@ -284,28 +284,42 @@ func MenuGenerator(data interface{}) template.HTML {
 	for i := 0; i < dataSlice.Len(); i++ {
 		vdata[i] = dataSlice.Index(i).Interface()
 	}
+	childMenu := dataLoader.ChildMenuList()
+
 	for _, v := range vdata {
 
 		pre := reflect.ValueOf(v)
-		if r, ok := pre.Interface().(datasource.SideMenuList); ok {
+		if r, ok := pre.Interface().(datasource.MenuGroups); ok {
 			//
-			if r.ChildNode == nil {
-				menu += "<li><a href=\"#\" class=\"waves-effect\"><i class=\"md md-home\"></i><span> "+r.MenuTitle+" </span></a></li>"
+			childs := checkContinueValueChild(childMenu, r.ID)
+			if  len(childs) == 0 {
+				menu += "<li><a href=\"#\" class=\"waves-effect\"><i class=\"md md-home\"></i><span> "+r.Title+" </span></a></li>"
 			} else {
 				menu +=  "<li class=\"has_sub\"> <a href=\"#\" class=\"waves-effect\">"+
-					"<i class=\"md md-mail\"></i><span> "+r.MenuTitle+" </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
+					"<i class=\"md md-mail\"></i><span> "+r.Title+" </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
 					"<ul class=\"list-unstyled\">"
-				for _, subMenu := range r.ChildNode {
-					menu += "<li><a href=\"/page?id=" + subMenu.Pageid + "\">" + subMenu.MenuTitle + "</a></li>"
+				for _, subMenu := range childs {
+					menu += "<li><a href=\"/page?id=" + subMenu.PageID + "\">" + subMenu.Title + "</a></li>"
 				}
 				menu +="</ul></li>"
 			}
 		}
 	}
-	menu +=""
+	menu +="<li><a href=\"settings\" class=\"waves-effect\"><i class=\"md  md-settings\"></i><span> Settings </span></a></li>"
 	menu += "</ul><div class=\"clearfix\"></div></div>"
 	return template.HTML([]byte(menu))
 }
+
+func checkContinueValueChild(v1 []datasource.ChildMenu, value bson.ObjectId) []datasource.ChildMenu {
+	var childObjects []datasource.ChildMenu
+	for _, v := range v1 {
+		if v.ParentID == value.Hex() {
+			childObjects = append(childObjects, v)
+		}
+	}
+	return childObjects
+}
+
 
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
 	dataSource = datasource.MonitoringBase{}

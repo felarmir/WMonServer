@@ -41,7 +41,7 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	// page scripts
 	pd.Tablescripts = true
 	pd.ChartScripts = true
-	pd.Menu = MenuGenerator(dataLoader.MenuList()) // left menu
+	pd.Menu = MenuGenerator(dataLoader.MenuGroupsList()) // left menu
 	// widgets
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
 	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "etable", "devicegroup").GetWidgetData())
@@ -68,6 +68,12 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 			active = false
 		}
 		dataLoader.WriteNetDev(req.Form.Get("name"), req.Form.Get("located"), req.Form.Get("ip"), active, bson.ObjectIdHex(req.Form.Get("groupid")))
+	case "menugroup":
+		dataLoader.WriteMenuGroupList(req.Form.Get("title"), req.Form.Get("pageid"), "menugroup")
+	case "pages":
+		dataLoader.WriteMonitoringPage(req.Form.Get("name"), req.Form.Get("widget"), req.Form.Get("data"), "pages")
+	case "childmenu":
+		dataLoader.WriteChildMenu(req.Form.Get("title"), req.Form.Get("parentid"), req.Form.Get("pageid"), "childmenu")
 
 	default:
 		log.Panicln("Undefine table")
@@ -133,13 +139,33 @@ func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
 	webWerror(err, &writer)
 }
 
-// Handler for settings Section
+// Handler for Page generator Section
 func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 
 	err := page_template.ExecuteTemplate(writer, "layout", nil)
 	webWerror(err, &writer)
 }
+
+// handler for settings
+func monitoringSettings(writer http.ResponseWriter, req *http.Request){
+	writer.Header().Set("Content-Type", "text/html")
+
+	settingPage := PageData{}
+	settingPage.ChartScripts = false
+	settingPage.Tablescripts = true
+	settingPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
+
+	wg_factory := new(WidgetListCreat)
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.MenuGroupsList(), 12, "Menu group", "tablein", "menugroup").GetWidgetData())
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.LoadMonitoringPages(), 12, "Pages", "tablein", "pages").GetWidgetData())
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.ChildMenuList(), 12, "Child Menu", "tablein", "childmenu").GetWidgetData())
+
+
+	err := page_template.ExecuteTemplate(writer, "layout", settingPage)
+	webWerror(err, &writer)
+}
+
 
 // ================== server entry point ===============================
 func WebServer() {
@@ -151,6 +177,8 @@ func WebServer() {
 	http.HandleFunc("/", monitorIndexHandler)
 	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/page", monitoringPages)
+
+	http.HandleFunc("/settings", monitoringSettings)
 
 	http.HandleFunc("/api/add", monitorAPIAdd)
 	http.HandleFunc("/api/get", monitoringAPIGetJSON)

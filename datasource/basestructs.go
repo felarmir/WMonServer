@@ -2,15 +2,22 @@ package datasource
 
 import "gopkg.in/mgo.v2/bson"
 
-type Page struct {
-	ID       bson.ObjectId `bson:"_id"`
-	PageName string        `bson:"pname"`
-	WGname   string        `bson:""wgname`
+type MonitoringPages struct {
+	ID     bson.ObjectId `bson:"_id"`
+	Name   string        `bson:"name"`
+	Widget string        `bson:"widget"`
+	Data   string        `bson:"data"`
 }
 
-type SideMenuList struct {
-	ID        bson.ObjectId  `bson:"_id"`
-	MenuTitle string         `bson:"menutitle"`
-	Pageid    string         `bson:"pageid"`
-	ChildNode []SideMenuList `bson:"childnode"`
+type MenuGroups struct {
+	ID     bson.ObjectId `bson:"_id"`
+	Title  string        `bson:"menutitle"`
+	Pageid string        `bson:"pageid"`
+}
+
+type ChildMenu struct {
+	ID       bson.ObjectId `bson:"_id"`
+	Title    string        `bson:"menutitle"`
+	ParentID string        `bson:"parentid"`
+	PageID   string        `bson:"pageid"`
 }

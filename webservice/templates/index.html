@@ -136,7 +136,9 @@
                             {{range .FormWidget}}
                                 {{ .}}
                             {{end}}
-                       
+
+
+                    {{if .ChartScripts}}
                         <!-- Charts -->
 
                             <div class="col-lg-6">
@@ -208,7 +210,7 @@
                             </div>
 
                         <!-- End Charts -->
-
+                    {{end}}
 
 
 

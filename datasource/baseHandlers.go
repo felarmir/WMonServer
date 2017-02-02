@@ -102,12 +102,12 @@ func (self *MonitoringBase) UpdateDataRow(table string, rowID string, newData bs
 }
 
 // Page Data loader and casting to Page Array
-func (self *MonitoringBase) LoadPagesList() []Page {
+func (self *MonitoringBase) LoadMonitoringPages() []MonitoringPages {
 	var result []interface{}
 	self.loadData("pages", &result)
-	var pages []Page
+	var pages []MonitoringPages
 	for _, v := range result {
-		var p Page
+		var p MonitoringPages
 		bsonBytes, _ := bson.Marshal(v)
 		bson.Unmarshal(bsonBytes, &p)
 		pages = append(pages, p)
@@ -116,33 +116,47 @@ func (self *MonitoringBase) LoadPagesList() []Page {
 }
 
 // Load Single Page Data by Page ID
-func (self *MonitoringBase) LoadPage(pageID string) Page {
+func (self *MonitoringBase) LoadMonitoringPage(pageID string) MonitoringPages {
 	session, err := self.sessionStart()
 	self.CheckError(err)
 	c := session.DB(config.Base).C("pages")
 	var result interface{}
 	err = c.Find(bson.M{"_id": bson.ObjectIdHex(pageID)}).One(&result)
-	var page Page
+	var page MonitoringPages
 
 	bsonBytes, _ := bson.Marshal(result)
 	bson.Unmarshal(bsonBytes, &page)
 	return page
 }
 
-//Load menu. Load data and cast interface to SideMenuList
-func (self *MonitoringBase) MenuList() []SideMenuList {
+//Load menu. Load data and cast interface to MenuGroups
+func (self *MonitoringBase) MenuGroupsList() []MenuGroups {
 	var result []interface{}
-	self.loadData("menu", &result)
-	var menu []SideMenuList
+	self.loadData("menugroup", &result)
+	var menu []MenuGroups
 
 	for _, v := range result{
-		var tmp SideMenuList
+		var tmp MenuGroups
 		bsonBytes, _ := bson.Marshal(v)
 		bson.Unmarshal(bsonBytes, &tmp)
 		menu = append(menu, tmp)
 	}
 	return menu
 }
+
+func (self *MonitoringBase) ChildMenuList() []ChildMenu {
+	var result []interface{}
+	self.loadData("childmenu", &result)
+	var child []ChildMenu
+	for _, v := range result {
+		var tmp ChildMenu
+		bsBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsBytes, &tmp)
+		child = append(child, tmp)
+	}
+	return child
+}
+
 
 // Write Device Group list
 func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
@@ -160,4 +174,20 @@ func (self *MonitoringBase) WriteNetDev(name string, locate string, ip string, a
 func (self *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
 	oid_list := devices.OidList{bson.NewObjectId(), name, oid, groupid, repeat}
 	self.insertData("oidlist", oid_list)
+}
+
+// Write Menu Group
+func (self *MonitoringBase) WriteMenuGroupList(menuTitle string, pageid string, table string) {
+	menuGroup := MenuGroups{bson.NewObjectId(), menuTitle, pageid}
+	self.insertData(table, menuGroup)
+}
+
+func (self *MonitoringBase) WriteMonitoringPage(pageName string, pageWg string, pageTable string, table string) {
+	page := MonitoringPages{bson.NewObjectId(), pageName, pageWg, pageTable}
+	self.insertData(table, page)
+}
+
+func (self *MonitoringBase) WriteChildMenu(title string, parent string, pageid string, table string) {
+	child := ChildMenu{bson.NewObjectId(), title, parent, pageid}
+	self.insertData(table, child)
 }
