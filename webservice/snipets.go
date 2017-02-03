@@ -144,32 +144,47 @@ func formGenerator(data interface{}, datatable string) string {
 func getFieldType(ftype string) string {
 	var result string
 
-	if ftype == "Groupid" {
-		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
+	//<select>
+	selectStart := func(selectName string) string {
+		return "<select class=\"form-control\" name=\"" + selectName + "\">"
+	}
+	// <option>
+	optionRow := func(dataValue string, dataName string) string {
+		return "<option value=\"" + dataValue + "\">" + dataName + "</option>"
+	}
+
+	switch ftype {
+	case "Groupid":
+		result += selectStart(strings.ToLower(ftype))
 		for _, v := range dataSource.LoadDeviceGroup() {
-			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Name + "</option>"
+			result += optionRow(v.ID.Hex(), v.Name)
 		}
 		result += "</select>"
-	} else if ftype == "MenuGroupID" {
-		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
+
+	case "MenuGroupID":
+		result += selectStart(strings.ToLower(ftype))
 		for _, v := range dataSource.MenuGroupsList() {
-			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Title + "</option>"
+			result += optionRow(v.ID.Hex(), v.Title)
 		}
 		result += "</select>"
-	} else if ftype == "MonitoringPagesID" {
-		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
+
+	case "MonitoringPagesID":
+		result += selectStart(strings.ToLower(ftype))
 		for _, v := range dataSource.LoadMonitoringPages() {
-			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Name + "</option>"
+			result += optionRow(v.ID.Hex(), v.Name)
 		}
 		result += "</select>"
-	} else if ftype == "Active" {
+
+	case "Active":
 		result = "<input id=\"checkbox2\" name=\"" + strings.ToLower(ftype) + "\" type=\"checkbox\">"
-	} else {
+
+	default:
 		result = "<input type=\"text\" name=\"" + strings.ToLower(ftype) + "\" class=\"form-control\" value=\"\">"
 	}
 
 	return result
 }
+
 
 func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
 	form := "<div class=\"col-md-" + strconv.FormatInt(widgetSize, 10) + "\"><div class=\"panel panel-default\">" +
