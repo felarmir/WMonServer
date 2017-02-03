@@ -132,6 +132,7 @@ func formGenerator(data interface{}, datatable string) string {
 			frm = frm + "<div class=\"form-group\"><label class=\"col-md-2 control-label\">" + preF.Field(i).Name + "</label><div class=\"col-md-10\">" +
 				getFieldType(preF.Field(i).Name) + "</div></div>"
 		}
+
 	}
 	frm += "<div class=\"form-group m-b-0\"><div class=\"col-sm-offset-9 col-sm-9\">" +
 		"<button type=\"submit\" class=\"btn btn-info waves-effect waves-light\">Submit</button>" +
@@ -139,14 +140,25 @@ func formGenerator(data interface{}, datatable string) string {
 	return frm
 }
 
-// field type
+// Generate Field by struct row
 func getFieldType(ftype string) string {
 	var result string
 
-	dg := dataSource.LoadDeviceGroup()
 	if ftype == "Groupid" {
 		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
-		for _, v := range dg {
+		for _, v := range dataSource.LoadDeviceGroup() {
+			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Name + "</option>"
+		}
+		result += "</select>"
+	} else if ftype == "MenuGroupID" {
+		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
+		for _, v := range dataSource.MenuGroupsList() {
+			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Title + "</option>"
+		}
+		result += "</select>"
+	} else if ftype == "MonitoringPagesID" {
+		result += "<select class=\"form-control\" name=\"" + strings.ToLower(ftype) + "\">"
+		for _, v := range dataSource.LoadMonitoringPages() {
 			result += "<option value=\"" + v.ID.Hex() + "\">" + v.Name + "</option>"
 		}
 		result += "</select>"
@@ -292,20 +304,20 @@ func MenuGenerator(data interface{}) template.HTML {
 		if r, ok := pre.Interface().(datasource.MenuGroups); ok {
 			//
 			childs := checkContinueValueChild(childMenu, r.ID)
-			if  len(childs) == 0 {
-				menu += "<li><a href=\"#\" class=\"waves-effect\"><i class=\"md md-home\"></i><span> "+r.Title+" </span></a></li>"
+			if len(childs) == 0 {
+				menu += "<li><a href=\"#\" class=\"waves-effect\"><i class=\"md md-home\"></i><span> " + r.Title + " </span></a></li>"
 			} else {
-				menu +=  "<li class=\"has_sub\"> <a href=\"#\" class=\"waves-effect\">"+
-					"<i class=\"md md-mail\"></i><span> "+r.Title+" </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>"+
+				menu += "<li class=\"has_sub\"> <a href=\"#\" class=\"waves-effect\">" +
+					"<i class=\"md md-mail\"></i><span> " + r.Title + " </span><span class=\"pull-right\"><i class=\"md md-add\"></i></span></a>" +
 					"<ul class=\"list-unstyled\">"
 				for _, subMenu := range childs {
-					menu += "<li><a href=\"/page?id=" + subMenu.PageID + "\">" + subMenu.Title + "</a></li>"
+					menu += "<li><a href=\"/page?id=" + subMenu.MonitoringPagesID + "\">" + subMenu.Title + "</a></li>"
 				}
-				menu +="</ul></li>"
+				menu += "</ul></li>"
 			}
 		}
 	}
-	menu +="<li><a href=\"settings\" class=\"waves-effect\"><i class=\"md  md-settings\"></i><span> Settings </span></a></li>"
+	menu += "<li><a href=\"settings\" class=\"waves-effect\"><i class=\"md  md-settings\"></i><span> Settings </span></a></li>"
 	menu += "</ul><div class=\"clearfix\"></div></div>"
 	return template.HTML([]byte(menu))
 }
@@ -313,13 +325,12 @@ func MenuGenerator(data interface{}) template.HTML {
 func checkContinueValueChild(v1 []datasource.ChildMenu, value bson.ObjectId) []datasource.ChildMenu {
 	var childObjects []datasource.ChildMenu
 	for _, v := range v1 {
-		if v.ParentID == value.Hex() {
+		if v.MenuGroupID == value.Hex() {
 			childObjects = append(childObjects, v)
 		}
 	}
 	return childObjects
 }
-
 
 func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
 	dataSource = datasource.MonitoringBase{}

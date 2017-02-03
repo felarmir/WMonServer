@@ -83,7 +83,7 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 }
 
 // Header for Api get json
-func monitoringAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
+func monitorAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 
 	var dataForJSON interface{}
@@ -107,7 +107,7 @@ func monitoringAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 }
 
 // Handler for Api delete Row
-func monitoringAPIDeleteRow(writer http.ResponseWriter, req *http.Request) {
+func monitorAPIDeleteRow(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	tableName := req.Form.Get("datapath")
 	rowID := req.Form.Get("rowID")
@@ -115,7 +115,7 @@ func monitoringAPIDeleteRow(writer http.ResponseWriter, req *http.Request) {
 }
 
 //Handler for Api Update Row
-func monitoringAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
+func monitorAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	switch req.Form.Get("datapath") {
 	case "netdevice":
@@ -132,13 +132,6 @@ func monitoringAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 	}
 }
 
-//Handler for  monitoring
-func monitorMonitorHandler(writer http.ResponseWriter, req *http.Request) {
-	writer.Header().Set("Content-Type", "text/html")
-	err := page_template.ExecuteTemplate(writer, "layout", nil)
-	webWerror(err, &writer)
-}
-
 // Handler for Page generator Section
 func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
@@ -148,7 +141,7 @@ func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 }
 
 // handler for settings
-func monitoringSettings(writer http.ResponseWriter, req *http.Request){
+func monitorSettings(writer http.ResponseWriter, req *http.Request){
 	writer.Header().Set("Content-Type", "text/html")
 
 	settingPage := PageData{}
@@ -175,15 +168,14 @@ func WebServer() {
 	dataLoader = datasource.MonitoringBase{}
 
 	http.HandleFunc("/", monitorIndexHandler)
-	http.HandleFunc("/monitor", monitorMonitorHandler)
 	http.HandleFunc("/page", monitoringPages)
 
-	http.HandleFunc("/settings", monitoringSettings)
+	http.HandleFunc("/settings", monitorSettings)
 
 	http.HandleFunc("/api/add", monitorAPIAdd)
-	http.HandleFunc("/api/get", monitoringAPIGetJSON)
-	http.HandleFunc("/api/del", monitoringAPIDeleteRow)
-	http.HandleFunc("/api/update", monitoringAPIUpdateRow)
+	http.HandleFunc("/api/get", monitorAPIGetJSON)
+	http.HandleFunc("/api/del", monitorAPIDeleteRow)
+	http.HandleFunc("/api/update", monitorAPIUpdateRow)
 
 	log.Println("Server start ...")
 	http.ListenAndServe(":8000", nil)

@@ -13,7 +13,7 @@ var (
 )
 
 // munction for check error
-func (self *MonitoringBase) CheckError(err error) {
+func (self *MonitoringBase) checkError(err error) {
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -33,14 +33,23 @@ func (self *MonitoringBase) sessionStart() (*mgo.Session, error) {
 // Load data by table name and return intrface
 func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
 	session, err := self.sessionStart()
-	self.CheckError(err)
+	self.checkError(err)
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
 	c := session.DB(config.Base).C(table)
 	var result []interface{}
 	err = c.Find(bson.M{}).All(&result)
-	self.CheckError(err)
+	self.checkError(err)
 	*data = result
+}
+
+// Insert interface Data to table
+func (self *MonitoringBase) insertData(table string, data interface{}) {
+	session, err := self.sessionStart()
+	self.checkError(err)
+	c := session.DB(config.Base).C(table)
+	err = c.Insert(&data)
+	self.checkError(err)
 }
 
 //Load Datat from devicegroup and cacting interface to struct DeviceGroup array
@@ -73,32 +82,23 @@ func (self *MonitoringBase) LoadNetDevice() []devices.NetDevice {
 	return netDev
 }
 
-// Insert interface Data to table
-func (self *MonitoringBase) insertData(table string, data interface{}) {
-	session, err := self.sessionStart()
-	self.CheckError(err)
-	c := session.DB(config.Base).C(table)
-	err = c.Insert(&data)
-	self.CheckError(err)
-}
-
 // Delete Data Row in table by rowID
 func (self *MonitoringBase) DeleteDataRow(table string, rowID string) {
 	session, err := self.sessionStart()
-	self.CheckError(err)
+	self.checkError(err)
 	c := session.DB(config.Base).C(table)
 	err = c.Remove(bson.M{"_id": bson.ObjectIdHex(rowID)})
-	self.CheckError(err)
+	self.checkError(err)
 }
 
 //Update Data Row in table by ID
 func (self *MonitoringBase) UpdateDataRow(table string, rowID string, newData bson.M) {
 	session, err := self.sessionStart()
-	self.CheckError(err)
+	self.checkError(err)
 	c := session.DB(config.Base).C(table)
 	rowIdent := bson.M{"_id": bson.ObjectIdHex(rowID)}
 	err = c.Update(rowIdent, newData)
-	self.CheckError(err)
+	self.checkError(err)
 }
 
 // Page Data loader and casting to Page Array
@@ -118,7 +118,7 @@ func (self *MonitoringBase) LoadMonitoringPages() []MonitoringPages {
 // Load Single Page Data by Page ID
 func (self *MonitoringBase) LoadMonitoringPage(pageID string) MonitoringPages {
 	session, err := self.sessionStart()
-	self.CheckError(err)
+	self.checkError(err)
 	c := session.DB(config.Base).C("pages")
 	var result interface{}
 	err = c.Find(bson.M{"_id": bson.ObjectIdHex(pageID)}).One(&result)

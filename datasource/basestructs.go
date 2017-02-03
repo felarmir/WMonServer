@@ -10,14 +10,14 @@ type MonitoringPages struct {
 }
 
 type MenuGroups struct {
-	ID     bson.ObjectId `bson:"_id"`
-	Title  string        `bson:"menutitle"`
-	Pageid string        `bson:"pageid"`
+	ID                bson.ObjectId `bson:"_id"`
+	Title             string        `bson:"menutitle"`
+	MonitoringPagesID string        `bson:"pageid"`
 }
 
 type ChildMenu struct {
-	ID       bson.ObjectId `bson:"_id"`
-	Title    string        `bson:"menutitle"`
-	ParentID string        `bson:"parentid"`
-	PageID   string        `bson:"pageid"`
+	ID                bson.ObjectId `bson:"_id"`
+	Title             string        `bson:"menutitle"`
+	MenuGroupID       string        `bson:"menugroupid"`
+	MonitoringPagesID string        `bson:"pageid"`
 }
