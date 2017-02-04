@@ -353,13 +353,13 @@ func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, 
 	var wg Widget
 
 	switch widgetType {
-	case "table":
+	case BASIC_TABLE:
 		wg = &ReadyWidget{tableWidgetGenerator(data, widgetSize, widgetTitle)}
-	case "tablein":
+	case TABLE_WITH_FORM:
 		wg = &ReadyWidget{tableWithFormWG(data, widgetSize, widgetTitle, datatable)}
-	case "form":
+	case FORM_WIDGET:
 		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle, datatable)}
-	case "etable":
+	case EDITABLE_TABLE:
 		wg = &ReadyWidget{editableTableWidgetGenerate(data, widgetSize, widgetTitle, datatable)}
 	default:
 		log.Fatalln("Unknown Error")

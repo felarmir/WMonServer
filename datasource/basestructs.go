@@ -2,6 +2,7 @@ package datasource
 
 import "gopkg.in/mgo.v2/bson"
 
+
 type MonitoringPages struct {
 	ID     bson.ObjectId `bson:"_id"`
 	Name   string        `bson:"name"`
@@ -20,4 +21,11 @@ type ChildMenu struct {
 	Title             string        `bson:"menutitle"`
 	MenuGroupID       string        `bson:"menugroupid"`
 	MonitoringPagesID string        `bson:"pageid"`
+}
+
+type Widget struct {
+	ID bson.ObjectId
+	Name string
+	DataTableName string
+	WidgetType string
 }

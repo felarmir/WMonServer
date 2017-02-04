@@ -43,8 +43,8 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	pd.ChartScripts = true
 	pd.Menu = MenuGenerator(dataLoader.MenuGroupsList()) // left menu
 	// widgets
-	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", "tablein", "devicegroup").GetWidgetData())
-	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", "etable", "devicegroup").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group", TABLE_WITH_FORM, "devicegroup").GetWidgetData())
+	pd.registerTableWidget(wg_factory.WidgetGenerate(data, 6, "Device group2", EDITABLE_TABLE, "devicegroup").GetWidgetData())
 
 	//pd.registerTableWidget(wg_factory.WidgetGenerate(devList, 12, "Device List", "etable", "netdevice").GetWidgetData())
 
@@ -56,11 +56,11 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	switch req.Form.Get("datapath") {
-	case "devicegroup":
+	case datasource.DEVICE_GROUP_DBTABLE:
 		if len(req.Form.Get("name")) != 0 {
 			dataLoader.WriteDeviceGroup(req.Form.Get("name"))
 		}
-	case "netdevice":
+	case datasource.NET_DEVICE_DBTABLE:
 		var active bool
 		if req.Form.Get("active") == "on" {
 			active = true
@@ -68,12 +68,12 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 			active = false
 		}
 		dataLoader.WriteNetDev(req.Form.Get("name"), req.Form.Get("located"), req.Form.Get("ip"), active, bson.ObjectIdHex(req.Form.Get("groupid")))
-	case "menugroup":
-		dataLoader.WriteMenuGroupList(req.Form.Get("title"), req.Form.Get("pageid"), "menugroup")
-	case "pages":
-		dataLoader.WriteMonitoringPage(req.Form.Get("name"), req.Form.Get("widget"), req.Form.Get("data"), "pages")
-	case "childmenu":
-		dataLoader.WriteChildMenu(req.Form.Get("title"), req.Form.Get("parentid"), req.Form.Get("pageid"), "childmenu")
+	case datasource.MENU_GROUP_DBTABLE:
+		dataLoader.WriteMenuGroupList(req.Form.Get("title"), req.Form.Get("pageid"))
+	case datasource.MONITORING_PAGES_DBTABLE:
+		dataLoader.WriteMonitoringPage(req.Form.Get("name"), req.Form.Get("widget"), req.Form.Get("data"))
+	case datasource.CHULD_MENU_DBTABLE:
+		dataLoader.WriteChildMenu(req.Form.Get("title"), req.Form.Get("parentid"), req.Form.Get("pageid"))
 
 	default:
 		log.Panicln("Undefine table")
@@ -89,9 +89,9 @@ func monitorAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 	var dataForJSON interface{}
 
 	switch req.Form.Get("name") {
-	case "devicegroup":
+	case datasource.DEVICE_GROUP_DBTABLE:
 		dataForJSON = dataLoader.LoadDeviceGroup()
-	case "netdevice":
+	case datasource.NET_DEVICE_DBTABLE:
 		dataForJSON = dataLoader.LoadNetDevice()
 	default:
 		log.Println("Error load Data")
@@ -118,14 +118,14 @@ func monitorAPIDeleteRow(writer http.ResponseWriter, req *http.Request) {
 func monitorAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	switch req.Form.Get("datapath") {
-	case "netdevice":
+	case datasource.NET_DEVICE_DBTABLE:
 		activeBool := false
 		if req.Form.Get("Active") == "on" {
 			activeBool = true
 		}
-		dataLoader.UpdateDataRow("netdevice", req.Form.Get("rowID"), bson.M{"name": req.Form.Get("name"), "located": req.Form.Get("located"), "ip": req.Form.Get("ip"), "active": activeBool, "groupid": bson.ObjectIdHex(req.Form.Get("groupid"))})
-	case "devicegroup":
-		dataLoader.UpdateDataRow("devicegroup", req.Form.Get("rowID"), bson.M{"name": req.Form.Get("name")})
+		dataLoader.UpdateDataRow(datasource.NET_DEVICE_DBTABLE, req.Form.Get("rowID"), bson.M{"name": req.Form.Get("name"), "located": req.Form.Get("located"), "ip": req.Form.Get("ip"), "active": activeBool, "groupid": bson.ObjectIdHex(req.Form.Get("groupid"))})
+	case datasource.DEVICE_GROUP_DBTABLE:
+		dataLoader.UpdateDataRow(datasource.DEVICE_GROUP_DBTABLE, req.Form.Get("rowID"), bson.M{"name": req.Form.Get("name")})
 
 	default:
 		log.Println("not faund table ")
@@ -150,9 +150,9 @@ func monitorSettings(writer http.ResponseWriter, req *http.Request){
 	settingPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
 
 	wg_factory := new(WidgetListCreat)
-	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.MenuGroupsList(), 12, "Menu group", "tablein", "menugroup").GetWidgetData())
-	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.LoadMonitoringPages(), 12, "Pages", "tablein", "pages").GetWidgetData())
-	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.ChildMenuList(), 12, "Child Menu", "tablein", "childmenu").GetWidgetData())
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.MenuGroupsList(), 12, "Menu group", TABLE_WITH_FORM, datasource.MENU_GROUP_DBTABLE).GetWidgetData())
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.LoadMonitoringPages(), 12, "Pages", TABLE_WITH_FORM, datasource.MONITORING_PAGES_DBTABLE).GetWidgetData())
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.ChildMenuList(), 12, "Child Menu", TABLE_WITH_FORM, datasource.CHULD_MENU_DBTABLE).GetWidgetData())
 
 
 	err := page_template.ExecuteTemplate(writer, "layout", settingPage)
