@@ -1,9 +1,10 @@
 package datasource
 
 import (
+	"fmt"
+
 	"../devices"
 	"../handlers"
-	"fmt"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -135,7 +136,7 @@ func (self *MonitoringBase) MenuGroupsList() []MenuGroups {
 	self.loadData(MENU_GROUP_DBTABLE, &result)
 	var menu []MenuGroups
 
-	for _, v := range result{
+	for _, v := range result {
 		var tmp MenuGroups
 		bsonBytes, _ := bson.Marshal(v)
 		bson.Unmarshal(bsonBytes, &tmp)
@@ -157,6 +158,19 @@ func (self *MonitoringBase) ChildMenuList() []ChildMenu {
 	return child
 }
 
+// load widget list
+func (self *MonitoringBase) LoadWidgetList() []Widget {
+	var result []interface{}
+	self.loadData(WIDGET_LIST, &result)
+	var wigets []Widget
+	for _, v := range result {
+		var tmp Widget
+		bsBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsBytes, &tmp)
+		wigets = append(wigets, tmp)
+	}
+	return wigets
+}
 
 // Write Device Group list
 func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
@@ -182,12 +196,29 @@ func (self *MonitoringBase) WriteMenuGroupList(menuTitle string, pageid string) 
 	self.insertData(MENU_GROUP_DBTABLE, menuGroup)
 }
 
+// write monitoring page
 func (self *MonitoringBase) WriteMonitoringPage(pageName string, pageWg string, pageTable string) {
 	page := MonitoringPages{bson.NewObjectId(), pageName, pageWg, pageTable}
 	self.insertData(MONITORING_PAGES_DBTABLE, page)
 }
 
+// write child menu
 func (self *MonitoringBase) WriteChildMenu(title string, parent string, pageid string) {
 	child := ChildMenu{bson.NewObjectId(), title, parent, pageid}
 	self.insertData(CHULD_MENU_DBTABLE, child)
 }
+
+// write widget
+func (self *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, wgtype string) {
+	wg := Widget{bson.NewObjectId(), wgname, wgtableName, wgtype}
+	self.insertData(WIDGET_LIST, wg)
+}
+
+/*
+type Widget struct {
+	ID            bson.ObjectId `bson:"_id"`
+	Name          string        `bson:"name"`
+	DataTableName string        `bson:"datatablename"`
+	WidgetType    string        `bson:"widgettype"`
+}
+*/

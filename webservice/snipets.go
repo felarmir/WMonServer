@@ -1,13 +1,14 @@
 package webservice
 
 import (
-	"../datasource"
-	"gopkg.in/mgo.v2/bson"
 	"html/template"
 	"log"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"../datasource"
+	"gopkg.in/mgo.v2/bson"
 )
 
 var dataSource datasource.MonitoringBase
@@ -175,6 +176,13 @@ func getFieldType(ftype string) string {
 		}
 		result += "</select>"
 
+	case "WidgetID":
+		result += selectStart(strings.ToLower(ftype))
+		for _, v := range dataSource.LoadWidgetList() {
+			result += optionRow(v.ID.Hex(), v.Name)
+		}
+		result += "</select>"
+
 	case "Active":
 		result = "<input id=\"checkbox2\" name=\"" + strings.ToLower(ftype) + "\" type=\"checkbox\">"
 
@@ -184,7 +192,6 @@ func getFieldType(ftype string) string {
 
 	return result
 }
-
 
 func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
 	form := "<div class=\"col-md-" + strconv.FormatInt(widgetSize, 10) + "\"><div class=\"panel panel-default\">" +

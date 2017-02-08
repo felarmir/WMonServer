@@ -2,12 +2,11 @@ package datasource
 
 import "gopkg.in/mgo.v2/bson"
 
-
 type MonitoringPages struct {
-	ID     bson.ObjectId `bson:"_id"`
-	Name   string        `bson:"name"`
-	Widget string        `bson:"widget"`
-	Data   string        `bson:"data"`
+	ID       bson.ObjectId `bson:"_id"`
+	Name     string        `bson:"name"`
+	WidgetID string        `bson:"widget"`
+	Data     string        `bson:"data"`
 }
 
 type MenuGroups struct {
@@ -24,8 +23,8 @@ type ChildMenu struct {
 }
 
 type Widget struct {
-	ID bson.ObjectId
-	Name string
-	DataTableName string
-	WidgetType string
+	ID            bson.ObjectId `bson:"_id"`
+	Name          string        `bson:"name"`
+	DataTableName string        `bson:"datatablename"`
+	WidgetType    string        `bson:"widgettype"`
 }

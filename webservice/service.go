@@ -6,8 +6,9 @@ import (
 	"net/http"
 	"path"
 
-	"../datasource"
 	"encoding/json"
+
+	"../datasource"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -141,7 +142,7 @@ func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 }
 
 // handler for settings
-func monitorSettings(writer http.ResponseWriter, req *http.Request){
+func monitorSettings(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 
 	settingPage := PageData{}
@@ -153,12 +154,11 @@ func monitorSettings(writer http.ResponseWriter, req *http.Request){
 	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.MenuGroupsList(), 12, "Menu group", TABLE_WITH_FORM, datasource.MENU_GROUP_DBTABLE).GetWidgetData())
 	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.LoadMonitoringPages(), 12, "Pages", TABLE_WITH_FORM, datasource.MONITORING_PAGES_DBTABLE).GetWidgetData())
 	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.ChildMenuList(), 12, "Child Menu", TABLE_WITH_FORM, datasource.CHULD_MENU_DBTABLE).GetWidgetData())
-
+	settingPage.registerTableWidget(wg_factory.WidgetGenerate(dataLoader.LoadWidgetList(), 12, "Widget List", TABLE_WITH_FORM, datasource.WIDGET_LIST).GetWidgetData())
 
 	err := page_template.ExecuteTemplate(writer, "layout", settingPage)
 	webWerror(err, &writer)
 }
-
 
 // ================== server entry point ===============================
 func WebServer() {
