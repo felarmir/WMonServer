@@ -25,16 +25,16 @@ type WidgetListCreat struct {
 	widgetArray []*Widget
 }
 
-func (self *WidgetListCreat) registerWidget(widget Widget) {
-	self.widgetArray = append(self.widgetArray, &widget)
+func (wlc *WidgetListCreat) registerWidget(widget Widget) {
+	wlc.widgetArray = append(wlc.widgetArray, &widget)
 }
 
 type ReadyWidget struct {
 	Tabledata template.HTML
 }
 
-func (self *ReadyWidget) GetWidgetData() template.HTML {
-	return self.Tabledata
+func (rwg *ReadyWidget) GetWidgetData() template.HTML {
+	return rwg.Tabledata
 }
 
 //Function for generate table widget. Parsing interface data
@@ -162,6 +162,13 @@ func getFieldType(ftype string) string {
 		}
 		result += "</select>"
 
+	case "WidgetType":
+		result += selectStart(strings.ToLower(ftype))
+		for k, v := range WidgetTypeMap() {
+			//result += optionRow(v.key, v.value)
+			result += optionRow(strconv.FormatInt(int64(k), 10), v)
+		}
+		result += "</select>"
 	case "MenuGroupID":
 		result += selectStart(strings.ToLower(ftype))
 		for _, v := range dataSource.MenuGroupsList() {
@@ -360,13 +367,13 @@ func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, 
 	var wg Widget
 
 	switch widgetType {
-	case BASIC_TABLE:
+	case BasicTable:
 		wg = &ReadyWidget{tableWidgetGenerator(data, widgetSize, widgetTitle)}
-	case TABLE_WITH_FORM:
+	case TableWithForm:
 		wg = &ReadyWidget{tableWithFormWG(data, widgetSize, widgetTitle, datatable)}
-	case FORM_WIDGET:
+	case FormWidget:
 		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle, datatable)}
-	case EDITABLE_TABLE:
+	case EditbleTable:
 		wg = &ReadyWidget{editableTableWidgetGenerate(data, widgetSize, widgetTitle, datatable)}
 	default:
 		log.Fatalln("Unknown Error")

@@ -14,14 +14,14 @@ var (
 )
 
 // munction for check error
-func (self *MonitoringBase) checkError(err error) {
+func (mb *MonitoringBase) checkError(err error) {
 	if err != nil {
 		fmt.Println(err)
 	}
 }
 
 // function for start session with mongodb server
-func (self *MonitoringBase) sessionStart() (*mgo.Session, error) {
+func (mb *MonitoringBase) sessionStart() (*mgo.Session, error) {
 	config = handlers.GetConfigData() // load config
 
 	if len(config.Port) == 0 {
@@ -32,31 +32,31 @@ func (self *MonitoringBase) sessionStart() (*mgo.Session, error) {
 }
 
 // Load data by table name and return intrface
-func (self *MonitoringBase) loadData(table string, data *[]interface{}) {
-	session, err := self.sessionStart()
-	self.checkError(err)
+func (mb *MonitoringBase) loadData(table string, data *[]interface{}) {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
 	c := session.DB(config.Base).C(table)
 	var result []interface{}
 	err = c.Find(bson.M{}).All(&result)
-	self.checkError(err)
+	mb.checkError(err)
 	*data = result
 }
 
 // Insert interface Data to table
-func (self *MonitoringBase) insertData(table string, data interface{}) {
-	session, err := self.sessionStart()
-	self.checkError(err)
+func (mb *MonitoringBase) insertData(table string, data interface{}) {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
 	c := session.DB(config.Base).C(table)
 	err = c.Insert(&data)
-	self.checkError(err)
+	mb.checkError(err)
 }
 
 //Load Datat from devicegroup and cacting interface to struct DeviceGroup array
-func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
+func (mb *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 	var devgroupI []interface{}
-	self.loadData(DEVICE_GROUP_DBTABLE, &devgroupI)
+	mb.loadData(DeviceGroupDBTable, &devgroupI)
 	var snmptemplate []devices.DeviceGroup
 
 	for _, v := range devgroupI {
@@ -69,9 +69,9 @@ func (self *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 }
 
 //Load Data from netdevice table and casting interface to NetDev struct
-func (self *MonitoringBase) LoadNetDevice() []devices.NetDevice {
+func (mb *MonitoringBase) LoadNetDevice() []devices.NetDevice {
 	var devgroupI []interface{}
-	self.loadData(NET_DEVICE_DBTABLE, &devgroupI)
+	mb.loadData(NetDeviceDBTable, &devgroupI)
 	var netDev []devices.NetDevice
 
 	for _, v := range devgroupI {
@@ -84,28 +84,28 @@ func (self *MonitoringBase) LoadNetDevice() []devices.NetDevice {
 }
 
 // Delete Data Row in table by rowID
-func (self *MonitoringBase) DeleteDataRow(table string, rowID string) {
-	session, err := self.sessionStart()
-	self.checkError(err)
+func (mb *MonitoringBase) DeleteDataRow(table string, rowID string) {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
 	c := session.DB(config.Base).C(table)
 	err = c.Remove(bson.M{"_id": bson.ObjectIdHex(rowID)})
-	self.checkError(err)
+	mb.checkError(err)
 }
 
 //Update Data Row in table by ID
-func (self *MonitoringBase) UpdateDataRow(table string, rowID string, newData bson.M) {
-	session, err := self.sessionStart()
-	self.checkError(err)
+func (mb *MonitoringBase) UpdateDataRow(table string, rowID string, newData bson.M) {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
 	c := session.DB(config.Base).C(table)
 	rowIdent := bson.M{"_id": bson.ObjectIdHex(rowID)}
 	err = c.Update(rowIdent, newData)
-	self.checkError(err)
+	mb.checkError(err)
 }
 
 // Page Data loader and casting to Page Array
-func (self *MonitoringBase) LoadMonitoringPages() []MonitoringPages {
+func (mb *MonitoringBase) LoadMonitoringPages() []MonitoringPages {
 	var result []interface{}
-	self.loadData(MONITORING_PAGES_DBTABLE, &result)
+	mb.loadData(MonitorinPagesDBTable, &result)
 	var pages []MonitoringPages
 	for _, v := range result {
 		var p MonitoringPages
@@ -117,10 +117,10 @@ func (self *MonitoringBase) LoadMonitoringPages() []MonitoringPages {
 }
 
 // Load Single Page Data by Page ID
-func (self *MonitoringBase) LoadMonitoringPage(pageID string) MonitoringPages {
-	session, err := self.sessionStart()
-	self.checkError(err)
-	c := session.DB(config.Base).C(MONITORING_PAGES_DBTABLE)
+func (mb *MonitoringBase) LoadMonitoringPage(pageID string) MonitoringPages {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
+	c := session.DB(config.Base).C(MonitorinPagesDBTable)
 	var result interface{}
 	err = c.Find(bson.M{"_id": bson.ObjectIdHex(pageID)}).One(&result)
 	var page MonitoringPages
@@ -131,9 +131,9 @@ func (self *MonitoringBase) LoadMonitoringPage(pageID string) MonitoringPages {
 }
 
 //Load menu. Load data and cast interface to MenuGroups
-func (self *MonitoringBase) MenuGroupsList() []MenuGroups {
+func (mb *MonitoringBase) MenuGroupsList() []MenuGroups {
 	var result []interface{}
-	self.loadData(MENU_GROUP_DBTABLE, &result)
+	mb.loadData(MenuGroupDBTable, &result)
 	var menu []MenuGroups
 
 	for _, v := range result {
@@ -145,9 +145,9 @@ func (self *MonitoringBase) MenuGroupsList() []MenuGroups {
 	return menu
 }
 
-func (self *MonitoringBase) ChildMenuList() []ChildMenu {
+func (mb *MonitoringBase) ChildMenuList() []ChildMenu {
 	var result []interface{}
-	self.loadData(CHULD_MENU_DBTABLE, &result)
+	mb.loadData(ChildMenuDBTable, &result)
 	var child []ChildMenu
 	for _, v := range result {
 		var tmp ChildMenu
@@ -159,9 +159,9 @@ func (self *MonitoringBase) ChildMenuList() []ChildMenu {
 }
 
 // load widget list
-func (self *MonitoringBase) LoadWidgetList() []Widget {
+func (mb *MonitoringBase) LoadWidgetList() []Widget {
 	var result []interface{}
-	self.loadData(WIDGET_LIST, &result)
+	mb.loadData(WidgetListDBTable, &result)
 	var wigets []Widget
 	for _, v := range result {
 		var tmp Widget
@@ -173,52 +173,43 @@ func (self *MonitoringBase) LoadWidgetList() []Widget {
 }
 
 // Write Device Group list
-func (self *MonitoringBase) WriteDeviceGroup(deviceName string) {
+func (mb *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
-	self.insertData(DEVICE_GROUP_DBTABLE, dev_group)
+	mb.insertData(DeviceGroupDBTable, dev_group)
 }
 
 // Write Network device list
-func (self *MonitoringBase) WriteNetDev(name string, locate string, ip string, active bool, groupid bson.ObjectId) {
+func (mb *MonitoringBase) WriteNetDev(name string, locate string, ip string, active bool, groupid bson.ObjectId) {
 	net_dev := devices.NetDevice{bson.NewObjectId(), name, locate, ip, active, groupid}
-	self.insertData(NET_DEVICE_DBTABLE, net_dev)
+	mb.insertData(NetDeviceDBTable, net_dev)
 }
 
 // Write OID List
-func (self *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
+func (mb *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
 	oid_list := devices.OidList{bson.NewObjectId(), name, oid, groupid, repeat}
-	self.insertData(OID_LIST_DBTABLE, oid_list)
+	mb.insertData(OidListDBTable, oid_list)
 }
 
 // Write Menu Group
-func (self *MonitoringBase) WriteMenuGroupList(menuTitle string, pageid string) {
+func (mb *MonitoringBase) WriteMenuGroupList(menuTitle string, pageid string) {
 	menuGroup := MenuGroups{bson.NewObjectId(), menuTitle, pageid}
-	self.insertData(MENU_GROUP_DBTABLE, menuGroup)
+	mb.insertData(MenuGroupDBTable, menuGroup)
 }
 
 // write monitoring page
-func (self *MonitoringBase) WriteMonitoringPage(pageName string, pageWg string, pageTable string) {
+func (mb *MonitoringBase) WriteMonitoringPage(pageName string, pageWg string, pageTable string) {
 	page := MonitoringPages{bson.NewObjectId(), pageName, pageWg, pageTable}
-	self.insertData(MONITORING_PAGES_DBTABLE, page)
+	mb.insertData(MonitorinPagesDBTable, page)
 }
 
 // write child menu
-func (self *MonitoringBase) WriteChildMenu(title string, parent string, pageid string) {
+func (mb *MonitoringBase) WriteChildMenu(title string, parent string, pageid string) {
 	child := ChildMenu{bson.NewObjectId(), title, parent, pageid}
-	self.insertData(CHULD_MENU_DBTABLE, child)
+	mb.insertData(ChildMenuDBTable, child)
 }
 
 // write widget
-func (self *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, wgtype string) {
+func (mb *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, wgtype string) {
 	wg := Widget{bson.NewObjectId(), wgname, wgtableName, wgtype}
-	self.insertData(WIDGET_LIST, wg)
+	mb.insertData(WidgetListDBTable, wg)
 }
-
-/*
-type Widget struct {
-	ID            bson.ObjectId `bson:"_id"`
-	Name          string        `bson:"name"`
-	DataTableName string        `bson:"datatablename"`
-	WidgetType    string        `bson:"widgettype"`
-}
-*/
