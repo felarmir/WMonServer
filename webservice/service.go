@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"path"
+	"strconv"
 
 	"encoding/json"
 
@@ -61,6 +62,7 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 		if len(req.Form.Get("name")) != 0 {
 			dataLoader.WriteDeviceGroup(req.Form.Get("name"))
 		}
+
 	case datasource.NetDeviceDBTable:
 		var active bool
 		if req.Form.Get("active") == "on" {
@@ -69,13 +71,20 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 			active = false
 		}
 		dataLoader.WriteNetDev(req.Form.Get("name"), req.Form.Get("located"), req.Form.Get("ip"), active, bson.ObjectIdHex(req.Form.Get("groupid")))
-	case datasource.MenuGroupDBTable:
-		dataLoader.WriteMenuGroupList(req.Form.Get("title"), req.Form.Get("pageid"))
-	case datasource.MonitorinPagesDBTable:
-		dataLoader.WriteMonitoringPage(req.Form.Get("name"), req.Form.Get("widget"), req.Form.Get("data"))
-	case datasource.ChildMenuDBTable:
-		dataLoader.WriteChildMenu(req.Form.Get("title"), req.Form.Get("parentid"), req.Form.Get("pageid"))
 
+	case datasource.MenuGroupDBTable:
+		dataLoader.WriteMenuGroupList(req.Form.Get("title"), req.Form.Get("monitoringpagesid"))
+
+	case datasource.MonitorinPagesDBTable:
+		dataLoader.WriteMonitoringPage(req.Form.Get("name"), req.Form.Get("widgetid"))
+
+	case datasource.ChildMenuDBTable:
+		dataLoader.WriteChildMenu(req.Form.Get("title"), req.Form.Get("menugroupid"), req.Form.Get("monitoringpagesid"))
+
+	case datasource.WidgetListDBTable:
+		sv := req.Form.Get("widgettype")
+		wgType, _ := strconv.ParseInt(sv, 10, 64)
+		dataLoader.WriteWidgetToBase(req.Form.Get("name"), req.Form.Get("datatablename"), WidgetTypeMap()[wgType])
 	default:
 		log.Panicln("Undefine table")
 	}
@@ -136,8 +145,22 @@ func monitorAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 // Handler for Page generator Section
 func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
+	req.ParseForm()
+	pageID := req.Form.Get("id")
 
-	err := pageTemplate.ExecuteTemplate(writer, "layout", nil)
+	pageData := dataLoader.LoadMonitoringPage(pageID)
+	wg := dataLoader.LoadWidgetListByID(pageData.WidgetID)
+
+	dynPage := PageData{}
+	dynPage.ChartScripts = false
+	dynPage.Tablescripts = true
+	dynPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
+	wgfactory := new(WidgetListCreat)
+
+	dynPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadDataByTableName(wg.DataTableName), 12, wg.Name, wg.WidgetType, wg.DataTableName).GetWidgetData())
+
+	err := pageTemplate.ExecuteTemplate(writer, "layout", dynPage)
+
 	webWerror(err, &writer)
 }
 
@@ -160,7 +183,7 @@ func monitorSettings(writer http.ResponseWriter, req *http.Request) {
 	webWerror(err, &writer)
 }
 
-// WebServer entry point 
+// WebServer entry point
 func WebServer() {
 	fs := http.FileServer(http.Dir("./webservice/public/static")) // static files real path
 	http.Handle("/static/", http.StripPrefix("/static/", fs))     // static files path

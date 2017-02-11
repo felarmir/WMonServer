@@ -165,7 +165,6 @@ func getFieldType(ftype string) string {
 	case "WidgetType":
 		result += selectStart(strings.ToLower(ftype))
 		for k, v := range WidgetTypeMap() {
-			//result += optionRow(v.key, v.value)
 			result += optionRow(strconv.FormatInt(int64(k), 10), v)
 		}
 		result += "</select>"
@@ -178,6 +177,7 @@ func getFieldType(ftype string) string {
 
 	case "MonitoringPagesID":
 		result += selectStart(strings.ToLower(ftype))
+		result += "<option value=\"nopage\"></option>"
 		for _, v := range dataSource.LoadMonitoringPages() {
 			result += optionRow(v.ID.Hex(), v.Name)
 		}
@@ -185,8 +185,16 @@ func getFieldType(ftype string) string {
 
 	case "WidgetID":
 		result += selectStart(strings.ToLower(ftype))
+		result += "<option value=\"nowidget\"></option>"
 		for _, v := range dataSource.LoadWidgetList() {
 			result += optionRow(v.ID.Hex(), v.Name)
+		}
+		result += "</select>"
+
+	case "DataTableName":
+		result += selectStart(strings.ToLower(ftype))
+		for k, v := range datasource.BaseTablesList() {
+			result += optionRow(k, v)
 		}
 		result += "</select>"
 

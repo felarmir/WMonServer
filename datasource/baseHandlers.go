@@ -27,7 +27,12 @@ func (mb *MonitoringBase) sessionStart() (*mgo.Session, error) {
 	if len(config.Port) == 0 {
 		config.Port = "27017"
 	}
-	url := "mongodb://" + config.Login + ":" + config.Password + "@" + config.Ip + ":" + config.Port
+	var url string
+	if len(config.Login) == 0 {
+		url = config.Ip
+	} else {
+		url = "mongodb://" + config.Login + ":" + config.Password + "@" + config.Ip + ":" + config.Port
+	}
 	return mgo.Dial(url)
 }
 
@@ -172,6 +177,19 @@ func (mb *MonitoringBase) LoadWidgetList() []Widget {
 	return wigets
 }
 
+func (mb *MonitoringBase) LoadWidgetListByID(wgid string) Widget {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
+	c := session.DB(config.Base).C(WidgetListDBTable)
+	var result interface{}
+	err = c.Find(bson.M{"_id": bson.ObjectIdHex(wgid)}).One(&result)
+	var wg Widget
+	bsonBytes, _ := bson.Marshal(result)
+	bson.Unmarshal(bsonBytes, &wg)
+	return wg
+
+}
+
 // Write Device Group list
 func (mb *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
@@ -197,8 +215,8 @@ func (mb *MonitoringBase) WriteMenuGroupList(menuTitle string, pageid string) {
 }
 
 // write monitoring page
-func (mb *MonitoringBase) WriteMonitoringPage(pageName string, pageWg string, pageTable string) {
-	page := MonitoringPages{bson.NewObjectId(), pageName, pageWg, pageTable}
+func (mb *MonitoringBase) WriteMonitoringPage(pageName string, pageWg string) {
+	page := MonitoringPages{bson.NewObjectId(), pageName, pageWg}
 	mb.insertData(MonitorinPagesDBTable, page)
 }
 
@@ -212,4 +230,16 @@ func (mb *MonitoringBase) WriteChildMenu(title string, parent string, pageid str
 func (mb *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, wgtype string) {
 	wg := Widget{bson.NewObjectId(), wgname, wgtableName, wgtype}
 	mb.insertData(WidgetListDBTable, wg)
+}
+
+func (mb *MonitoringBase) LoadDataByTableName(table string) interface{} {
+	var data interface{}
+
+	switch table {
+	case NetDeviceDBTable:
+		data = mb.LoadNetDevice()
+	default:
+		panic("not found table")
+	}
+	return data
 }

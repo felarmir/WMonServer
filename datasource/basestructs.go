@@ -6,7 +6,6 @@ type MonitoringPages struct {
 	ID       bson.ObjectId `bson:"_id"`
 	Name     string        `bson:"name"`
 	WidgetID string        `bson:"widget"`
-	Data     string        `bson:"data"`
 }
 
 type MenuGroups struct {
