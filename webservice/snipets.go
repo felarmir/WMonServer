@@ -108,9 +108,9 @@ func tableWidgetGenerator(data interface{}, tableSize int64, tableName string) t
 // Function for input form generate
 //data is object from stuct
 
-func formGenerator(data interface{}, datatable string) string {
+func formGenerator(data interface{}, datatable string, pageid string) string {
 	frm := "<form class=\"form-horizontal\" action=\"/api/add\" role=\"form\">" +
-		"<input type=\"hidden\" name=\"datapath\" value=\"" + datatable + "\">"
+		"<input type=\"hidden\" name=\"datapath\" value=\"" + datatable + "\"><input type=\"hidden\" name=\"pageID\" value=\"" + pageid + "\">"
 
 	dataSlice := reflect.ValueOf(data)
 	//var element interface{}
@@ -208,24 +208,24 @@ func getFieldType(ftype string) string {
 	return result
 }
 
-func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
+func formWidgetGenerator(data interface{}, widgetSize int64, widgetTitle string, datatable string, pageid string) template.HTML {
 	form := "<div class=\"col-md-" + strconv.FormatInt(widgetSize, 10) + "\"><div class=\"panel panel-default\">" +
 		"<div class=\"panel-heading\"><h3 class=\"panel-title\">" + widgetTitle + "</h3></div>" +
 		"<div class=\"panel-body\">"
 
-	form += formGenerator(data, datatable)
+	form += formGenerator(data, datatable, pageid)
 
 	form += "</div></div></div>"
 	return template.HTML([]byte(form))
 }
 
-func tableWithFormWG(data interface{}, widgetSize int64, widgetTitle string, datatable string) template.HTML {
+func tableWithFormWG(data interface{}, widgetSize int64, widgetTitle string, datatable string, pageid string) template.HTML {
 	mwin := "<div id=\"modal" + strings.ToLower(strings.Replace(widgetTitle, " ", "", -1)) + "\" class=\"modal fade\" role=\"dialog\">" +
 		"<div class=\"modal-dialog\"><div class=\"modal-content\"><div class=\"modal-header\">" +
 		"<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>" +
 		"<h4 class=\"modal-title\"> Add " + widgetTitle + "</h4></div><div class=\"modal-body\">"
 
-	mwin += formGenerator(data, datatable)
+	mwin += formGenerator(data, datatable, pageid)
 
 	mwin += "</div></div></div></div>"
 
@@ -369,7 +369,7 @@ func checkContinueValueChild(v1 []datasource.ChildMenu, value bson.ObjectId) []d
 	return childObjects
 }
 
-func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string) Widget {
+func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, widgetTitle string, widgetType string, datatable string, pageid string) Widget {
 	dataSource = datasource.MonitoringBase{}
 
 	var wg Widget
@@ -378,9 +378,9 @@ func (self *WidgetListCreat) WidgetGenerate(data interface{}, widgetSize int64, 
 	case BasicTable:
 		wg = &ReadyWidget{tableWidgetGenerator(data, widgetSize, widgetTitle)}
 	case TableWithForm:
-		wg = &ReadyWidget{tableWithFormWG(data, widgetSize, widgetTitle, datatable)}
+		wg = &ReadyWidget{tableWithFormWG(data, widgetSize, widgetTitle, datatable, pageid)}
 	case FormWidget:
-		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle, datatable)}
+		wg = &ReadyWidget{formWidgetGenerator(data, widgetSize, widgetTitle, datatable, pageid)}
 	case EditbleTable:
 		wg = &ReadyWidget{editableTableWidgetGenerate(data, widgetSize, widgetTitle, datatable)}
 	default:

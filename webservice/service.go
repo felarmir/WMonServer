@@ -45,8 +45,8 @@ func monitorIndexHandler(writer http.ResponseWriter, req *http.Request) {
 	pd.ChartScripts = true
 	pd.Menu = MenuGenerator(dataLoader.MenuGroupsList()) // left menu
 	// widgets
-	pd.registerTableWidget(wgfactory.WidgetGenerate(data, 6, "Device group", TableWithForm, "devicegroup").GetWidgetData())
-	pd.registerTableWidget(wgfactory.WidgetGenerate(data, 6, "Device group2", EditbleTable, "devicegroup").GetWidgetData())
+	pd.registerTableWidget(wgfactory.WidgetGenerate(data, 6, "Device group", TableWithForm, "devicegroup", " ").GetWidgetData())
+	pd.registerTableWidget(wgfactory.WidgetGenerate(data, 6, "Device group2", EditbleTable, "devicegroup", " ").GetWidgetData())
 
 	//pd.registerTableWidget(wgfactory.WidgetGenerate(devList, 12, "Device List", "etable", "netdevice").GetWidgetData())
 
@@ -89,7 +89,14 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 		log.Panicln("Undefine table")
 	}
 
-	http.Redirect(writer, req, "/", 301)
+	var pageRedirect string
+	if  len(req.Form.Get("pageID")) != 24 {
+		pageRedirect = req.Form.Get("pageID")
+	} else {
+		pageRedirect = "page?id="+req.Form.Get("pageID")
+	}
+
+	http.Redirect(writer, req, ("/"+pageRedirect), 301)
 }
 
 // Header for Api get json
@@ -146,9 +153,7 @@ func monitorAPIUpdateRow(writer http.ResponseWriter, req *http.Request) {
 func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	writer.Header().Set("Content-Type", "text/html")
 	req.ParseForm()
-	pageID := req.Form.Get("id")
-
-	pageData := dataLoader.LoadMonitoringPage(pageID)
+	pageData := dataLoader.LoadMonitoringPage(req.Form.Get("id"))
 	wg := dataLoader.LoadWidgetListByID(pageData.WidgetID)
 
 	dynPage := PageData{}
@@ -156,8 +161,8 @@ func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	dynPage.Tablescripts = true
 	dynPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
 	wgfactory := new(WidgetListCreat)
-
-	dynPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadDataByTableName(wg.DataTableName), 12, wg.Name, wg.WidgetType, wg.DataTableName).GetWidgetData())
+	
+	dynPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadDataByTableName(wg.DataTableName), 12, wg.Name, wg.WidgetType, wg.DataTableName, req.Form.Get("id")).GetWidgetData())
 
 	err := pageTemplate.ExecuteTemplate(writer, "layout", dynPage)
 
@@ -172,12 +177,12 @@ func monitorSettings(writer http.ResponseWriter, req *http.Request) {
 	settingPage.ChartScripts = false
 	settingPage.Tablescripts = true
 	settingPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
-
+	pageUrl := "settings"
 	wgfactory := new(WidgetListCreat)
-	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.MenuGroupsList(), 12, "Menu group", TableWithForm, datasource.MenuGroupDBTable).GetWidgetData())
-	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadMonitoringPages(), 12, "Pages", TableWithForm, datasource.MonitorinPagesDBTable).GetWidgetData())
-	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.ChildMenuList(), 12, "Child Menu", TableWithForm, datasource.ChildMenuDBTable).GetWidgetData())
-	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadWidgetList(), 12, "Widget List", TableWithForm, datasource.WidgetListDBTable).GetWidgetData())
+	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.MenuGroupsList(), 12, "Menu group", TableWithForm, datasource.MenuGroupDBTable, pageUrl).GetWidgetData())
+	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadMonitoringPages(), 12, "Pages", TableWithForm, datasource.MonitorinPagesDBTable, pageUrl).GetWidgetData())
+	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.ChildMenuList(), 12, "Child Menu", TableWithForm, datasource.ChildMenuDBTable, pageUrl).GetWidgetData())
+	settingPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadWidgetList(), 12, "Widget List", TableWithForm, datasource.WidgetListDBTable, pageUrl).GetWidgetData())
 
 	err := pageTemplate.ExecuteTemplate(writer, "layout", settingPage)
 	webWerror(err, &writer)

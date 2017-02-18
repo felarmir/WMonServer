@@ -238,6 +238,8 @@ func (mb *MonitoringBase) LoadDataByTableName(table string) interface{} {
 	switch table {
 	case NetDeviceDBTable:
 		data = mb.LoadNetDevice()
+	case DeviceGroupDBTable:
+		data = mb.LoadDeviceGroup()
 	default:
 		panic("not found table")
 	}
