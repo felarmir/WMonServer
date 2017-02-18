@@ -85,6 +85,11 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 		sv := req.Form.Get("widgettype")
 		wgType, _ := strconv.ParseInt(sv, 10, 64)
 		dataLoader.WriteWidgetToBase(req.Form.Get("name"), req.Form.Get("datatablename"), WidgetTypeMap()[wgType])
+	
+	case datasource.OidListDBTable:
+		repeat, _ := strconv.ParseInt(req.Form.Get("repeat"), 10, 64)
+		dataLoader.WriteOidList(req.Form.Get("name"), req.Form.Get("oid"), bson.ObjectIdHex(req.Form.Get("groupid")), repeat)
+
 	default:
 		log.Panicln("Undefine table")
 	}

@@ -22,6 +22,6 @@ type OidList struct {
 	ID      bson.ObjectId `bson:"_id,omitempty"`
 	Name    string        `bson:"name"`
 	Oid     string        `bson:"oid"`
-	Groupid int64         `bson:"groupid"`
+	Groupid bson.ObjectId `bson:"groupid"`
 	Repeat  int64         `bson:"repeat"`
 }

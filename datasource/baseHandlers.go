@@ -190,6 +190,19 @@ func (mb *MonitoringBase) LoadWidgetListByID(wgid string) Widget {
 
 }
 
+func (mb *MonitoringBase) LoadOIDList() []devices.OidList {
+	var result []interface{}
+	mb.loadData(OidListDBTable, &result)
+	var oids []devices.OidList
+	for _, v := range result {
+		var tmp devices.OidList
+		bsBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsBytes, &tmp)
+		oids = append(oids, tmp)
+	}
+	return oids
+}
+
 // Write Device Group list
 func (mb *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
@@ -203,7 +216,7 @@ func (mb *MonitoringBase) WriteNetDev(name string, locate string, ip string, act
 }
 
 // Write OID List
-func (mb *MonitoringBase) WriteOidList(name string, oid string, groupid int64, repeat int64) {
+func (mb *MonitoringBase) WriteOidList(name string, oid string, groupid bson.ObjectId, repeat int64) {
 	oid_list := devices.OidList{bson.NewObjectId(), name, oid, groupid, repeat}
 	mb.insertData(OidListDBTable, oid_list)
 }
@@ -240,6 +253,8 @@ func (mb *MonitoringBase) LoadDataByTableName(table string) interface{} {
 		data = mb.LoadNetDevice()
 	case DeviceGroupDBTable:
 		data = mb.LoadDeviceGroup()
+	case OidListDBTable:
+		data = mb.LoadOIDList()
 	default:
 		panic("not found table")
 	}

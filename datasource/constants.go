@@ -4,7 +4,7 @@ package datasource
 const (
 	DeviceGroupDBTable    = "devicegroup"
 	NetDeviceDBTable      = "networkdevices"
-	OidListDBTable        = "oislist"
+	OidListDBTable        = "oidlist"
 	MonitorinPagesDBTable = "monitoringpages"
 	MenuGroupDBTable      = "menugroup"
 	ChildMenuDBTable      = "childmenu"
@@ -13,13 +13,13 @@ const (
 
 func BaseTablesList() map[string]string {
 	baseList := map[string]string{
-		"devicegroup":     "Device Group Table",
-		"networkdevices":  "Network Device Table",
-		"oislist":         "OID Table",
-		"monitoringpages": "Monitoring Pages Table",
-		"menugroup":       "Menu Group Table",
-		"childmenu":       "Child menu Table",
-		"widgetlist":      "Widget List Table",
+		DeviceGroupDBTable:     "Device Group Table",
+		NetDeviceDBTable:  "Network Device Table",
+		OidListDBTable:         "OID Table",
+		MonitorinPagesDBTable: "Monitoring Pages Table",
+		MenuGroupDBTable:       "Menu Group Table",
+		ChildMenuDBTable:       "Child menu Table",
+		WidgetListDBTable:      "Widget List Table",
 	}
 	return baseList
 }
