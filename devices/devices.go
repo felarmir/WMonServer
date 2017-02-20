@@ -1,6 +1,8 @@
 package devices
 
 import (
+	"time"
+
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -24,4 +26,12 @@ type OidList struct {
 	Oid     string        `bson:"oid"`
 	Groupid bson.ObjectId `bson:"groupid"`
 	Repeat  int64         `bson:"repeat"`
+}
+
+type DeviceInfo struct {
+	DeviceID  bson.ObjectId
+	DevIP     string
+	Value     string
+	CheckType string
+	Time      time.Time
 }

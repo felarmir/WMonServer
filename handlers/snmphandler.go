@@ -6,7 +6,10 @@ import (
 	"strconv"
 	"time"
 
+	"../datasource"
+	"../devices"
 	"github.com/alouca/gosnmp"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type Creator interface {
@@ -26,35 +29,33 @@ func (self *TaskListCreator) registerTask(task Task) {
 	self.taskList = append(self.taskList, &task)
 }
 
-type DeviceInfo struct {
-	DevIP string
-	Value string
-	Time  time.Time
-}
-
 type ConcretTask struct {
-	DevIP  string
-	DevOID string
-	Repeat int64
+	DeviceID  bson.ObjectId
+	DevIP     string
+	DevOID    string
+	CheckType string
+	Repeat    int64
 }
 
 func (self *ConcretTask) StartTask() {
 	for {
-		dev := SNMPCheckStart(self.DevIP, self.DevOID)
-		fmt.Printf("|V:%s | D:%s | T:%s|\n", dev.Value, dev.DevIP, dev.Time)
+		dev := SNMPCheckStart(self.DeviceID, self.DevIP, self.DevOID, self.CheckType)
+		mb := datasource.MonitoringBase{}
+		mb.WriteDeviceStatus(dev.DeviceID, dev.DevIP, dev.Value, dev.CheckType, dev.Time)
+		//fmt.Printf("|Value:%s | Device:%s | Time:%s|\n | Chek: %s", dev.Value, dev.DevIP, dev.Time, dev.CheckType)
 		time.Sleep(time.Second * time.Duration(self.Repeat))
 	}
 }
 
-func (self *TaskListCreator) CreatTask(devip string, devOID string, repeat int64) Task {
+func (self *TaskListCreator) CreatTask(deviceID bson.ObjectId, devip string, devOID string, checkType string, repeat int64) Task {
 	var task Task
-	task = &ConcretTask{devip, devOID, repeat}
+	task = &ConcretTask{deviceID, devip, devOID, checkType, repeat}
 	self.registerTask(task)
 	return task
 }
 
-func SNMPCheckStart(deviceIP string, oid string) DeviceInfo {
-	var dev DeviceInfo
+func SNMPCheckStart(deviceID bson.ObjectId, deviceIP string, oid string, checkType string) devices.DeviceInfo {
+	var dev devices.DeviceInfo
 	s, err := gosnmp.NewGoSNMP(deviceIP, "public", gosnmp.Version2c, 5)
 	if err != nil {
 		log.Fatal(err)
@@ -62,22 +63,24 @@ func SNMPCheckStart(deviceIP string, oid string) DeviceInfo {
 	resp, err := s.Get(oid)
 	if err == nil {
 		for _, val := range resp.Variables {
-			fmt.Println(val)
 			switch val.Type {
 			case gosnmp.OctetString:
 				dev.Value = val.Value.(string)
-				dev.Time = time.Now()
-				dev.DevIP = deviceIP
+
 			case gosnmp.BitString:
 				dev.Value = strconv.FormatUint(val.Value.(uint64), 10)
-				dev.Time = time.Now()
-				dev.DevIP = deviceIP
+
 			case gosnmp.Counter64:
 				dev.Value = strconv.FormatUint(val.Value.(uint64), 10)
-				dev.Time = time.Now()
-				dev.DevIP = deviceIP
+
 			}
 		}
+	} else {
+		fmt.Print(err)
 	}
+	dev.DeviceID = deviceID
+	dev.Time = time.Now()
+	dev.DevIP = deviceIP
+	dev.CheckType = checkType
 	return dev
 }

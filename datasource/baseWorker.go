@@ -3,13 +3,37 @@ package datasource
 import (
 	"fmt"
 
-	"../handlers"
+	"io/ioutil"
+	"log"
+
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+	"gopkg.in/yaml.v2"
 )
 
+type Config struct {
+	Login    string
+	Password string
+	Ip       string
+	Base     string
+	Port     string
+}
+
+func GetConfigData() Config {
+	file, err := ioutil.ReadFile("server_cfg.yaml")
+	if err != nil {
+		log.Fatal("Can't load config filr. %v", err)
+	}
+	config := Config{}
+	err = yaml.Unmarshal(file, &config)
+	if err != nil {
+		log.Fatal("Config error. %v", err)
+	}
+	return config
+}
+
 var (
-	config handlers.Config
+	config Config
 )
 
 // munction for check error
@@ -21,7 +45,7 @@ func (mb *MonitoringBase) checkError(err error) {
 
 // function for start session with mongodb server
 func (mb *MonitoringBase) sessionStart() (*mgo.Session, error) {
-	config = handlers.GetConfigData() // load config
+	config = GetConfigData() // load config
 
 	if len(config.Port) == 0 {
 		config.Port = "27017"

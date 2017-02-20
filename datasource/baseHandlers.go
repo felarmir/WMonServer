@@ -1,6 +1,8 @@
 package datasource
 
 import (
+	"time"
+
 	"../devices"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -146,6 +148,20 @@ func (mb *MonitoringBase) LoadOIDList() []devices.OidList {
 	return oids
 }
 
+// load by groupid
+func (mb *MonitoringBase) LoadOIDListBy(groupid bson.ObjectId) []devices.OidList {
+	var result []interface{}
+	mb.loadDataByCondition(OidListDBTable, &result, bson.M{"groupid": groupid})
+	var oids []devices.OidList
+	for _, v := range result {
+		var tmp devices.OidList
+		bsBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsBytes, &tmp)
+		oids = append(oids, tmp)
+	}
+	return oids
+}
+
 // Write Device Group list
 func (mb *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}
@@ -186,6 +202,12 @@ func (mb *MonitoringBase) WriteChildMenu(title string, parent string, pageid str
 func (mb *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, groupid bson.ObjectId, wgtype string) {
 	wg := Widget{bson.NewObjectId(), wgname, wgtableName, groupid, wgtype}
 	mb.insertData(WidgetListDBTable, wg)
+}
+
+// write device status check
+func (mb *MonitoringBase) WriteDeviceStatus(deviceID bson.ObjectId, deviceip string, value string, chekType string, time time.Time) {
+	info := devices.DeviceInfo{deviceID, deviceip, value, chekType, time}
+	mb.insertData(DeviceCheckStatus, info)
 }
 
 func (mb *MonitoringBase) LoadDataByTableName(table string, groupID bson.ObjectId) interface{} {

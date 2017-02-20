@@ -1,27 +1,33 @@
 package main
 
 import (
-	"./webservice"
-
 	"fmt"
+
+	"./datasource"
+	"./handlers"
+	"./webservice"
 )
 
 func main() {
 	go webservice.WebServer() // run web service
 
-	/*base := datasource.MonitoringBase{}
-	dev := base.LoadDeviceGroup()
-	fmt.Println(dev)
-	*/
-	/*	factory := new(handlers.TaskListCreator)
-		tasks := []handlers.Task{
-			factory.CreatTask("192.168.88.1", ".1.3.6.1.2.1.1.1.0", 5),
-			factory.CreatTask("192.168.88.1", ".1.3.6.1.2.1.31.1.1.1.7.2", 5),
-			factory.CreatTask("192.168.88.1", ".1.3.6.1.2.1.31.1.1.1.11.2", 5),
+	base := datasource.MonitoringBase{}
+	devices := base.LoadNetDevice()
+
+	oids := base.LoadOIDListBy(devices[0].Groupid)
+
+	factory := new(handlers.TaskListCreator)
+	tasks := []handlers.Task{}
+	for _, dev := range devices {
+		for _, oid := range oids {
+			tasks = append(tasks, factory.CreatTask(dev.ID, dev.IP, oid.Oid, oid.Name, oid.Repeat))
 		}
-		for _, t := range tasks {
-			go t.StartTask()
-		}*/
+	}
+
+	for _, t := range tasks {
+		go t.StartTask()
+	}
+
 	var intput string
 	fmt.Scanln(&intput)
 }
