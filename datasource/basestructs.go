@@ -25,5 +25,6 @@ type Widget struct {
 	ID            bson.ObjectId `bson:"_id"`
 	Name          string        `bson:"name"`
 	DataTableName string        `bson:"datatablename"`
+	Groupid		  bson.ObjectId `bson:"datagroupID"`
 	WidgetType    string        `bson:"widgettype"`
 }

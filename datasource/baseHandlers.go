@@ -49,6 +49,19 @@ func (mb *MonitoringBase) loadData(table string, data *[]interface{}) {
 	*data = result
 }
 
+// Load data by table name, condition and return intrface
+func (mb *MonitoringBase) loadDataByCondition(table string, data *[]interface{}, condition bson.M) {
+	session, err := mb.sessionStart()
+	mb.checkError(err)
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+	c := session.DB(config.Base).C(table)
+	var result []interface{}
+	err = c.Find(condition).All(&result)
+	mb.checkError(err)
+	*data = result
+}
+
 // Insert interface Data to table
 func (mb *MonitoringBase) insertData(table string, data interface{}) {
 	session, err := mb.sessionStart()
@@ -77,6 +90,21 @@ func (mb *MonitoringBase) LoadDeviceGroup() []devices.DeviceGroup {
 func (mb *MonitoringBase) LoadNetDevice() []devices.NetDevice {
 	var devgroupI []interface{}
 	mb.loadData(NetDeviceDBTable, &devgroupI)
+	var netDev []devices.NetDevice
+
+	for _, v := range devgroupI {
+		var st devices.NetDevice
+		bsonBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsonBytes, &st)
+		netDev = append(netDev, st)
+	}
+	return netDev
+}
+
+// Load device by GroupID
+func (mb *MonitoringBase) LoadNetDeviceByGroup(groupID bson.ObjectId) []devices.NetDevice {
+	var devgroupI []interface{}
+	mb.loadDataByCondition(NetDeviceDBTable, &devgroupI, bson.M{"groupid": groupID})
 	var netDev []devices.NetDevice
 
 	for _, v := range devgroupI {
@@ -240,17 +268,17 @@ func (mb *MonitoringBase) WriteChildMenu(title string, parent string, pageid str
 }
 
 // write widget
-func (mb *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, wgtype string) {
-	wg := Widget{bson.NewObjectId(), wgname, wgtableName, wgtype}
+func (mb *MonitoringBase) WriteWidgetToBase(wgname string, wgtableName string, groupid bson.ObjectId, wgtype string) {
+	wg := Widget{bson.NewObjectId(), wgname, wgtableName, groupid, wgtype}
 	mb.insertData(WidgetListDBTable, wg)
 }
 
-func (mb *MonitoringBase) LoadDataByTableName(table string) interface{} {
+func (mb *MonitoringBase) LoadDataByTableName(table string, groupID bson.ObjectId) interface{} {
 	var data interface{}
 
 	switch table {
 	case NetDeviceDBTable:
-		data = mb.LoadNetDevice()
+		data = mb.LoadNetDeviceByGroup(groupID)
 	case DeviceGroupDBTable:
 		data = mb.LoadDeviceGroup()
 	case OidListDBTable:

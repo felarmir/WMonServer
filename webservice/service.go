@@ -84,7 +84,7 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 	case datasource.WidgetListDBTable:
 		sv := req.Form.Get("widgettype")
 		wgType, _ := strconv.ParseInt(sv, 10, 64)
-		dataLoader.WriteWidgetToBase(req.Form.Get("name"), req.Form.Get("datatablename"), WidgetTypeMap()[wgType])
+		dataLoader.WriteWidgetToBase(req.Form.Get("name"), req.Form.Get("datatablename"), bson.ObjectIdHex(req.Form.Get("groupid")), WidgetTypeMap()[wgType])
 	
 	case datasource.OidListDBTable:
 		repeat, _ := strconv.ParseInt(req.Form.Get("repeat"), 10, 64)
@@ -167,7 +167,7 @@ func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	dynPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
 	wgfactory := new(WidgetListCreat)
 	
-	dynPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadDataByTableName(wg.DataTableName), 12, wg.Name, wg.WidgetType, wg.DataTableName, req.Form.Get("id")).GetWidgetData())
+	dynPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadDataByTableName(wg.DataTableName, wg.Groupid), 12, wg.Name, wg.WidgetType, wg.DataTableName, req.Form.Get("id")).GetWidgetData())
 
 	err := pageTemplate.ExecuteTemplate(writer, "layout", dynPage)
 
