@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 
 	"../datasource"
+	"../handlers"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -85,7 +86,7 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 		sv := req.Form.Get("widgettype")
 		wgType, _ := strconv.ParseInt(sv, 10, 64)
 		dataLoader.WriteWidgetToBase(req.Form.Get("name"), req.Form.Get("datatablename"), bson.ObjectIdHex(req.Form.Get("groupid")), WidgetTypeMap()[wgType])
-	
+
 	case datasource.OidListDBTable:
 		repeat, _ := strconv.ParseInt(req.Form.Get("repeat"), 10, 64)
 		dataLoader.WriteOidList(req.Form.Get("name"), req.Form.Get("oid"), bson.ObjectIdHex(req.Form.Get("groupid")), repeat)
@@ -95,13 +96,13 @@ func monitorAPIAdd(writer http.ResponseWriter, req *http.Request) {
 	}
 
 	var pageRedirect string
-	if  len(req.Form.Get("pageID")) != 24 {
+	if len(req.Form.Get("pageID")) != 24 {
 		pageRedirect = req.Form.Get("pageID")
 	} else {
-		pageRedirect = "page?id="+req.Form.Get("pageID")
+		pageRedirect = "page?id=" + req.Form.Get("pageID")
 	}
 
-	http.Redirect(writer, req, ("/"+pageRedirect), 301)
+	http.Redirect(writer, req, ("/" + pageRedirect), 301)
 }
 
 // Header for Api get json
@@ -115,6 +116,8 @@ func monitorAPIGetJSON(writer http.ResponseWriter, req *http.Request) {
 		dataForJSON = dataLoader.LoadDeviceGroup()
 	case datasource.NetDeviceDBTable:
 		dataForJSON = dataLoader.LoadNetDevice()
+	case datasource.DeviceCheckStatus:
+		dataForJSON = handlers.BuildTrafficArray(bson.ObjectIdHex(req.Form.Get("deviceid")))
 	default:
 		log.Println("Error load Data")
 	}
@@ -166,7 +169,7 @@ func monitoringPages(writer http.ResponseWriter, req *http.Request) {
 	dynPage.Tablescripts = true
 	dynPage.Menu = MenuGenerator(dataLoader.MenuGroupsList())
 	wgfactory := new(WidgetListCreat)
-	
+
 	dynPage.registerTableWidget(wgfactory.WidgetGenerate(dataLoader.LoadDataByTableName(wg.DataTableName, wg.Groupid), 12, wg.Name, wg.WidgetType, wg.DataTableName, req.Form.Get("id")).GetWidgetData())
 
 	err := pageTemplate.ExecuteTemplate(writer, "layout", dynPage)

@@ -162,6 +162,20 @@ func (mb *MonitoringBase) LoadOIDListBy(groupid bson.ObjectId) []devices.OidList
 	return oids
 }
 
+// Load Device Check data by id
+func (mb *MonitoringBase) LoadDeviceCheckDataBy(deviceid bson.ObjectId) []devices.DeviceInfo {
+	var result []interface{}
+	mb.loadDataByCondition(DeviceCheckStatus, &result, bson.M{"deviceid": deviceid})
+	var devstatus []devices.DeviceInfo
+	for _, v := range result {
+		var tmp devices.DeviceInfo
+		bsBytes, _ := bson.Marshal(v)
+		bson.Unmarshal(bsBytes, &tmp)
+		devstatus = append(devstatus, tmp)
+	}
+	return devstatus
+}
+
 // Write Device Group list
 func (mb *MonitoringBase) WriteDeviceGroup(deviceName string) {
 	dev_group := devices.DeviceGroup{bson.NewObjectId(), deviceName}

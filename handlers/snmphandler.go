@@ -42,7 +42,6 @@ func (self *ConcretTask) StartTask() {
 		dev := SNMPCheckStart(self.DeviceID, self.DevIP, self.DevOID, self.CheckType)
 		mb := datasource.MonitoringBase{}
 		mb.WriteDeviceStatus(dev.DeviceID, dev.DevIP, dev.Value, dev.CheckType, dev.Time)
-		//fmt.Printf("|Value:%s | Device:%s | Time:%s|\n | Chek: %s", dev.Value, dev.DevIP, dev.Time, dev.CheckType)
 		time.Sleep(time.Second * time.Duration(self.Repeat))
 	}
 }

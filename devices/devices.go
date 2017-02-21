@@ -29,9 +29,9 @@ type OidList struct {
 }
 
 type DeviceInfo struct {
-	DeviceID  bson.ObjectId
-	DevIP     string
-	Value     string
-	CheckType string
-	Time      time.Time
+	DeviceID  bson.ObjectId `bson:"deviceid"`
+	DevIP     string        `bson:"devip"`
+	Value     string        `bson:"value"`
+	CheckType string        `bson:"checktype"`
+	Time      time.Time     `bson:"time"`
 }
