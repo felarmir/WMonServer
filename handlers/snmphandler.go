@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"log"
 	"strconv"
 	"time"
@@ -59,27 +58,43 @@ func SNMPCheckStart(deviceID bson.ObjectId, deviceIP string, oid string, checkTy
 	if err != nil {
 		log.Fatal(err)
 	}
-	resp, err := s.Get(oid)
-	if err == nil {
-		for _, val := range resp.Variables {
-			switch val.Type {
-			case gosnmp.OctetString:
-				dev.Value = val.Value.(string)
 
-			case gosnmp.BitString:
-				dev.Value = strconv.FormatUint(val.Value.(uint64), 10)
+	var res1 *gosnmp.SnmpPacket
 
-			case gosnmp.Counter64:
-				dev.Value = strconv.FormatUint(val.Value.(uint64), 10)
+	var res2 *gosnmp.SnmpPacket
 
-			}
-		}
-	} else {
-		fmt.Print(err)
-	}
+	res1, _ = s.Get(oid)
+	time.Sleep(time.Second * time.Duration(1))
+	res2, _ = s.Get(oid)
+
+	q1, _ := strconv.ParseInt(snmpDataParser(res1), 10, 64)
+	q2, _ := strconv.ParseInt(snmpDataParser(res2), 10, 64)
+
+	dev.Value = strconv.FormatInt((q2 - q1), 10)
+
 	dev.DeviceID = deviceID
 	dev.Time = time.Now()
 	dev.DevIP = deviceIP
 	dev.CheckType = checkType
 	return dev
+}
+
+func snmpDataParser(data interface{}) string {
+	var result string
+	if r, ok := data.(*gosnmp.SnmpPacket); ok {
+		for _, val := range r.Variables {
+			switch val.Type {
+			case gosnmp.OctetString:
+				result = val.Value.(string)
+
+			case gosnmp.BitString:
+				result = strconv.FormatUint(val.Value.(uint64), 10)
+
+			case gosnmp.Counter64:
+				result = strconv.FormatUint(val.Value.(uint64), 10)
+
+			}
+		}
+	}
+	return result
 }
