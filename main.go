@@ -1,33 +1,12 @@
 package main
 
 import (
-	"fmt"
-
-	"./datasource"
-	"./handlers"
-	"./webservice"
+	"fmt"	
 )
+import h "./handlers"
 
 func main() {
-	go webservice.WebServer() // run web service
+	disk := h.GetDiskUsage("/")
+	fmt.Printf("All:%.2f GB, Free: %.2f GB, Used: %.2f GB ", (float64(disk.All) / float64(h.GB)), (float64(disk.Free) / float64(h.GB)), (float64(disk.Used) / float64(h.GB)))
 
-	base := datasource.MonitoringBase{}
-	devices := base.LoadNetDevice()
-
-	oids := base.LoadOIDListBy(devices[0].Groupid)
-
-	factory := new(handlers.TaskListCreator)
-	tasks := []handlers.Task{}
-	for _, dev := range devices {
-		for _, oid := range oids {
-			tasks = append(tasks, factory.CreatTask(dev.ID, dev.IP, oid.Oid, oid.Name, oid.Repeat))
-		}
-	}
-
-	for _, t := range tasks {
-		go t.StartTask()
-	}
-
-	var intput string
-	fmt.Scanln(&intput)
 }
