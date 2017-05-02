@@ -1,8 +1,6 @@
 package handlers
 
-import (
-	"syscall"
-)
+import "syscall"
 
 const (
 	B  = 1
@@ -27,4 +25,12 @@ func GetDiskUsage(path string) (disk DiskStatus) {
 	disk.Free = fs.Bfree * uint64(fs.Bsize)
 	disk.Used = disk.All - disk.Free
 	return
+}
+
+func DiskInfoByMeasure(path string, measure uint64) DiskStatus {
+	d := GetDiskUsage(path)
+	d.All = uint64(float64(d.All) / float64(measure))
+	d.Used = uint64(float64(d.Used) / float64(measure))
+	d.Free = uint64(float64(d.Free) / float64(measure))
+	return d
 }
