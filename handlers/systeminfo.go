@@ -8,8 +8,7 @@ import (
 	"strings"
 )
 
-func CPU_load() float64 {
-	var load float64
+func Load_CPU_MEM() (load_cpu float64, load_mem float64) {
 	cmd := exec.Command("ps", "aux")
 	var out bytes.Buffer
 	cmd.Stdout = &out
@@ -34,8 +33,12 @@ func CPU_load() float64 {
 		if err != nil {
 			continue
 		}
-		load += cpu
+		mem, err := strconv.ParseFloat(strings.Replace(ft[3], ",", ".", -1), 64)
+		if err != nil {
+			continue
+		}
+		load_cpu += cpu
+		load_mem += mem
 	}
-
-	return load
+	return
 }
